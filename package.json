@@ -1,0 +1,19 @@
+{
+  "name": "zodiac-taurus",
+  "version": "1.0.0",
+  "description": "Zodiac-Taurus Team, Draw and Guess Game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/greenfox-academy/Zodiac-Taurus.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/greenfox-academy/Zodiac-Taurus/issues"
+  },
+  "homepage": "https://github.com/greenfox-academy/Zodiac-Taurus#readme"
+}
