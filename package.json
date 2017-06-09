@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "http-server dish -p $PORT",
+    "start": "http-server dist -p $PORT",
     "build": "ng build",
     "test": "ng test --single-run",
     "lint": "ng lint",
