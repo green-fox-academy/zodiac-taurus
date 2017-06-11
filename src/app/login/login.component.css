@@ -1,0 +1,22 @@
+input {
+    width: 250px;
+    height: 30px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 2px;
+    font-size: 18px;
+}
+
+label{
+    font-size: 18px;
+}
+
+button {
+    font-size: 18px;
+    background-color: #eee;
+    color: #607D8B;
+    border-radius: 7px;
+    border: 0;
+    padding: 10px;
+}
+

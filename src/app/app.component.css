@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1, section {
+    text-align: center;
+}
+
+h1 {
+	color: #999;    
+}
+
+.route a {
+	margin: 20px 0;
+	padding: 5px 10px;
+	border-radius: 4px;
+	font-size: 24px;
+	text-decoration: none;
+	display: inline-block;
+	background-color: #eee;
+}
+
+.route a:visited, .route a:link {
+	color: #607D8B;
+}
+
+.route a:hover {
+	color: #039be5;
+	background-color: #CFD8DC;
+}
+
+.route a.active {
+	color: #039be5;
+}
