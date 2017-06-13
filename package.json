@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "http-server dist -p $PORT",
+    "start": "node server.js",
     "build": "ng build",
     "test": "ng test --single-run",
     "lint": "ng lint",
@@ -25,6 +25,7 @@
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
     "core-js": "^2.4.1",
+    "express": "^4.15.3",
     "http-server": "^0.10.0",
     "node-wget": "^0.4.2",
     "postinstall-build": "^5.0.0",
@@ -51,7 +52,7 @@
     "typescript": "~2.3.3"
   },
   "engines": {
-  "node": "6.10",
-  "npm": "3"
+    "node": "6.10",
+    "npm": "3"
   }
 }
