@@ -1,17 +1,10 @@
-.main {
-    width: 100vw;
-    height: 100vh;
-    background: #000;
-    display: flex;
-    justify-content: center;
-}
 
 .background {
     display: flex;
     justify-content: center;
     align-items: center;
     background: #4BCABE;
-    width: 775px;
+    width: 100vw;
     height: 100vh;
 }
 
@@ -25,63 +18,74 @@
     box-shadow: 0px 10px 51px -3px rgba(0,0,0,0.65);
 }
 
-.titleText {
-    height: 175px;
-    color: #4BCABE;
+.titleBox {
+    height: 185px;
     border-radius: 3px;
 }
 
+h3 {
+    padding: 70px 30px;
+    font-size: 32px;
+    font-family: 'Roboto', sans-serif;
+    color: #4BCABE;
+
+}
+
+span {
+    display: block;
+}
 
 input {
-    width: 250px;
-    height: 45px;
+    width: 270px;
+    height: 42px;
     background: #0F2E3F;
     color: #FFF;
     border: 1px solid #0F2E3F;
     margin-bottom: 25px;
     border-radius: 3px;
     font-family: 'Roboto', sans-serif;
-    font-size: 12px;
-    text-indent: 24px; 
+    font-size: 14px;
+    text-indent: 45px; 
+}
+
+.user {
+    /*background: url("user_white.svg") no-repeat scroll  10px center;*/
+    /*background-size: 18px;*/
+
+    /*the shorthand didn't work*/
+
+    background-color: #0F2E3F;
+    background-image: url('../../assets/user_white.svg');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 18px;
+
+}
+
+.pass {
+    background-color: #0F2E3F;
+    background-image: url('../../assets/lock_white.svg');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 18px;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: #DDD;
+  color: #BBB;
 }
 
 button {
-    width: 250px;
-    height: 45px;
+    width: 270px;
+    height: 42px;
     border-radius: 3px;
     background: #45C3BF;
     border: 1px solid #45C3BF;
     color: #FFF;
-    font-size: 20px;
+    font-size: 18px;
 }
 
-
-/*input {
-    width: 250px;
-    height: 30px;
-    border-radius: 3px;
-    margin-bottom: 10px;
-    box-shadow: 0 2px 2px;
-    font-size: 18px;
-}*/
-
-/*button {
-    font-size: 18px;
-    background-color: #eee;
-    color: #607D8B;
-    border-radius: 7px;
-    border: 0;
-    padding: 10px;
-}*/
-
-
-/*background: #4BCABE - gradient top -> down */
-/*loginbox :#1E4A5D*, w/h: 335, 595/
-/*input bacground: #0F2E3F*/
-/*login button: #45C3BF gradient left -> right*/
+button:hover {
+    cursor: pointer;
+}
 
 
