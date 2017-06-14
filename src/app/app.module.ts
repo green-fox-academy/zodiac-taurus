@@ -18,6 +18,7 @@ import { HomeComponent } from './home/home.component';
     RouterModule.forRoot([ 
       { path: 'login', component: LoginComponent },
       { path: '', component: HomeComponent }
+      // { path: '', component: LoginComponent }
       ])
   ],
   providers: [],

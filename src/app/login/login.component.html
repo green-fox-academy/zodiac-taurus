@@ -6,9 +6,10 @@
 			<div class="titleBox">
 				<h3><span>Draw And Guess</span><span> Game</span></h3>
 			</div>
-				<input type="text" placeholder="username" class="user">
-				<input type="password" placeholder="password" class="pass">
-				<button>LOGIN</button>
+				<input #name type="text" placeholder="username" class="user-name" >
+				<input #passw type="password" placeholder="password" class="password">
+				<button (click)="loginEvent(name.value,passw.value)">LOGIN</button>
 		</div>
 	</div>
 </div>
+
