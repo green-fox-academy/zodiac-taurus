@@ -8,6 +8,8 @@ import { HttpService } from '../http.service';
 })
 
 export class LoginComponent implements OnInit {
+	name: string;
+	passw: string;
 	loginEvent(username, password) {
 		let obj = {
 			user: username,
