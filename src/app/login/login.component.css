@@ -9,6 +9,7 @@
 }
 
 .loginbox {
+    justify-content: space-between;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -70,6 +71,14 @@ input {
     background-size: 18px;
 }
 
+.re-pass {
+    background-color: #0F2E3F;
+    background-image: url('../../assets/redo-arrow.svg');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 18px;
+}
+
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: #BBB;
 }
@@ -88,4 +97,19 @@ button:hover {
     cursor: pointer;
 }
 
+.inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.reg {
+    font-family: 'Roboto', sans-serif;
+    color: #cbcbc9;
+    font-size: 22px;
+    margin-bottom: 40px;
+}
+
+.reg:hover {
+    cursor: pointer;
+}
