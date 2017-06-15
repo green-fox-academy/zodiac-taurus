@@ -1,15 +1,12 @@
-
-
 <div class="main">
 	<div class="background">
 		<div class="loginbox">
 			<div class="titleBox">
 				<h3><span>Draw And Guess</span><span> Game</span></h3>
 			</div>
-				<input #name type="text" placeholder="username" class="user-name" >
-				<input #passw type="password" placeholder="password" class="password">
-				<button (click)="loginEvent(name.value,passw.value)">LOGIN</button>
+			<input [(ngModel)]="name" type="text" placeholder="username" class="user-name">
+			<input [(ngModel)]="passw" type="password" placeholder="password" class="password">
+			<button (click)="loginEvent(name,passw)">LOGIN</button>
 		</div>
 	</div>
 </div>
-

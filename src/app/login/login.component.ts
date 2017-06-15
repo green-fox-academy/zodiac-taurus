@@ -1,31 +1,36 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../http.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+	selector: 'app-login',
+	templateUrl: './login.component.html',
+	styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
 
 	loginEvent(username, password) {
-
-		localStorage.setItem('user', username);
-		localStorage.setItem('pass', password);
 		let obj = {
-			user: localStorage.getItem('user'),
-			pass: localStorage.getItem('pass')
+			user: username,
+			pass: password
 		}
 		console.log(obj);
-		localStorage.clear()
-
+		this.httpService.something(obj).subscribe(
+				(response) => console.log(response),
+				(error) => console.log(error)
+			);
+		// return obj;
 	};
 
-  constructor() { }
+	constructor(private httpService: HttpService) {}
 
-  ngOnInit() {
+	ngOnInit() {
 
-  }
+	}
 }
+
+
+
+
 
 
 
