@@ -103,13 +103,13 @@ button:hover {
     align-items: center;
 }
 
-.reg {
+.regLog {
     font-family: 'Roboto', sans-serif;
     color: #cbcbc9;
     font-size: 22px;
     margin-bottom: 40px;
 }
 
-.reg:hover {
+.regLog:hover {
     cursor: pointer;
 }
