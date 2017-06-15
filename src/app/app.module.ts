@@ -10,6 +10,17 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { HttpService } from './http.service';
 
+// let path { path: '', component: LoginComponent }
+// let pathControlByToken;
+// let token;
+// token = localStorage.getItem('token');
+// console.log(token);
+
+// if ( localStorage.getItem('token') === undefined ) {
+//   pathControlByToken = 'login';
+// } else {
+//   pathControlByToken = '';
+// }
 
 
 @NgModule({
@@ -25,10 +36,9 @@ import { HttpService } from './http.service';
     RouterModule.forRoot([ 
       { path: 'login', component: LoginComponent },
       { path: '', component: HomeComponent }
-      // { path: '', component: LoginComponent }
       ])
   ],
   providers: [HttpService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

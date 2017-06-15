@@ -6,20 +6,25 @@ import { HttpService } from '../http.service';
 	templateUrl: './login.component.html',
 	styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
 
+export class LoginComponent implements OnInit {
 	loginEvent(username, password) {
 		let obj = {
 			user: username,
 			pass: password
 		}
-		console.log(obj);
-		this.httpService.something(obj).subscribe(
-				(response) => console.log(response),
+		this.httpService.postToServer(obj).subscribe(
+				// (response) => console.log(response),
+				(response) => this.saveTokenToLocalstorage(response),
 				(error) => console.log(error)
 			);
-		// return obj;
 	};
+
+	saveTokenToLocalstorage(data) {
+		localStorage.setItem('token', data.json().token);
+		console.log(localStorage.getItem('token'));
+	}
+
 
 	constructor(private httpService: HttpService) {}
 

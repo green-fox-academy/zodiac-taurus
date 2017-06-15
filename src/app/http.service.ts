@@ -4,7 +4,7 @@ import { Http } from '@angular/http';
 @Injectable()
 export class HttpService {
 	constructor(private http: Http) {}
-	something(data) {
+	postToServer(data) {
 		return this.http.post('https://draw-and-guess-game-backend.herokuapp.com/login', data);
 	}
 }
