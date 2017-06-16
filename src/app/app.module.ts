@@ -13,7 +13,7 @@ import { HttpService } from './http.service';
 
 
 @NgModule({
-  declarations:[
+  declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent
