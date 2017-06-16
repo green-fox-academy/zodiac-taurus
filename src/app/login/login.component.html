@@ -3,12 +3,22 @@
 <div class="main">
 	<div class="background">
 		<div class="loginbox">
-			<div class="titleBox">
-				<h3><span>Draw And Guess</span><span> Game</span></h3>
-			</div>
-				<input type="text" placeholder="username" class="user">
-				<input type="password" placeholder="password" class="pass">
-				<button>LOGIN</button>
+			<section>
+				<div class="titleBox">
+					<h3><span>Draw And Guess</span><span> Game</span></h3>
+				</div>
+				<div class="inputs">
+					<input type="text" placeholder="username" class="user">
+					<input type="password" placeholder="password" class="pass">
+					<input type="password" placeholder="re-password" class="re-pass" *ngIf="registration">
+					<button *ngIf="!registration">login</button>
+					<button *ngIf="registration">registration</button>
+				</div>
+			</section>
+			<section>
+				<p class="regLog" *ngIf="!registration" (click)="register()">Registration</p>
+				<p class="regLog" *ngIf="registration" (click)="register()">Login</p>
+			</section>
 		</div>
 	</div>
 </div>
