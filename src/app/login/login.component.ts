@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   name: string;
   passw: string;
   repassw: string;
+  error: string;
   registrationForm = false;
 
   constructor(private httpService: HttpService) {}
@@ -28,7 +29,7 @@ export class LoginComponent implements OnInit {
   registrationEvent(username, passw, repassw) {
     // console.log('data: ', username, passw, repassw);
     if (passw != repassw) {
-      console.log('Passwords don\'t match');
+      this.error = 'Passwords don\'t match';
     } else {
       const obj = {
         user: username,
@@ -60,8 +61,10 @@ export class LoginComponent implements OnInit {
     console.log(data);
     if (data.json().status === 'error') {
       console.log(data.json().message);
+      this.error = data.json().message
       delete localStorage.token
     } else {
+      this.error = "";
       localStorage.setItem('token', data.json().token);
       console.log(localStorage.getItem('token'));
     }

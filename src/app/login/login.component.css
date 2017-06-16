@@ -114,3 +114,8 @@ button:hover {
 .regLog:hover {
     cursor: pointer;
 }
+
+.error {
+    color: red;
+    margin-top: 20px;
+}
