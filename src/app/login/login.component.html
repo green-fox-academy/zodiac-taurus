@@ -1,12 +1,24 @@
 <div class="main">
 	<div class="background">
 		<div class="loginbox">
-			<div class="titleBox">
-				<h3><span>Draw And Guess</span><span> Game</span></h3>
-			</div>
-			<input [(ngModel)]="name" type="text" placeholder="username" class="user-name">
-			<input [(ngModel)]="passw" type="password" placeholder="password" class="password">
-			<button (click)="loginEvent(name,passw)">LOGIN</button>
+			<button >LOGIN</button>
+			<section>
+				<div class="titleBox">
+					<h3><span>Draw And Guess</span><span> Game</span></h3>
+				</div>
+				<div class="inputs">
+          
+					<input [(ngModel)]="name" type="text" placeholder="username" class="user-name">
+					<input [(ngModel)]="passw" type="password" placeholder="password" class="password">
+					<input type="password" placeholder="re-password" class="re-pass" *ngIf="registration">
+					<button *ngIf="!registration" (click)="loginEvent(name,passw)">login</button>
+					<button *ngIf="registration">registration</button>
+				</div>
+			</section>
+			<section>
+				<p class="regLog" *ngIf="!registration" (click)="register()">Registration</p>
+				<p class="regLog" *ngIf="registration" (click)="register()">Login</p>
+			</section>
 		</div>
 	</div>
 </div>

@@ -11,16 +11,22 @@ import { HttpService } from '../http.service';
 })
 
 export class LoginComponent implements OnInit {
+
   name: string;
   passw: string;
+  registration = false;
+
+  constructor(private httpService: HttpService) {}
+
+  ngOnInit() {
+
+  }
 
   loginEvent(username, password) {
-    console.log(username, password);
     const obj = {
       user: username,
       pass: password
     }
-
     this.httpService.postToServer(obj).subscribe(
         (response) => this.saveTokenToLocalstorage(response),
         (error) => console.log(error)
@@ -29,19 +35,18 @@ export class LoginComponent implements OnInit {
 
   saveTokenToLocalstorage(data) {
     if (data.json().status === 'error') {
-      console.log(data.json().status);
       delete localStorage.token
     } else {
       localStorage.setItem('token', data.json().token);
-      console.log(localStorage.getItem('token'));
     }
   }
 
-
-  constructor(private httpService: HttpService) {}
-
-  ngOnInit() {
-
+  register(){
+    if(this.registration){
+      this.registration = false;
+    } else {
+      this.registration = true;
+    }
   }
 }
 
