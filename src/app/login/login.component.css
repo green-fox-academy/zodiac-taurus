@@ -49,7 +49,7 @@ input {
     text-indent: 45px; 
 }
 
-.user {
+.user-name {
     /*background: url("user_white.svg") no-repeat scroll  10px center;*/
     /*background-size: 18px;*/
 
@@ -63,7 +63,7 @@ input {
 
 }
 
-.pass {
+.password {
     background-color: #0F2E3F;
     background-image: url('../../assets/lock_white.svg');
     background-repeat: no-repeat;
