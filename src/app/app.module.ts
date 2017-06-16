@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
+import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+
+import { RoutingService } from './routing.service';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -18,14 +20,14 @@ import { HttpService } from './http.service';
   ],
   imports: [
     BrowserModule,
-    FormsModule, // <-- import the FormsModule before binding with [(ngModel)]
+    FormsModule,
     HttpModule,
     RouterModule.forRoot([
-      { path: 'login', component: LoginComponent },
-      { path: '', component: HomeComponent }
+      { path: 'login', component: LoginComponent, canActivate: [ RoutingService ] },
+      { path: '', component: HomeComponent},
       ])
   ],
-  providers: [HttpService],
+  providers: [HttpService, RoutingService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
