@@ -11,12 +11,12 @@
 					<input type="text" placeholder="username" class="user">
 					<input type="password" placeholder="password" class="pass">
 					<input type="password" placeholder="re-password" class="re-pass" *ngIf="registration">
-					<button *ngIf="registration === false">LOGIN</button>
+					<button *ngIf="!registration">LOGIN</button>
 					<button *ngIf="registration">REGISTRATION</button>
 				</div>
 			</section>
 			<section>
-				<p class="regLog" *ngIf="registration === false" (click)="register()">Registration</p>
+				<p class="regLog" *ngIf="!registration" (click)="register()">Registration</p>
 				<p class="regLog" *ngIf="registration" (click)="register()">Login</p>
 			</section>
 		</div>
