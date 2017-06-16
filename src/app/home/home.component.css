@@ -1,13 +1,13 @@
     
 .main {
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-top: 30px;
     background: #4BCABE;
     width: 100%;
-    height: 95.2vh;
+    height: 100vh;
 }
 h3{
     padding: 70px 30px;
