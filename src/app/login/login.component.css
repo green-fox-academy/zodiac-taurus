@@ -91,6 +91,7 @@ button {
     border: 1px solid #45C3BF;
     color: #FFF;
     font-size: 18px;
+    text-transform: uppercase;
 }
 
 button:hover {
