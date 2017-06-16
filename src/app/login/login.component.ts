@@ -3,6 +3,8 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpService } from '../http.service';
 
+import { Observable } from 'rxjs/Observable';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -48,6 +50,7 @@ export class LoginComponent implements OnInit {
       this.registration = true;
     }
   }
+
 }
 
 
