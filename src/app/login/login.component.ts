@@ -45,15 +45,21 @@ export class LoginComponent implements OnInit {
   }
 
 
-  loginEvent(username, password) {
-    const obj = {
-      user: username,
-      pass: password
-    }
-    this.httpService.postToServer(obj).subscribe(
+  loginEvent(username, password) { // lekezelni az undefined bevitelt, ha nincs username es vagy jelszo
+
+    if (username === undefined || password === undefined || username === '' || password === '' ) {
+      // console.log('no user or password');
+      this.error = 'Missing username or password';
+    } else {
+      const obj = {
+        user: username,
+        pass: password
+      }
+      this.httpService.postToServer(obj).subscribe(
         (response) => this.saveTokenToLocalstorage(response),
         (error) => console.log(error)
       );
+    }
   };
 
 
