@@ -23,11 +23,9 @@ export class LoginComponent implements OnInit {
   constructor(private httpService: HttpService) {}
 
   ngOnInit() {
-
   }
 
   registrationEvent(username, passw, repassw) {
-    // console.log('data: ', username, passw, repassw);
     if (passw != repassw) {
       this.error = 'Passwords don\'t match';
     } else {
@@ -35,7 +33,6 @@ export class LoginComponent implements OnInit {
         user: username,
         pass: passw
       }
-      // console.log(obj);
       this.httpService.registerPostToServer(obj).subscribe(
         // (response) => console.log(response),
         (response) => this.saveTokenToLocalstorage(response),
@@ -45,17 +42,15 @@ export class LoginComponent implements OnInit {
   }
 
 
-  loginEvent(username, password) { // lekezelni az undefined bevitelt, ha nincs username es vagy jelszo
-
+  loginEvent(username, password) {
     if (username === undefined || password === undefined || username === '' || password === '' ) {
-      // console.log('no user or password');
       this.error = 'Missing username or password';
     } else {
       const obj = {
         user: username,
         pass: password
       }
-      this.httpService.postToServer(obj).subscribe(
+      this.httpService.loginPostToServer(obj).subscribe(
         (response) => this.saveTokenToLocalstorage(response),
         (error) => console.log(error)
       );
