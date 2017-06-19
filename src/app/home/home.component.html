@@ -3,20 +3,10 @@
       <div class="header">
         <h3>Draw and Guess</h3>
       </div>
-      <p class="error">{{error}}</p>
     <div class="main">
-     <!--  <div class="user"></div>
-      <div class="user"></div>
-      <div class="user"></div>
-      <div class="user"></div>
-      <div class="user"></div>
-      <div class="user"></div>
-      <div class="user"></div>
-      <div class="user"></div>
-      <div class="user"></div>
-      <div class="user"></div>
-      <div class="user"></div>
-      <div class="user"></div> -->
+      <div *ngFor="let room of rooms" class="user {{room.id}}">
+        <p>{{ room.name }}</p><div class="button">Join</div>
+      </div>
       <div class="userCreate" (click)="createRoom()"><p>Create room</p></div>
     </div>
   </div>

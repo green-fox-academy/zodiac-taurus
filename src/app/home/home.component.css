@@ -43,13 +43,15 @@ h3{
 }
 
 .user {
-/*  align-self: flex-start;*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 15px;
   margin-right: 10px;
   width: 280px;
-  min-width: 200px;
   height: 60px;
   border: 1px solid #4BCABE;
+  cursor: pointer;
 }
 
 .userCreate {
@@ -64,9 +66,25 @@ h3{
 }
 
 p {
-  font-size: 26px;
+  font-size: 18px;
   color: #4BCABE;
   font-family: 'Roboto', sans-serif;
+  /*text-indent: 45px; */
+}
+
+.button {
+  border-radius: 10px;
+  border: none;
+  color: #1E4A5D;
+  font-size: 12px;
+  background: #4BCABE;
+  padding: 5px 10px;
+  margin-left: 20px;
+}
+
+.button:hover {
+  background: #1E4A5D;
+  color: #4BCABE;
 }
 
 
