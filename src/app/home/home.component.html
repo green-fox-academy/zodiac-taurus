@@ -2,6 +2,13 @@
   <div class="box">
       <div class="header">
         <h3>Draw and Guess</h3>
+        <div class="logout" (click)="logoutEvent()">
+          <h4>{{name}}</h4>
+        </div>
+ <!--        <div>
+          <p>Profile</p>
+          <p>Logout</p>
+        </div> -->
       </div>
     <div class="main">
       <div *ngFor="let room of rooms" class="user" >
