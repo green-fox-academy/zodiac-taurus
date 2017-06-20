@@ -5,7 +5,9 @@ import { HomeComponent } from './home/home.component';
 
 @Injectable()
 export class HttpService {
+
   auth = localStorage.getItem('token');
+
   constructor(private http: Http) {}
 
   loginPostToServer(data) {
@@ -19,5 +21,10 @@ export class HttpService {
   listAllRoom() {
     const headers = new Headers({auth: this.auth});
     return this.http.get('https://draw-and-guess-game-backend.herokuapp.com/room', {headers: headers});
+  }
+
+  createRoom(data) {
+    const headers = new Headers({auth: this.auth})
+    return this.http.post('https://draw-and-guess-game-backend.herokuapp.com/room', data, {headers: headers});
   }
 }
