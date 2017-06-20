@@ -12,11 +12,14 @@ export class HomeComponent implements OnInit {
 
   error: string;
   rooms = [];
+  name: string;
 
   constructor(private httpService: HttpService) {
 
     this.listRooms();
-
+    this.name = localStorage.getItem('user');
+    console.log(localStorage.getItem('token'));
+    console.log(localStorage.getItem('user'));
   }
 
   ngOnInit() { }
@@ -35,7 +38,7 @@ export class HomeComponent implements OnInit {
   }
 
   createRoomButton() {
-    let name = "Jim Doe's room"
+    let name = localStorage.getItem('user') + " 's room";
     let obj = {
       name: name
     }
@@ -44,6 +47,11 @@ export class HomeComponent implements OnInit {
       (error) => console.log(error)
     );
     this.listRooms();
+  }
+
+  logoutEvent() {
+    localStorage.clear();
+    console.log('localStorage deleted', localStorage);
   }
 
 }
