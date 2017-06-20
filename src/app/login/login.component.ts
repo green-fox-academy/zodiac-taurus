@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpService } from '../http.service';
+import { Router } from '@angular/router';
 
 import { Observable } from 'rxjs/Observable';
 
@@ -20,14 +21,15 @@ export class LoginComponent implements OnInit {
   error: string;
   registrationForm = false;
 
-  constructor(private httpService: HttpService) {}
+  constructor(private httpService: HttpService, private router: Router) {
+    this.loggedIn();
+  }
 
   ngOnInit() {
 
   }
 
   registrationEvent(username, passw, repassw) {
-    // console.log('data: ', username, passw, repassw);
     if (passw != repassw) {
       this.error = 'Passwords don\'t match';
     } else {
@@ -35,9 +37,7 @@ export class LoginComponent implements OnInit {
         user: username,
         pass: passw
       }
-      // console.log(obj);
       this.httpService.registerPostToServer(obj).subscribe(
-        // (response) => console.log(response),
         (response) => this.saveTokenToLocalstorage(response),
         (error) => console.log(error)
       );
@@ -56,6 +56,11 @@ export class LoginComponent implements OnInit {
       );
   };
 
+  loggedIn(){
+     if (localStorage.token !== undefined) {
+        this.router.navigate(['']);
+     }
+  }
 
   saveTokenToLocalstorage(data) {
     console.log(data);
@@ -67,6 +72,7 @@ export class LoginComponent implements OnInit {
       this.error = "";
       localStorage.setItem('token', data.json().token);
       console.log(localStorage.getItem('token'));
+      this.router.navigate(['']);
     }
   }
 
