@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import { Response} from '@angular/http';
+import { Router } from '@angular/router';
 
 import { HttpService } from '../http.service';
 
@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   rooms = [];
   name: string;
 
-  constructor(private httpService: HttpService) {
+  constructor(private httpService: HttpService, private router: Router) {
 
     this.listRooms();
     this.name = localStorage.getItem('user');
@@ -28,7 +28,6 @@ export class HomeComponent implements OnInit {
     this.httpService.listAllRoom().subscribe(
       (response) => this.listRoom(response),
       (error) => console.log(error)
-      // (error) => this.error = 'Authentication error'
     );
   }
 
@@ -52,6 +51,7 @@ export class HomeComponent implements OnInit {
   logoutEvent() {
     localStorage.clear();
     console.log('localStorage deleted: ', localStorage);
+    this.router.navigate(['login']);
   }
 
 }

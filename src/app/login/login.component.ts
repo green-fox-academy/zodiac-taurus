@@ -29,17 +29,21 @@ export class LoginComponent implements OnInit {
   }
 
   registrationEvent(username, passw, repassw) {
-    if (passw != repassw) {
-      this.error = 'Passwords don\'t match';
+    if (username === undefined || passw === undefined || username === '' || passw === '' ) {
+      this.error = 'Missing username or password';
     } else {
-      const obj = {
-        user: username,
-        pass: passw
+      if (passw != repassw) {
+        this.error = 'Passwords don\'t match';
+      } else {
+        const obj = {
+          user: username,
+          pass: passw
+        }
+        this.httpService.registerPostToServer(obj).subscribe(
+          (response) => this.saveTokenToLocalstorage(response),
+          (error) => console.log(error)
+        );
       }
-      this.httpService.registerPostToServer(obj).subscribe(
-        (response) => this.saveTokenToLocalstorage(response),
-        (error) => console.log(error)
-      );
     }
   }
 
