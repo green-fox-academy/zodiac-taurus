@@ -1,10 +1,15 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpModule } from '@angular/http';
+import { Router, RouterModule } from '@angular/router';
 
 
 import { HomeComponent } from './home.component';
 import { HttpService } from '../http.service';
 
+
+class routing {
+  public routerModule: RouterModule;
+}
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -14,7 +19,7 @@ describe('HomeComponent', () => {
     TestBed.configureTestingModule({
       imports: [ HttpModule ],
       declarations: [ HomeComponent ],
-      providers: [ HttpService ]
+      providers: [ HttpService,  { provide: Router, useClass: routing  } ]
     })
     .compileComponents();
   }));
