@@ -3,6 +3,7 @@ import { FormsModule, ReactiveFormsModule, FormBuilder } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { LoginComponent } from './login.component';
 import { HttpService } from '../http.service';
+import { Router } from '@angular/router';
 
 
 

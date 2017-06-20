@@ -6,11 +6,17 @@ import { Router } from '@angular/router';
 
 import { Observable } from 'rxjs/Observable';
 
+class routing {
+  public routerModule: RouterModule;
+}
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [FormsModule]
+  providers: [FormsModule,
+  { provide: Router, useClass: routing  }
+  ]
 })
 
 export class LoginComponent implements OnInit {
