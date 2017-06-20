@@ -3,9 +3,12 @@ import { FormsModule, ReactiveFormsModule, FormBuilder } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { LoginComponent } from './login.component';
 import { HttpService } from '../http.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 
+class routing {
+  public routerModule: RouterModule;
+}
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -15,7 +18,7 @@ describe('LoginComponent', () => {
     TestBed.configureTestingModule({
       imports: [ FormsModule, ReactiveFormsModule, HttpModule ],
       declarations: [ LoginComponent ],
-      providers: [HttpService]
+      providers: [HttpService, { provide: Router, useClass: routing  }]
     })
     .compileComponents();
   }));
