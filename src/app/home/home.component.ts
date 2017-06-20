@@ -51,7 +51,7 @@ export class HomeComponent implements OnInit {
 
   logoutEvent() {
     localStorage.clear();
-    console.log('localStorage deleted', localStorage);
+    console.log('localStorage deleted: ', localStorage);
   }
 
 }

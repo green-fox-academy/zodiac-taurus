@@ -48,7 +48,7 @@ h3 {
   display: flex;
   justify-content: space-between;
   width: 160px;
-  height: 30px;
+  height: 40px;
   /*border: 1px solid #4BCABE;*/
   margin-right: 40px;
   background-image: url('../../assets/user_white.svg');
@@ -59,6 +59,7 @@ h3 {
 
 h4 {
   display: flex;
+  /*justify-content: flex-end;*/
   align-items: center;
   color: #4BCABE;
   font-size: 22px;
