@@ -18,21 +18,71 @@
 }
 
 .header {
-  height: 15vh;
+  height: 20vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 h3 {
-  /*align-content: flex-start;*/
-  padding-left: 40px;
+  padding-left: 60px;
   background: #1E4A5D;
   font-size: 28px;
   font-family: 'Roboto', sans-serif;
   color: #4BCABE;
   cursor: default;
 }
+
+h4 {
+  display: flex;
+  align-items: center;
+  color: #4BCABE;
+  margin-right: 20px;
+  font-size: 22px;
+  font-family: 'Roboto', sans-serif;
+  cursor: default;
+}
+
+.picture {
+  width: 40px;
+  height: 40px;
+  background-image: url('../../assets/user_white.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/****************************************/
+
+h4 div {
+  display: none;
+  position: absolute;
+}
+
+h4:hover > div {
+  display: flex;
+  flex-direction: column;
+}
+
+h4 div p {
+  margin-top: 5px;
+  padding: 5px;
+}
+
+h4 div p:hover {
+  background: #CFD8DC;
+  color: #1E4A5D;
+  border-radius: 6px;
+}
+
+.profileButton {
+  cursor: not-allowed;
+}
+
+.logoutButton {
+  cursor: pointer;
+}
+
+/****************************************/
 
 .main {
   height: 100%;
@@ -47,25 +97,13 @@ h3 {
 .logout {
   display: flex;
   justify-content: space-between;
-  width: 160px;
+  /*width: 160px;*/
+  min-width: 100px;
   height: 40px;
   /*border: 1px solid #4BCABE;*/
   margin-right: 40px;
-  background-image: url('../../assets/user_white.svg');
-  background-repeat: no-repeat;
-  background-position: 140px center;
   cursor: pointer;
 }
-
-h4 {
-  display: flex;
-  /*justify-content: flex-end;*/
-  align-items: center;
-  color: #4BCABE;
-  font-size: 22px;
-  font-family: 'Roboto', sans-serif;
-}
-
 
 .user {
   display: flex;
