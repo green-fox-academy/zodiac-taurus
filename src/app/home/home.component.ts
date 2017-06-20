@@ -15,12 +15,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private httpService: HttpService) {
 
-    // this.httpService.listAllRoom().subscribe(
-    //   (response) => this.listRoom(response),
-    //   // (error) => this.error = 'Authentication error'
-    //   (error) => console.log(error)
-    // );
-  this.listRooms();
+    this.listRooms();
 
   }
 
