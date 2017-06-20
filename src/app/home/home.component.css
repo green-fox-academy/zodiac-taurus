@@ -1,22 +1,125 @@
-    
-.main {
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: #4BCABE;
-    width: 100%;
-    height: 100vh;
+.background {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #4BCABE;
+  width: 100%;
+  min-height: 100vh;
 }
+
+.box {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  min-height: 550px;
+  background: #1E4A5D;
+  box-shadow: 0px 10px 51px -3px rgba(0,0,0,0.65);
+}
+
+.header {
+  height: 15vh;
+  display: flex;
+}
+
 h3{
-    padding: 70px 30px;
-    font-size: 32px;
-    font-family: 'Roboto', sans-serif;
-    color: #4BCABE;
+  align-content: flex-start;
+  padding: 20px 30px;
+  background: #1E4A5D;
+  font-size: 28px;
+  font-family: 'Roboto', sans-serif;
+  color: #4BCABE;
+  cursor: default;
 }
+
+.main {
+  height: 100%;
+  padding-left: 6px;
+  background: #1E4A5D;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 20px;
+  width: 280px;
+  height: 60px;
+  border: 1px solid #4BCABE;
+  cursor: default;
+
+  /* *** teszteles *** */
+  background-image: url('../../assets/user_white.svg');
+  background-repeat: no-repeat;
+  background-position: 15px center;
+  background-size: 18px;
+}
+
+.user p {
+  font-size: 18px;
+}
+
+.userCreate {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+/*  margin-bottom: 15px;
+  margin-right: 10px;*/
+  margin: 10px 20px;
+  width: 280px;
+  height: 60px;
+  border: 1px solid #4BCABE;
+  cursor: default;
+}
+
+.userCreate p {
+  font-size: 18px;
+  border-radius: 10px;
+  padding: 5px 20px;
+  background-color: #4BCABE;
+  color: #1E4A5D;
+  font-family: 'Roboto', sans-serif;
+  cursor: pointer;
+}
+
+.userCreate p:hover {
+  background-color: #CFD8DC;
+}
+
+p {
+  font-size: 18px;
+  color: #4BCABE;
+  font-family: 'Roboto', sans-serif;
+  /*text-indent: 45px; */
+}
+
+.button {
+  margin-left: 20px;
+  font-size: 18px;
+  border-radius: 10px;
+  padding: 5px 20px;
+  background-color: #4BCABE;
+  color: #1E4A5D;
+  font-family: 'Roboto', sans-serif;
+  cursor: pointer;
+}
+
+.button:hover {
+  /*background: #1E4A5D;*/
+  /*color: #4BCABE;*/
+  background-color: #CFD8DC;
+}
+
+
     
-.route {
+
+
+
+/*.route {
     padding: 5px;
     display: flex;
     flex-direction: column;
@@ -52,4 +155,4 @@ a:hover {
 
 a.active {
   color: #039be5;
-}
+}*/

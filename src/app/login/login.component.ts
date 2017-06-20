@@ -26,7 +26,6 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-
   }
 
   registrationEvent(username, passw, repassw) {
@@ -46,14 +45,18 @@ export class LoginComponent implements OnInit {
 
 
   loginEvent(username, password) {
-    const obj = {
-      user: username,
-      pass: password
-    }
-    this.httpService.postToServer(obj).subscribe(
+    if (username === undefined || password === undefined || username === '' || password === '' ) {
+      this.error = 'Missing username or password';
+    } else {
+      const obj = {
+        user: username,
+        pass: password
+      }
+      this.httpService.loginPostToServer(obj).subscribe(
         (response) => this.saveTokenToLocalstorage(response),
         (error) => console.log(error)
       );
+    }
   };
 
   loggedIn(){

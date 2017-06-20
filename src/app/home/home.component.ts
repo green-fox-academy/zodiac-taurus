@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+// import { Response} from '@angular/http';
+
+import { HttpService } from '../http.service';
 
 @Component({
   selector: 'app-home',
@@ -7,8 +10,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  error: string;
+  rooms = [];
 
-  ngOnInit() {
+  constructor(private httpService: HttpService) {
+
+    this.listRooms();
+
   }
+
+  ngOnInit() { }
+
+  listRooms() {
+    this.httpService.listAllRoom().subscribe(
+      (response) => this.listRoom(response),
+      (error) => console.log(error)
+      // (error) => this.error = 'Authentication error'
+    );
+  }
+
+  listRoom(response) {
+    this.rooms = response.json();
+    return this.rooms;
+  }
+
+  createRoomButton() {
+    let name = "Jim Doe's room"
+    let obj = {
+      name: name
+    }
+    this.httpService.createRoom(obj).subscribe(
+      (response) => console.log(response),
+      (error) => console.log(error)
+    );
+    this.listRooms();
+  }
+
 }
