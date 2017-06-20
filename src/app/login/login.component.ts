@@ -25,7 +25,8 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  registrationEvent(username, passw, repassw) {    if (passw != repassw) {
+  registrationEvent(username, passw, repassw) {
+    if (passw != repassw) {
       this.error = 'Passwords don\'t match';
     } else {
       const obj = {
