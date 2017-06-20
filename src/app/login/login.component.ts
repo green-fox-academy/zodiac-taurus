@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpService } from '../http.service';
+import { Router } from '@angular/router';
 
 import { Observable } from 'rxjs/Observable';
 
@@ -9,7 +10,7 @@ import { Observable } from 'rxjs/Observable';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [FormsModule]
+  providers: [ FormsModule ]
 })
 
 export class LoginComponent implements OnInit {
@@ -20,7 +21,9 @@ export class LoginComponent implements OnInit {
   error: string;
   registrationForm = false;
 
-  constructor(private httpService: HttpService) {}
+  constructor(private httpService: HttpService, private router: Router) {
+    this.loggedIn();
+  }
 
   ngOnInit() {
   }
@@ -34,7 +37,6 @@ export class LoginComponent implements OnInit {
         pass: passw
       }
       this.httpService.registerPostToServer(obj).subscribe(
-        // (response) => console.log(response),
         (response) => this.saveTokenToLocalstorage(response),
         (error) => console.log(error)
       );
@@ -57,6 +59,11 @@ export class LoginComponent implements OnInit {
     }
   };
 
+  loggedIn(){
+     if (localStorage.token !== undefined) {
+        this.router.navigate(['']);
+     }
+  }
 
   saveTokenToLocalstorage(data) {
     console.log(data);
@@ -70,6 +77,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('user', data.json().user);
       console.log(localStorage.getItem('token'));
       console.log(localStorage.getItem('user'));
+      this.router.navigate([''])
     }
   }
 

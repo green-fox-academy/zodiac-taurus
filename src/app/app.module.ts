@@ -23,8 +23,8 @@ import { HttpService } from './http.service';
     FormsModule,
     HttpModule,
     RouterModule.forRoot([
-      { path: 'login', component: LoginComponent, canActivate: [ RoutingService ] },
-      { path: '', component: HomeComponent},
+      { path: 'login', component: LoginComponent },
+      { path: '', component: HomeComponent, canActivate:[RoutingService] },
       ])
   ],
   providers: [HttpService, RoutingService],
