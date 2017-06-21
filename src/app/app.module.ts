@@ -4,8 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
-import { RoutingService } from './routing.service';
+import { AppRoutingModule } from './app-routing.module';
 
+import { RoutingService } from './routing.service';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
@@ -22,10 +23,7 @@ import { HttpService } from './http.service';
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot([
-      { path: 'login', component: LoginComponent },
-      { path: '', component: HomeComponent, canActivate:[RoutingService] },
-      ])
+    AppRoutingModule
   ],
   providers: [HttpService, RoutingService],
   bootstrap: [AppComponent]
