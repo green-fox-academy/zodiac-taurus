@@ -1,21 +1,45 @@
-import { TestBed, async } from '@angular/core/testing';
+import { Component } from '@angular/core';
+import { Location } from '@angular/common';
+import { TestBed, async, inject } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { RouterModule, Router, CanActivate } from '@angular/router';
+import { HttpModule } from '@angular/http';
+import { FormsModule, ReactiveFormsModule, FormBuilder } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { RouterTestingModule } from '@angular/router/testing';
-import { RouterModule, Routes } from '@angular/router';
-
+import { RoutingService } from './routing.service';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { HttpService } from './http.service';
 
 describe('AppComponent', () => {
+  let locations, routing;
+  
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        HomeComponent,
+        LoginComponent
       ],
       imports: [
-         RouterTestingModule
+        FormsModule,
+        ReactiveFormsModule,
+        HttpModule,
+        RouterTestingModule.withRoutes([
+      { path: 'login', component: LoginComponent },
+      { path: '', component: HomeComponent, canActivate: [RoutingService] }
+                ])
       ],
+      providers: [HttpService, RoutingService]
     }).compileComponents();
   }));
+
+  beforeEach(inject([Router, Location], (router: Router, location: Location) => {
+        locations = location;
+        routing = router;
+  }));
+
 
   it('should create the app', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
@@ -23,9 +47,20 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   }));
 
-  // it(`should have as title 'app'`, async(() => {
-  //   const fixture = TestBed.createComponent(AppComponent);
-  //   const app = fixture.debugElement.componentInstance;
-  //   expect(app.title).toEqual('Draw and Guess game');
-  // }));
+  it('Load the login page', async(() => {
+        const fixture = TestBed.createComponent(AppComponent);
+        fixture.detectChanges();
+        routing.navigate(['login']).then(() => {
+            expect(locations.path()).toBe('/login');
+        });
+    }));
+
+  it('Load the Room page', async(() => {
+        const fixture = TestBed.createComponent(AppComponent);
+        fixture.detectChanges();
+        routing.navigate(['']).then(() => {
+            expect(locations.path()).toBe('/');
+        });
+    }));
+
 });
