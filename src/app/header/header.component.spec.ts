@@ -1,9 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpModule } from '@angular/http';
-// import { Router, RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 import { HeaderComponent } from './header.component';
 import { HttpService } from '../http.service';
+
+class routing {
+  public routerModule: RouterModule;
+}
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -11,7 +15,9 @@ describe('HeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ]
+      imports: [ HttpModule ],
+      declarations: [ HeaderComponent ],
+      providers: [ HttpService, { provide: Router, useClass: routing  } ]
     })
     .compileComponents();
   }));

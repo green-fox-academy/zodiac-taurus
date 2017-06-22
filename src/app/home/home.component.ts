@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+
 import { HttpService } from '../http.service';
+import { HeaderComponent } from '../header/header.component';
+
 
 @Component({
   selector: 'app-home',
@@ -12,7 +15,7 @@ export class HomeComponent implements OnInit {
 
   error: string;
   rooms = [];
-  name: string;
+  // name: string;
 
   constructor(private httpService: HttpService, private router: Router) {
 
