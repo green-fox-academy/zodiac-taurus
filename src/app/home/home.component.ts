@@ -17,9 +17,7 @@ export class HomeComponent implements OnInit {
   constructor(private httpService: HttpService, private router: Router) {
 
     this.listRooms();
-    this.name = localStorage.getItem('user');
-    console.log(localStorage.getItem('token'));
-    console.log(localStorage.getItem('user'));
+
   }
 
   ngOnInit() { }
@@ -47,11 +45,5 @@ export class HomeComponent implements OnInit {
     );
     this.listRooms();
   }
-
-  logoutEvent() {
-    localStorage.clear();
-    console.log('localStorage deleted: ', localStorage);
-    this.router.navigate(['login']);
-  }
-
+  
 }
