@@ -72,16 +72,16 @@ export class LoginComponent implements OnInit {
   saveTokenToLocalstorage(data) {
     console.log(data);
     if (data.json().status === 'error') {
-      console.log(data.json().message);
+      // console.log(data.json().message);
       this.error = data.json().message
       delete localStorage.token
     } else {
       this.error = "";
       localStorage.setItem('token', data.json().token);
       localStorage.setItem('user', data.json().user);
-      console.log(localStorage.getItem('token'));
-      console.log(localStorage.getItem('user'));
-      this.router.navigate([''])
+      // console.log(localStorage.getItem('token'));
+      // console.log(localStorage.getItem('user'));
+      this.router.navigate(['']);
     }
   }
 

@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+
 import { HttpService } from '../http.service';
+import { HeaderComponent } from '../header/header.component';
+
 
 @Component({
   selector: 'app-home',
@@ -12,14 +15,12 @@ export class HomeComponent implements OnInit {
 
   error: string;
   rooms = [];
-  name: string;
+  // name: string;
 
   constructor(private httpService: HttpService, private router: Router) {
 
     this.listRooms();
-    this.name = localStorage.getItem('user');
-    console.log(localStorage.getItem('token'));
-    console.log(localStorage.getItem('user'));
+
   }
 
   ngOnInit() { }
@@ -47,11 +48,5 @@ export class HomeComponent implements OnInit {
     );
     this.listRooms();
   }
-
-  logoutEvent() {
-    localStorage.clear();
-    console.log('localStorage deleted: ', localStorage);
-    this.router.navigate(['login']);
-  }
-
+  
 }
