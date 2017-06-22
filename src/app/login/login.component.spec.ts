@@ -6,12 +6,6 @@ import { Router, RouterModule } from '@angular/router';
 import { LoginComponent } from './login.component';
 import { HttpService } from '../http.service';
 
-
-
-class routing {
-  public routerModule: RouterModule;
-}
-
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
@@ -20,7 +14,7 @@ describe('LoginComponent', () => {
     TestBed.configureTestingModule({
       imports: [ FormsModule, ReactiveFormsModule, HttpModule ],
       declarations: [ LoginComponent ],
-      providers: [HttpService, { provide: Router, useClass: routing  }]
+      providers: [HttpService, { provide: Router }]
     })
     .compileComponents();
   }));
