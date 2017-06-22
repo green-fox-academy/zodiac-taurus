@@ -1,7 +1,5 @@
 import { TestBed, inject } from '@angular/core/testing';
 import { Router } from '@angular/router';
-
-
 import { LoginCheckService } from './login-check.service';
 
 describe('LoginCheckService', () => {

@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
-
 @Injectable()
 export class LoginCheckService {
-
   constructor( private router: Router ) {
     this.loggedIn();
   }
@@ -19,5 +17,4 @@ export class LoginCheckService {
     localStorage.clear();
     this.router.navigate(['login']);
   }
-
 }

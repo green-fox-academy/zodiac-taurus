@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-
 import { HttpService } from '../http.service';
 import { Observable } from 'rxjs/Observable';
 
@@ -78,7 +77,6 @@ export class LoginComponent implements OnInit {
   register() {
     this.registrationForm = !this.registrationForm;
   }
-  
 }
 
 
