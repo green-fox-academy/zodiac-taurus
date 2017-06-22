@@ -6,7 +6,7 @@ export class LoginCheckService {
   constructor( private router: Router ) {
     this.loggedIn();
   }
-
+  
   loggedIn(){
     if (localStorage.token !== undefined) {
       this.router.navigate(['']);

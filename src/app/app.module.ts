@@ -12,7 +12,6 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,4 +28,5 @@ import { HeaderComponent } from './header/header.component';
   providers: [HttpService, RoutingService, LoginCheckService ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule {}

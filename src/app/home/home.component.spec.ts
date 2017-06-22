@@ -1,7 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpModule } from '@angular/http';
 import { Router, RouterModule } from '@angular/router';
-
 import { HeaderComponent } from '../header/header.component';
 import { HomeComponent } from './home.component';
 import { HttpService } from '../http.service';

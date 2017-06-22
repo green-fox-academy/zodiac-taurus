@@ -20,8 +20,7 @@ export class LoginComponent implements OnInit {
   error: string;
   registrationForm = false;
 
-  constructor(private httpService: HttpService, private router: Router) {
-  }
+  constructor(private httpService: HttpService, private router: Router) {}
 
   ngOnInit() {
   }
@@ -45,7 +44,6 @@ export class LoginComponent implements OnInit {
     }
   }
 
-
   loginEvent(username, password) {
     if (username === undefined || password === undefined || username === '' || password === '' ) {
       this.error = 'Missing username or password';
@@ -60,7 +58,6 @@ export class LoginComponent implements OnInit {
       );
     }
   };
-
 
   saveTokenToLocalstorage(data) {
     if (data.json().status === 'error') {

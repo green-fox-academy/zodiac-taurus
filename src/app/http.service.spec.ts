@@ -1,9 +1,7 @@
 import { TestBed, inject } from '@angular/core/testing';
 import { HttpModule, Http, BaseRequestOptions, XHRBackend } from '@angular/http';
 import { MockBackend } from '@angular/http/testing';
-
 import { HttpService } from './http.service';
-
 
 describe('HttpService', () => {
   beforeEach(() => {

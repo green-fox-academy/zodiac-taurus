@@ -1,12 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
-
 import { HomeComponent } from './home/home.component';
-
 
 @Injectable()
 export class HttpService {
-
   constructor(private http: Http) {}
 
   loginPostToServer(data) {
