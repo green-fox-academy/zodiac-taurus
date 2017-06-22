@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { HttpService } from '../http.service';
 import { Router } from '@angular/router';
 
+import { HttpService } from '../http.service';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
@@ -22,7 +22,6 @@ export class LoginComponent implements OnInit {
   registrationForm = false;
 
   constructor(private httpService: HttpService, private router: Router) {
-    this.loggedIn();
   }
 
   ngOnInit() {
@@ -63,11 +62,6 @@ export class LoginComponent implements OnInit {
     }
   };
 
-  loggedIn(){
-     if (localStorage.token !== undefined) {
-        this.router.navigate(['']);
-     }
-  }
 
   saveTokenToLocalstorage(data) {
     console.log(data);
@@ -83,13 +77,9 @@ export class LoginComponent implements OnInit {
   }
 
   register() {
-    if (this.registrationForm) {
-      this.registrationForm = false;
-    } else {
-      this.registrationForm = true;
-    }
+    this.registrationForm = !this.registrationForm;
   }
-
+  
 }
 
 
