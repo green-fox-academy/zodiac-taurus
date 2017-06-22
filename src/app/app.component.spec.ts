@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule, FormBuilder } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { RoutingService } from './routing.service';
 import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
 import { HttpService } from './http.service';
 
@@ -20,7 +21,8 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent,
         HomeComponent,
-        LoginComponent
+        LoginComponent, 
+        HeaderComponent
       ],
       imports: [
         FormsModule,
