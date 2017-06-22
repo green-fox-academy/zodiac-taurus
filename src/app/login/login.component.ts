@@ -64,7 +64,6 @@ export class LoginComponent implements OnInit {
 
 
   saveTokenToLocalstorage(data) {
-    console.log(data);
     if (data.json().status === 'error') {
       this.error = data.json().message
       delete localStorage.token
