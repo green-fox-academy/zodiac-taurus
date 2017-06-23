@@ -5,7 +5,6 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { RouterModule, Router, CanActivate } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule, FormBuilder } from '@angular/forms';
-
 import { AppComponent } from './app.component';
 import { RoutingService } from './routing.service';
 import { HomeComponent } from './home/home.component';
@@ -41,7 +40,6 @@ describe('AppComponent', () => {
         locations = location;
         routing = router;
   }));
-
 
   it('should create the app', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
