@@ -26,38 +26,48 @@ export class LoginComponent implements OnInit {
   }
 
   registrationEvent(username, passw, repassw) {
-    if (username === undefined || passw === undefined || username === '' || passw === '' ) {
-      this.error = 'Missing username or password';
-    } else {
-      if (passw != repassw) {
-        this.error = 'Passwords don\'t match';
-      } else {
-        const obj = {
-          user: username,
-          pass: passw
-        }
-        this.httpService.registerPostToServer(obj).subscribe(
-          (response) => this.saveTokenToLocalstorage(response),
-          (error) => console.log(error)
-        );
-      }
+    let obj = {
+      user: username,
+      pass: passw,
+      repass: repassw
+    }
+
+    if (this.validation(obj)) {
+      this.httpService.registerPostToServer(obj).subscribe(
+        (response) => this.saveTokenToLocalstorage(response),
+        (error) => console.log(error)
+      );
     }
   }
 
-  loginEvent(username, password) {
-    if (username === undefined || password === undefined || username === '' || password === '' ) {
-      this.error = 'Missing username or password';
-    } else {
-      const obj = {
-        user: username,
-        pass: password
-      }
+  loginEvent(username, passw) {
+    let obj = {
+      user: username,
+      pass: passw
+    };
+
+    if (this.validation(obj)) { 
       this.httpService.loginPostToServer(obj).subscribe(
         (response) => this.saveTokenToLocalstorage(response),
         (error) => console.log(error)
       );
     }
   };
+
+  validation(obj) {
+    if (obj.user === undefined || obj.pass === undefined || obj.user === '' || obj.pass === '' ) {
+      this.error = 'Missing username or password';
+    } else {
+      if (obj.pass != obj.repass && arguments.length === 3) {
+        this.error = 'Password doesn\'t match';
+      } else {
+        return {
+          user: obj.user,
+          pass: obj.pass
+        }
+      }
+    }
+  }
 
   saveTokenToLocalstorage(data) {
     if (data.json().status === 'error') {
