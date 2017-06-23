@@ -55,10 +55,7 @@ export class LoginComponent implements OnInit {
   };
 
   validation(obj) {
-    const a = undefined;
-    const b = '';
-
-    if (obj.user === a || obj.pass === a || obj.user === b || obj.pass === b  ) {
+    if (!obj.user || !obj.pass ) {
       this.error = 'Missing username or password';
     } else {
       if (obj.pass != obj.repass && arguments.length === 3) {
