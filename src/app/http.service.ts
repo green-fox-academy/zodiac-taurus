@@ -10,7 +10,6 @@ export class HttpService {
   constructor(private http: Http) {}
 
   loginPostToServer(data) {
-    console.log(this.url);
     return this.http.post(this.url + 'login', data);
   }
 
