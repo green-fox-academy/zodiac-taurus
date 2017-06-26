@@ -8,6 +8,7 @@ import { LoginCheckService } from '../login-check.service'
 import { NgxPaginationModule } from 'ngx-pagination';
 
 
+
 class routing {
   public routerModule: RouterModule;
 }
