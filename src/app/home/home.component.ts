@@ -1,21 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
-
 import { HttpService } from '../http.service';
 import { HeaderComponent } from '../header/header.component';
-
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent implements OnInit {
 
   error: string;
   rooms = [];
-  // name: string;
 
   constructor(private httpService: HttpService, private router: Router) {
 
@@ -48,5 +45,4 @@ export class HomeComponent implements OnInit {
     );
     this.listRooms();
   }
-  
 }

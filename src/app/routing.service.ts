@@ -10,7 +10,6 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class RoutingService implements CanActivate {
-
   constructor(private router: Router) { }
 
   canActivate(

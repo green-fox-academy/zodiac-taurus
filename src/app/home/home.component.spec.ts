@@ -11,6 +11,7 @@ import {
 import { HeaderComponent } from '../header/header.component';
 import { HomeComponent } from './home.component';
 import { HttpService } from '../http.service';
+import { LoginCheckService } from '../login-check.service'
 
 class home {
   public homeComponent: HomeComponent;
@@ -25,7 +26,7 @@ describe('HomeComponent', () => {
     TestBed.configureTestingModule({
       imports: [ HttpModule ],
       declarations: [ HomeComponent, HeaderComponent ],
-      providers: [ HttpService,  { provide: Router } ]
+      providers: [ HttpService,  { provide: Router }, LoginCheckService ]
     })
     .compileComponents();
   }));
