@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
 import { HttpService } from './http.service';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 describe('AppComponent', () => {
   let locations, routing;
@@ -27,6 +28,7 @@ describe('AppComponent', () => {
         FormsModule,
         ReactiveFormsModule,
         HttpModule,
+        NgxPaginationModule,
         RouterTestingModule.withRoutes([
       { path: 'login', component: LoginComponent },
       { path: '', component: HomeComponent, canActivate: [RoutingService] }

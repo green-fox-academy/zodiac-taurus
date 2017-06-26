@@ -11,7 +11,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
-import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -24,8 +23,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule,
-    NgxPaginationModule
+    AppRoutingModule
   ],
   providers: [HttpService, RoutingService, LoginCheckService ],
   bootstrap: [AppComponent]
