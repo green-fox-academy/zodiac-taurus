@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { HttpService } from './http.service';
 import { HeaderComponent } from './header/header.component';
+import { DrawComponent } from './draw/draw.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { HeaderComponent } from './header/header.component';
     AppComponent,
     LoginComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    DrawComponent
   ],
   imports: [
     BrowserModule,

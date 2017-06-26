@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "postinstall": "ng build --aot -prod",    
+    "postinstall": "ng build --aot -prod",
     "start": "node server.js",
     "build": "ng build",
     "test": "ng test --single-run",
@@ -24,6 +24,7 @@
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
+    "angular-bootstrap-colorpicker": "^3.0.31",
     "core-js": "^2.4.1",
     "express": "^4.15.3",
     "http-server": "^0.10.0",

@@ -1,0 +1,88 @@
+.background {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #4BCABE;
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  min-height: 600px;
+  background: #1E4A5D;
+  box-shadow: 0px 10px 51px -3px rgba(0,0,0,0.65);
+}
+
+canvas {
+    position: relative;
+    right: -40px;
+    border: 3px solid #4BCABE;
+    width: 900px;
+    height: 400px;
+    background: white;
+    box-shadow: 0px 10px 51px -3px rgba(0,0,0,0.65);
+}
+canvas:hover {
+    cursor: url(../../assets/pencil.png) 0 29, auto;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+.details {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    padding: 20px 60px;    
+    margin-top: -45px;
+    justify-content: space-between;
+    color: #4BCABE;
+}
+
+button {
+    font-size: 18px;
+    border: 0;
+    border-radius: 10px;
+    padding: 5px 20px;
+    background-color: #4BCABE;
+    color: white;
+    cursor: pointer;
+}
+
+.time {
+    margin-top: 10px;
+    position: relative;
+    left: 250px;
+    padding: 10px;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 70%;
+    border-radius: 5px;
+    border: 2px solid #4BCABE;
+}
+
+.draw-main {
+    display: flex;
+}
+
+.colors-details {
+    box-sizing: border-box;
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.colors {
+    display: flex;
+}
+
+.picker {
+    width: 100px;
+    margin-right: 5px;
+    border-radius: 5px;
+}

@@ -15,6 +15,9 @@ import { Observable } from 'rxjs/Observable';
 
 export class LoginComponent implements OnInit {
 
+
+  upAnimationClass;
+  errorStyle: object;
   name: string;
   passw: string;
   repassw: string;
@@ -28,12 +31,25 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+  errorStyling(){
+    if(this.error){
+      this.errorStyle = {'border':'2px solid tomato'};
+    } else {
+      this.errorStyle = {'border':'2px solid transparent'};
+    }
+  }
+
+  errorClear(){
+    this.error = '';
+    this.errorStyling();
+  }
+
   registrationEvent(username, passw, repassw) {
     if (username === undefined || passw === undefined || username === '' || passw === '' ) {
-      this.error = 'Missing username or password';
+      this.errorHandling('Missing username or password');
     } else {
       if (passw != repassw) {
-        this.error = 'Passwords don\'t match';
+        this.errorHandling('Passwords don\'t match');
       } else {
         const obj = {
           user: username,
@@ -47,10 +63,9 @@ export class LoginComponent implements OnInit {
     }
   }
 
-
   loginEvent(username, password) {
     if (username === undefined || password === undefined || username === '' || password === '' ) {
-      this.error = 'Missing username or password';
+      this.errorHandling('Missing username or password');
     } else {
       const obj = {
         user: username,
@@ -73,10 +88,9 @@ export class LoginComponent implements OnInit {
     console.log(data);
     if (data.json().status === 'error') {
       // console.log(data.json().message);
-      this.error = data.json().message
-      delete localStorage.token
+      this.errorHandling(data.json().message);
     } else {
-      this.error = "";
+      this.errorHandling('');
       localStorage.setItem('token', data.json().token);
       localStorage.setItem('user', data.json().user);
       // console.log(localStorage.getItem('token'));
@@ -85,14 +99,21 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  errorHandling(err){
+    this.error = err;
+    this.errorStyling()
+    delete localStorage.token
+  }
+
   register() {
     if (this.registrationForm) {
       this.registrationForm = false;
     } else {
       this.registrationForm = true;
     }
+    this.upAnimationClass = ['upM'];
+    this.errorClear();
   }
-
 }
 
 

@@ -1,0 +1,22 @@
+<div class="background">
+    <div class="box">
+        <app-header></app-header>
+            <div class="details">
+                <p>Room's name</p>
+                <h2>Draw {{rand}}</h2>
+                <button>Submit</button>
+            </div>
+            <div class="draw-main">
+                <div class="colors-details">
+                    <div class="colors">
+                        <input class="picker" [(ngModel)]="color" (change)="setLineColor()">
+                        <button (click)="setLineColor()">Set</button>
+                    </div>
+                    <input [(ngModel)]="lineWeight" type="range" name="points" min="1" max="70" (change)="setLineWeight()">
+                    <button (click)="ngAfterViewInit()">Clear All</button>
+                </div>
+                <canvas id="canvas" myCanvas ></canvas>        
+            </div>
+        <div class="time"></div>
+    </div>    
+</div>

@@ -14,7 +14,6 @@ export class HeaderComponent implements OnInit {
   name: string;
 
   constructor(private httpService: HttpService, private router: Router) {
-
     this.name = localStorage.getItem('user');
 
   }

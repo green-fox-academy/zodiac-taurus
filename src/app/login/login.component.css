@@ -6,10 +6,10 @@
     background: #4BCABE;
     width: 100vw;
     height: 100vh;
+    font-family: 'Roboto', sans-serif;
 }
 
 .loginbox {
-    justify-content: space-between;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -25,15 +25,15 @@
 }
 
 h3 {
-    padding: 70px 30px;
-    font-size: 32px;
-    font-family: 'Roboto', sans-serif;
-    color: #4BCABE;
-
+    padding: 70px 0px;
+    font-size: 42px;
+    font-weight: bolder;
+    color: #a5dcd7;
 }
 
-span {
-    display: block;
+input:focus {
+    outline-width: 2px;
+    outline-color: #a5dcd7;
 }
 
 input {
@@ -41,9 +41,10 @@ input {
     height: 42px;
     background: #0F2E3F;
     color: #FFF;
-    border: 1px solid #0F2E3F;
+    border: 0;
     margin-bottom: 25px;
-    border-radius: 3px;
+    border-radius: 5px;
+    border: 2px solid transparent;
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     text-indent: 45px; 
@@ -71,12 +72,37 @@ input {
     background-size: 18px;
 }
 
+@keyframes moveDowm {
+    0%   { left:0px; top:-70px;}
+    100%   { left:0px; top:0px;}
+}
+
+.downM {
+    position: relative;
+    animation-name: moveDowm;
+    animation-duration: 0.7s;
+}
+
+@keyframes moveUp {
+    0%   { left:0px; top:70px;}
+    100%   { left:0px; top:0px;}
+}
+
+.upM {
+    position: relative;
+    animation-name: moveUp;
+    animation-duration: 0.4s;
+}
+
 .re-pass {
     background-color: #0F2E3F;
     background-image: url('../../assets/redo-arrow.svg');
     background-repeat: no-repeat;
     background-position: 10px center;
     background-size: 18px;
+    position: relative;
+    animation-name: example;
+    animation-duration: 0.7s;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -105,17 +131,33 @@ button:hover {
 }
 
 .regLog {
-    font-family: 'Roboto', sans-serif;
-    color: #cbcbc9;
-    font-size: 22px;
-    margin-bottom: 40px;
+    color: #a5dcd7;
+    font-size: 16px;
+    margin-top: 20px;
+    font-weight: bolder;
 }
 
 .regLog:hover {
     cursor: pointer;
 }
 
+@keyframes comeIn {
+    0%   { font-size: 3px; }
+    100%   { font-size: 16px; }
+}
+
 .error {
-    color: red;
-    margin-top: 20px;
+    color: tomato;
+    font-weight: bolder;
+    margin-bottom: 20px;
+    animation-name: comeIn;
+    animation-duration: 0.7s;
+}
+
+.pageName {
+    color: #a5dcd7;
+    font-weight: bolder;
+    font-size: 30px;
+    margin-top: -30px;
+    margin-bottom: 20px;
 }
