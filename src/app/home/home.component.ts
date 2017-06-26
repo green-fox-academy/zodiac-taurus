@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
 
   error: string;
   rooms = [];
+  p: number = 1;
 
   constructor(private httpService: HttpService, private router: Router ) {
 
