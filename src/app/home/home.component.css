@@ -68,7 +68,7 @@ h4 {
   cursor: pointer;
 }
 
-.logo_picture {
+.login_picture {
   width: 40px;
   height: 40px;
   background-image: url('../../assets/user_white.svg');
@@ -124,12 +124,12 @@ h4 div p:hover {
   background-color: #1E4A5D;
   box-shadow: 0px 10px 51px -3px rgba(0,0,0,0.65);
 
-
   /* *** teszt kep *** */
-  background-image: url('../../assets/user_white.svg');
+  /*background-image: url('../../assets/user_white.svg');*/
+  background-image: url('../../assets/8biticon_male.jpg');
   background-repeat: no-repeat;
   background-position: 25px center;
-  background-size: 18px;
+  background-size: 42px;
 }
 
 .user p {
@@ -149,24 +149,26 @@ h4 div p:hover {
 }
 
 .userCreate p {
-  font-size: 18px;
+  font-size: 23px;
+  font-weight: 300;
   border-radius: 10px;
   padding: 5px 20px;
-  background-color: #4BCABE;
-  color: #1E4A5D;
+  /*background-color: #4BCABE;*/
+  color: #4BCABE;
   font-family: 'Roboto', sans-serif;
   cursor: pointer;
 }
 
-.userCreate p:hover {
-  background-color: #CFD8DC;
-}
+.userCreate:hover p {display:none}
 
-p {
-  font-size: 18px;
-  color: #4BCABE;
+.userCreate:hover:before {
+  background-color: #83BBBC;
+  content:"CREATE !";
+  font-size: 36px;
+  color: #1E4A5D;
   font-family: 'Roboto', sans-serif;
 }
+
 
 .button {
   margin-right: 20px;
@@ -179,8 +181,21 @@ p {
   cursor: pointer;
 }
 
+p {
+  font-size: 18px;
+  color: #4BCABE;
+  font-family: 'Roboto', sans-serif;
+}
+
 .button:hover {
   color: #1E4A5D;
   background-color: #CFD8DC;
+}
+
+.pagination {
+  display: flex;
+  height: 50px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
 }
 

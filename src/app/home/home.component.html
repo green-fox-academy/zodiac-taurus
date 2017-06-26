@@ -2,11 +2,16 @@
   <div class="box">
   <app-header></app-header>
     <div class="main">
-      <div *ngFor="let room of rooms" class="user" >
-        <p>{{ room.name }}</p><div class="button {{room.id}}">Join</div>
+      <div *ngFor="let room of rooms | paginate: { itemsPerPage: 11, currentPage: p }" class="user" >
+        <p>{{ room.name }}</p><div class="button room_{{room.id}}">Join</div>
       </div>
-      <div class="userCreate"><p (click)="createRoomButton()">Create room</p></div>
+      <div class="userCreate">
+        <p (click)="createRoomButton()">Don't have a room? Create one!</p>
+      </div>
     </div>
+  <div class="pagination">
+    <pagination-controls (pageChange)="p = $event" previousLabel="" nextLabel=""></pagination-controls>
+  </div>
   </div>
 <!-- </div> -->
 
