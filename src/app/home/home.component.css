@@ -1,4 +1,4 @@
-.background {
+/*.background {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -6,43 +6,69 @@
   width: 100%;
   min-height: 100vh;
 }
+*/
 
 .box {
   display: flex;
   flex-direction: column;
-  width: 95%;
-  min-height: 600px;
+  align-items: center;
+  justify-content: center;
+  min-width: 1380px;
+  height: 100vh;
   background: #1E4A5D;
-  box-shadow: 0px 10px 51px -3px rgba(0,0,0,0.65);
+  /*box-shadow: 0px 10px 51px -3px rgba(0,0,0,0.65);*/
 }
 
+.main {
+  height: 100%;
+  padding: 50px 100px;
+  background: #4BCABE;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+/*********   HEADER  ******************/
+
 .header {
-  height: 20vh;
+  min-width: 1380px;
+  height: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 h3 {
-  padding-left: 60px;
+  padding-left: 150px;
   background: #1E4A5D;
   font-size: 28px;
   font-family: 'Roboto', sans-serif;
-  color: #4BCABE;
+  font-weight: 700;
+  color: #CFD8DC;
   cursor: default;
 }
 
 h4 {
   display: flex;
   align-items: center;
-  color: #4BCABE;
-  margin-right: 20px;
+  color: #CFD8DC;
   font-size: 22px;
   font-family: 'Roboto', sans-serif;
+  font-weight: 500;
   cursor: default;
 }
 
-.picture {
+.logout {
+  padding-right: 100px;
+  display: flex;
+  justify-content: space-between;
+  min-width: 100px;
+  height: 40px;
+  margin-right: 40px;
+  cursor: pointer;
+}
+
+.logo_picture {
   width: 40px;
   height: 40px;
   background-image: url('../../assets/user_white.svg');
@@ -51,6 +77,8 @@ h4 {
 }
 
 /****************************************/
+
+/********   DROPDOWN MENU   *************/
 
 h4 div {
   display: none;
@@ -83,34 +111,19 @@ h4 div p:hover {
 
 /****************************************/
 
-.main {
-  height: 100%;
-  padding: 5px 45px;
-  background: #1E4A5D;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  align-content: flex-start;
-}
-
-.logout {
-  display: flex;
-  justify-content: space-between;
-  min-width: 100px;
-  height: 40px;
-  margin-right: 40px;
-  cursor: pointer;
-}
 
 .user {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 15px;
-  min-width: 350px;
-  height: 60px;
-  border: 1px solid #4BCABE;
+  min-width: 380px;
+  height: 100px;
+  border-radius: 10px;
   cursor: default;
+  background-color: #1E4A5D;
+  box-shadow: 0px 10px 51px -3px rgba(0,0,0,0.65);
+
 
   /* *** teszt kep *** */
   background-image: url('../../assets/user_white.svg');
@@ -128,9 +141,10 @@ h4 div p:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 350px;
-  height: 60px;
-  border: 1px solid #4BCABE;
+  width: 380px;
+  height: 100px;
+  border-radius: 10px;
+  background-color: #1E4A5D;
   cursor: default;
 }
 
