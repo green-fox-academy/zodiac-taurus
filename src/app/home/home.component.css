@@ -1,37 +1,29 @@
-/*.background {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #4BCABE;
-  width: 100%;
-  min-height: 100vh;
-}
-*/
-
 .box {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  min-width: 1380px;
-  height: 100vh;
+  /*justify-content: center;*/
+  min-width: 100%;
+  min-height: 100%;
   background: #1E4A5D;
-  /*box-shadow: 0px 10px 51px -3px rgba(0,0,0,0.65);*/
 }
 
 .main {
-  height: 100%;
-  padding: 50px 100px;
   background: #4BCABE;
   display: flex;
   justify-content: space-around;
+  align-content: flex-start;
   flex-wrap: wrap;
+  width: 100%;
+  min-height: 76vh;
+  padding-top: 50px;
+  padding-bottom: 25px;
 }
 
 /*********   HEADER  ******************/
 
 .header {
-  min-width: 1380px;
+  min-width: 100vw;
   height: 60px;
   display: flex;
   justify-content: space-between;
@@ -44,14 +36,14 @@ h3 {
   font-size: 28px;
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
-  color: #CFD8DC;
+  color: #BCF7EE;
   cursor: default;
 }
 
 h4 {
   display: flex;
   align-items: center;
-  color: #CFD8DC;
+  color: #BCF7EE;
   font-size: 22px;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
@@ -59,7 +51,6 @@ h4 {
 }
 
 .logout {
-  padding-right: 100px;
   display: flex;
   justify-content: space-between;
   min-width: 100px;
@@ -71,12 +62,16 @@ h4 {
 .login_picture {
   width: 40px;
   height: 40px;
-  background-image: url('../../assets/user_white.svg');
+  margin-right: 5px;
+  background-size: 40px;
+  border: 2px solid lightgrey;
+  border-radius: 3px;
+  background-image: url('../../assets/8biticon_male.jpg');
+
   background-repeat: no-repeat;
   background-position: center center;
 }
 
-/****************************************/
 
 /********   DROPDOWN MENU   *************/
 
@@ -109,35 +104,61 @@ h4 div p:hover {
   cursor: pointer;
 }
 
-/****************************************/
 
+/*************  USER ***********************/
 
 .user {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  margin-bottom: 15px;
-  min-width: 380px;
+  margin:  20px;
+  width: 380px;
   height: 100px;
   border-radius: 10px;
   cursor: default;
   background-color: #1E4A5D;
   box-shadow: 0px 10px 51px -3px rgba(0,0,0,0.65);
+}
 
+.userImage {
+  min-width: 70px;
+  height: 70px;
   /* *** teszt kep *** */
-  /*background-image: url('../../assets/user_white.svg');*/
   background-image: url('../../assets/8biticon_male.jpg');
   background-repeat: no-repeat;
-  background-position: 25px center;
-  background-size: 42px;
+  background-position: center center;
+  background-size: 70px;
+  border: 2px solid lightgrey;
+  border-radius: 3px;
+  margin-left: 10px ;
 }
 
 .user p {
+  text-indent: 30px;
   font-size: 18px;
-  text-indent: 60px;
+  color: #4BCABE;
+  font-family: 'Roboto', sans-serif;
 }
 
+.button:hover p {display:none}
+
+.button:hover:after  {
+  background-color: #83BBBC;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  content:"JOIN";
+  font-size: 34px;
+  color: #1E4A5D;
+  padding: 33px 134px 33px 87px;
+  border-radius: 0px 10px 10px 0px;
+}
+
+
+/*************  USER CREATE ******************/
+
+
 .userCreate {
+  margin:  20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -146,6 +167,21 @@ h4 div p:hover {
   border-radius: 10px;
   background-color: #1E4A5D;
   cursor: default;
+  box-shadow: 0px 10px 51px -3px rgba(0,0,0,0.65);
+}
+
+.userCreate:hover p {display:none}
+
+.userCreate:hover:before {
+  box-sizing: content-box;
+  background-color: #83BBBC;
+  content:"CREATE";
+  font-size: 34px;
+  color: #1E4A5D;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  padding: 33px 137px 33px 121px;
+  border-radius: 10px;
 }
 
 .userCreate p {
@@ -153,49 +189,49 @@ h4 div p:hover {
   font-weight: 300;
   border-radius: 10px;
   padding: 5px 20px;
-  /*background-color: #4BCABE;*/
   color: #4BCABE;
   font-family: 'Roboto', sans-serif;
   cursor: pointer;
 }
 
-.userCreate:hover p {display:none}
 
-.userCreate:hover:before {
-  background-color: #83BBBC;
-  content:"CREATE !";
-  font-size: 36px;
-  color: #1E4A5D;
-  font-family: 'Roboto', sans-serif;
-}
+/*********   PAGIANATION   **************/
 
-
-.button {
-  margin-right: 20px;
-  font-size: 18px;
-  border-radius: 10px;
-  padding: 5px 20px;
-  background-color: #4BCABE;
-  color: #1E4A5D;
-  font-family: 'Roboto', sans-serif;
-  cursor: pointer;
-}
-
-p {
-  font-size: 18px;
-  color: #4BCABE;
-  font-family: 'Roboto', sans-serif;
-}
-
-.button:hover {
-  color: #1E4A5D;
-  background-color: #CFD8DC;
-}
 
 .pagination {
   display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: #4BCABE;
   height: 50px;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
 }
+
+.pagination /deep/ ul.ngx-pagination {
+    background: #4BCABE;
+    color: red;
+}
+
+.pagination /deep/ a{
+    background: #4BCABE;
+    color: #1E4A5D;
+}
+
+.pagination /deep/ a:hover {
+    background: #1E4A5D;
+    color: #4BCABE;
+}
+
+.pagination /deep/ .current {
+    background: #1E4A5D;
+    color: #83BBBC;
+}
+
+.pagination /deep/ .pagination-previous {
+  color: #1E4A5D;
+}
+
+
+
 
