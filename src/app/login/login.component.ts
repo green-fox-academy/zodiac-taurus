@@ -15,6 +15,7 @@ import { Observable } from 'rxjs/Observable';
 export class LoginComponent implements OnInit {
 
   name: string;
+  userFromToken: string;
   passw: string;
   repassw: string;
   error: string;
@@ -76,7 +77,6 @@ export class LoginComponent implements OnInit {
     } else {
       this.error = "";
       localStorage.setItem('token', data.json().token);
-      localStorage.setItem('user', data.json().user);
       this.router.navigate(['']);
     }
   }
