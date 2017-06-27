@@ -85,4 +85,3 @@ export class LoginComponent implements OnInit {
     this.registrationForm = !this.registrationForm;
   }
 }
-

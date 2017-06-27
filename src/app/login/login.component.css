@@ -1,4 +1,3 @@
-
 .background {
     display: flex;
     justify-content: center;
@@ -29,7 +28,6 @@ h3 {
     font-size: 32px;
     font-family: 'Roboto', sans-serif;
     color: #4BCABE;
-
 }
 
 span {
@@ -50,17 +48,11 @@ input {
 }
 
 .user-name {
-    /*background: url("user_white.svg") no-repeat scroll  10px center;*/
-    /*background-size: 18px;*/
-
-    /*the shorthand didn't work*/
-
     background-color: #0F2E3F;
     background-image: url('../../assets/user_white.svg');
     background-repeat: no-repeat;
     background-position: 10px center;
     background-size: 18px;
-
 }
 
 .password {
