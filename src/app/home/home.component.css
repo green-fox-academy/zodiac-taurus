@@ -7,10 +7,18 @@
   background: #1E4A5D;
 }
 
+.container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background: #4BCABE;
+  padding-left: 75px;
+}
+
 .main {
   background: #4BCABE;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-content: flex-start;
   flex-wrap: wrap;
   width: 100%;
