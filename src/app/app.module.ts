@@ -13,6 +13,8 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { DrawComponent } from './draw/draw.component';
 import { CanvasComponent } from './canvas/canvas.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { CanvasComponent } from './canvas/canvas.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxPaginationModule
   ],
   providers: [HttpService, RoutingService, LoginCheckService ],
   bootstrap: [AppComponent]
