@@ -14,9 +14,7 @@ export class HeaderComponent implements OnInit {
   name: string;
 
   constructor(public loginCheckService:LoginCheckService, private httpService: HttpService, private router: Router) {
-
     this.name = localStorage.getItem('user');
-
   }
 
   ngOnInit() {

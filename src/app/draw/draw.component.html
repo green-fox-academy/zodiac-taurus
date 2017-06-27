@@ -1,0 +1,26 @@
+<div class="background">
+    <!--<app-header></app-header>-->
+    <div class="box">
+        <div class="properties">
+            <div>
+                <h3>Valaki's room</h3>
+                <p class="draw-that">Draw an <span>ELEPHANT</span></p>
+                <p class="player">playing with<br>John3612</p>
+            </div>
+            <div class="all-colors">
+                <div *ngFor="let color of colors" [ngClass]=color class="color" (click)="canvas.setLineColor(color)"></div>
+            </div>
+            <div>
+                <div class="lines">
+                    <div class="normal" (click)="canvas.setLineWeight(2)"></div>
+                    <div class="bold" (click)="canvas.setLineWeight(13)"></div>
+                    <div class="bolder" (click)="canvas.setLineWeight(27)"></div>
+                </div>
+                <button>Submit</button><button (click)="canvas.ngAfterViewInit()">Reset</button>
+            </div>
+        </div>
+        <div class="canvas">
+            <app-canvas></app-canvas>
+        </div>    
+    </div>    
+</div>

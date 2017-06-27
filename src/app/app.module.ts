@@ -11,14 +11,19 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
+import { DrawComponent } from './draw/draw.component';
+import { CanvasComponent } from './canvas/canvas.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    DrawComponent,
+    CanvasComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,143 @@
+.background {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #4BCABE;
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+}
+
+.box {
+  display: flex;
+  width: 80%;
+  min-height: 500px;
+  background: #1E4A5D;
+  box-shadow: 0px 10px 51px -3px rgba(0,0,0,0.65);
+}
+
+h3 {
+    font-size: 40px;
+    color: white;
+    font-weight: bolder;
+    padding-bottom: 10px;
+}
+
+.canvas {
+    padding-left: 10px;
+    padding-top: 20px;
+    width: 60%;
+}
+
+.properties {
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding-left: 100px;
+    padding-right: 80px;
+    width: 40%;
+}
+
+.draw-that {
+    color: white;
+    font-size: 24px;
+    padding-bottom: 20px;
+}
+
+span {
+    font-weight: bolder;
+}
+
+.player {
+    font-weight: 20px;
+    color: white;
+    line-height: 22px;
+    padding-bottom: 30px;
+}
+
+.color {
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    display: inline-block;
+}
+
+.red {
+    background-color: #e84534;
+}
+
+.yellow {
+    background-color: #ffef03;
+}
+
+.orange {
+    background-color: #f98f1f;
+}
+
+.black {
+    background-color: black;
+}
+
+.purple {
+    background-color: #a54398;
+}
+
+.blue {
+    background-color: #3c5daa;
+}
+
+.green {
+    background-color: #00a458;
+}
+
+.white {
+    background-color: white;
+}
+
+button {
+    padding: 10px;
+    margin-right: 5px;
+    color: #c6d0d4;
+    border: 0;
+    background-color: #2b5a6a;
+}
+
+.lines {
+    display: flex;
+    justify-content: center;
+}
+
+.normal, .bold, .bolder {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    margin: 22px 5px;
+}
+
+.normal {
+    background: url('../../assets/norm.png') center no-repeat;
+    background-color: #2b5a6a;
+	background-size: 80%;
+}
+
+.bold {
+    background: url('../../assets/bold.png') center no-repeat;
+    background-color: #2b5a6a;
+	background-size: 80%;
+}
+
+.bolder {
+    background: url('../../assets/bolder.png') center no-repeat;
+    background-color: #2b5a6a;
+	background-size: 80%;
+}
+
+.active {
+    border: 2px solid #c6d0d4;
+}
+
+button:hover, .color:hover, .normal:hover, .bold:hover, .bolder:hover {
+    cursor: pointer;
+}
