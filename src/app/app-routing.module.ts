@@ -10,7 +10,8 @@ import { RoutingService } from './routing.service';
 const routes: Routes = [
       { path: 'login', component: LoginComponent },
       { path: '', component: HomeComponent, canActivate:[RoutingService] },
-      { path: 'draw', component: DrawComponent, canActivate:[RoutingService] }
+      { path: 'draw', component: DrawComponent, canActivate:[RoutingService] },
+      { path: '**', redirectTo: '' }
       ];
 
 @NgModule({
