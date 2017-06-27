@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpService } from '../http.service';
 import { HeaderComponent } from '../header/header.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
   selector: 'app-home',
@@ -13,8 +14,9 @@ export class HomeComponent implements OnInit {
 
   error: string;
   rooms = [];
+  p: number = 1;
 
-  constructor(private httpService: HttpService, private router: Router) {
+  constructor(private httpService: HttpService, private router: Router ) {
 
     this.listRooms();
 

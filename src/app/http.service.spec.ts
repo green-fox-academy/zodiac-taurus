@@ -3,7 +3,6 @@ import { HttpModule, Http, XHRBackend, ResponseOptions, Response } from '@angula
 import { MockBackend, MockConnection } from '@angular/http/testing';
 import { HttpService } from './http.service';
 
-
 describe('HttpService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -41,7 +40,4 @@ describe('HttpService', () => {
       });
     })
   })
-
-
-
 });

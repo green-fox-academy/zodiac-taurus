@@ -12,11 +12,7 @@ import { HeaderComponent } from '../header/header.component';
 import { HomeComponent } from './home.component';
 import { HttpService } from '../http.service';
 import { LoginCheckService } from '../login-check.service'
-
-class home {
-  public homeComponent: HomeComponent;
-}
-
+import { NgxPaginationModule } from 'ngx-pagination';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -24,7 +20,7 @@ describe('HomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ HttpModule ],
+      imports: [ HttpModule, NgxPaginationModule ],
       declarations: [ HomeComponent, HeaderComponent ],
       providers: [ HttpService,  { provide: Router }, LoginCheckService ]
     })
@@ -41,16 +37,4 @@ describe('HomeComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  /*it('Room checker', () => {
-      const mockRespons = {
-        'id': "1",
-        'name': "Szilardoo's room",
-        'owner': 'Szilardoo'
-      }
-
-      const result = component.listRoom(mockRespons);
-
-      //expect(component.listRoom(mockRespons)).toEqual(mockRespons);
-      //rooms.toBe(10);
-  });*/
 });
