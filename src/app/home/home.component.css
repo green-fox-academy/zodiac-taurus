@@ -7,15 +7,23 @@
   background: #1E4A5D;
 }
 
+.container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background: #4BCABE;
+  padding-left: 75px;
+}
+
 .main {
   background: #4BCABE;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-content: flex-start;
   flex-wrap: wrap;
   width: 100%;
   min-height: 76vh;
-  padding-top: 50px;
+  padding-top: 35px;
   padding-bottom: 25px;
 }
 
@@ -23,7 +31,7 @@
 
 .header {
   min-width: 100vw;
-  height: 60px;
+  height: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,29 +40,19 @@
 h3 {
   padding-left: 150px;
   background: #1E4A5D;
-  font-size: 28px;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 700;
-  color: #BCF7EE;
-  cursor: default;
-}
-
-h4 {
-  display: flex;
-  align-items: center;
-  color: #BCF7EE;
-  font-size: 22px;
+  font-size: 32px;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
+  color: #BCF7EE;
   cursor: default;
 }
 
 .logout {
   display: flex;
-  justify-content: space-between;
-  min-width: 100px;
+  justify-content: flex-end;
+  min-width: 200px;
   height: 40px;
-  margin-right: 40px;
+  margin-right: 160px;
   cursor: pointer;
 }
 
@@ -70,6 +68,16 @@ h4 {
   background-position: center center;
 }
 
+h4 {
+  display: flex;
+  align-items: center;
+  color: #BCF7EE;
+  font-size: 22px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  cursor: default;
+}
+
 /********   DROPDOWN MENU   *************/
 
 h4 div {
@@ -80,25 +88,31 @@ h4 div {
 h4:hover > div {
   display: flex;
   flex-direction: column;
+  max-width: 150px;
+  background: #1E4A5D;
+  border-top: 14px solid #1E4A5D;
 }
 
 h4 div p {
-  margin-top: 5px;
-  padding: 5px;
+  display: flex;
+  padding: 2px;
+  width: 100px;
+  justify-content: flex-end;
 }
 
 h4 div p:hover {
-  background: #CFD8DC;
+  background: #83BBBC;
   color: #1E4A5D;
-  border-radius: 6px;
 }
 
 .profileButton {
   cursor: not-allowed;
+  font-size: 18px;
 }
 
 .logoutButton {
   cursor: pointer;
+  font-size: 18px;
 }
 
 /*************  USER ***********************/
@@ -107,9 +121,9 @@ h4 div p:hover {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin: 20px;
-  width: 380px;
-  height: 100px;
+  margin: 20px 12px;
+  width: 350px;
+  height: 90px;
   border-radius: 10px;
   cursor: default;
   background-color: #1E4A5D;
@@ -146,19 +160,19 @@ h4 div p:hover {
   content:"JOIN";
   font-size: 34px;
   color: #1E4A5D;
-  padding: 33px 134px 33px 87px;
+  padding: 28px 106px 28px 84px;
   border-radius: 0px 10px 10px 0px;
 }
 
 /*************  USER CREATE ******************/
 
 .userCreate {
-  margin:  20px;
+  margin:  20px 12px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 380px;
-  height: 100px;
+  width: 350px;
+  height: 90px;
   border-radius: 10px;
   background-color: #1E4A5D;
   cursor: default;
@@ -170,14 +184,13 @@ h4 div p:hover {
 }
 
 .userCreate:hover:before {
-  box-sizing: content-box;
   background-color: #83BBBC;
   content: "CREATE";
   font-size: 34px;
   color: #1E4A5D;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
-  padding: 33px 137px 33px 121px;
+  padding: 28px 111px 28px 116px;
   border-radius: 10px;
 }
 
@@ -191,7 +204,7 @@ h4 div p:hover {
   cursor: pointer;
 }
 
-/*********   PAGIANATION   **************/
+/*********   PAGINATION   **************/
 
 .pagination {
   display: flex;
