@@ -1,22 +1,26 @@
 <div class="background">
+    <!--<app-header></app-header>-->
     <div class="box">
-        <app-header></app-header>
-            <div class="details">
-                <p>Room's name</p>
-                <h2>Draw {{rand}}</h2>
-                <button>Submit</button>
+        <div class="properties">
+            <div>
+                <h3>Valaki's room</h3>
+                <p class="draw-that">Draw an <span>ELEPHANT</span></p>
+                <p class="player">playing with<br>John3612</p>
             </div>
-            <div class="draw-main">
-                <div class="colors-details">
-                    <div class="colors">
-                        <input class="picker" [(ngModel)]="color" (change)="setLineColor()">
-                        <button (click)="setLineColor()">Set</button>
-                    </div>
-                    <input [(ngModel)]="lineWeight" type="range" name="points" min="1" max="70" (change)="setLineWeight()">
-                    <button (click)="ngAfterViewInit()">Clear All</button>
+            <div class="all-colors">
+                <div *ngFor="let color of colors" [ngClass]=color class="color" (click)="canvas.setLineColor(color)"></div>
+            </div>
+            <div>
+                <div class="lines">
+                    <div class="normal" (click)="canvas.setLineWeight(2)"></div>
+                    <div class="bold" (click)="canvas.setLineWeight(13)"></div>
+                    <div class="bolder" (click)="canvas.setLineWeight(27)"></div>
                 </div>
-                <canvas id="canvas" myCanvas ></canvas>        
+                <button>Submit</button><button (click)="canvas.ngAfterViewInit()">Reset</button>
             </div>
-        <div class="time"></div>
+        </div>
+        <div class="canvas">
+            <app-canvas></app-canvas>
+        </div>    
     </div>    
 </div>

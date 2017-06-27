@@ -22,11 +22,24 @@ export class LoginComponent implements OnInit {
   repassw: string;
   error: string;
   registrationForm = false;
+  dismissErr;
 
-  constructor(private httpService: HttpService, private router: Router) {}
+  constructor(private httpService: HttpService, private router: Router) {
+    window.addEventListener("keydown", this.enterEvent.bind(this));
+  }
 
   ngOnInit() {
   }
+
+  enterEvent(e){
+		if(e.keyCode == 13){
+			if(this.registrationForm){
+        this.registrationEvent(this.name, this.passw, this.repassw);
+      } else {
+         this.loginEvent(this.name, this.passw);
+      }
+		}
+	}
 
   errorStyling(){
     if(this.error){
@@ -37,8 +50,7 @@ export class LoginComponent implements OnInit {
   }
 
   errorClear(){
-    this.error = '';
-    this.errorStyling();
+    this.errorHandling('');
   }
 
   registrationEvent(username, passw, repassw) {
@@ -47,7 +59,6 @@ export class LoginComponent implements OnInit {
       pass: passw,
       repass: repassw
     }
-
     if (this.validation(obj)) {
       this.httpService.registerPostToServer(obj).subscribe(
         (response) => this.saveTokenToLocalstorage(response),
@@ -63,7 +74,6 @@ export class LoginComponent implements OnInit {
     };
 
     if (this.validation(obj)) { 
-
       this.httpService.loginPostToServer(obj).subscribe(
         (response) => this.saveTokenToLocalstorage(response),
         (error) => console.log(error)
@@ -72,18 +82,19 @@ export class LoginComponent implements OnInit {
   };
 
   validation(obj) {
+    var result;
     if (!obj.user || !obj.pass ) {
       this.errorHandling('Missing username or password');
+      result = false;
     } else {
-      if (obj.pass != obj.repass && arguments.length === 3) {
+      if (obj.pass != obj.repass && Object.keys(obj).length === 3) {
         this.errorHandling('Passwords don\'t match');
+        result = false;
       } else {
-        return {
-          user: obj.user,
-          pass: obj.pass
-        }
+        result = true;
       }
     }
+    return result;
   }
 
   saveTokenToLocalstorage(data) {
@@ -98,9 +109,18 @@ export class LoginComponent implements OnInit {
   }
 
   errorHandling(err){
-    this.error = err;
-    this.errorStyling()
-    delete localStorage.token
+    if(!err){
+      this.dismissErr = ['dishmiss']
+      setTimeout(function(){ 
+        this.error = err;
+        this.errorStyling()
+       }.bind(this), 550);
+    } else {
+      this.dismissErr = ['']
+      this.error = err;
+      this.errorStyling()
+      delete localStorage.token
+    }
   }
 
   register() {

@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { DrawComponent } from './draw/draw.component';
+import { CanvasComponent } from './canvas/canvas.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { DrawComponent } from './draw/draw.component';
     LoginComponent,
     HomeComponent,
     HeaderComponent,
-    DrawComponent
+    DrawComponent,
+    CanvasComponent
   ],
   imports: [
     BrowserModule,

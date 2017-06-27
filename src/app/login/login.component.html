@@ -8,12 +8,12 @@
         <div class="inputs">
           <p class="pageName" *ngIf="!registrationForm" >Member Login</p>
           <p class="pageName" *ngIf="registrationForm" >Register</p>
-          <p *ngIf="error" class="error">{{error}}</p>          
-          <input [ngStyle]="errorStyle" [(ngModel)]="name" type="text" placeholder="username" class="user-name" (click)="errorClear()">
+          <p [ngClass]="dismissErr" *ngIf="error" class="error">{{error}}</p>          
+          <input [ngStyle]="errorStyle" [(ngModel)]="name" type="text" placeholder="username" class="user-name" (click)="errorClear()" autofocus>
           <input [ngStyle]="errorStyle" [(ngModel)]="passw" type="password" placeholder="password" class="password" (click)="errorClear()">
-          <input [ngStyle]="errorStyle" [(ngModel)]="repassw" type="password" placeholder="re-password" class="re-pass" *ngIf="registrationForm" (click)="errorClear()">
+          <input [ngStyle]="errorStyle" [(ngModel)]="repassw" type="password" placeholder="confirm password" class="re-pass" *ngIf="registrationForm" (click)="errorClear()">
           <button [ngClass]="upAnimationClass" *ngIf="!registrationForm" (click)="loginEvent(name,passw)">login</button>
-          <button [ngClass]="errorStyle" class="downM" *ngIf="registrationForm" (click)="registrationEvent(name,passw,repassw)">register</button>
+          <button class="downM" *ngIf="registrationForm" (click)="registrationEvent(name,passw,repassw)">register</button>
         </div>
       </section>
       <section>

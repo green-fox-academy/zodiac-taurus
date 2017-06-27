@@ -6,6 +6,7 @@ import { DrawComponent } from './draw.component';
 import { HeaderComponent } from '../header/header.component';
 import { HttpService } from '../http.service';
 import { LoginCheckService } from '../login-check.service'
+import { CanvasComponent } from '../canvas/canvas.component'
 
 
 describe('DrawComponent', () => {
@@ -15,7 +16,7 @@ describe('DrawComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ FormsModule, ReactiveFormsModule, HttpModule ],
-      declarations: [ DrawComponent, HeaderComponent ],
+      declarations: [ DrawComponent, HeaderComponent, CanvasComponent ],
       providers: [HttpService, { provide: Router }, LoginCheckService]
     })
     .compileComponents();
