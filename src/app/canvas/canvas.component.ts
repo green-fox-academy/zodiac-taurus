@@ -102,12 +102,11 @@ export class CanvasComponent implements OnInit {
 
     submitEvent() {
     this.ngOnInit();
-    let dataURL = this.canvasEl.toDataURL();
-    console.log(dataURL);
-    let dataURLObj = {
+    const dataURL = this.canvasEl.toDataURL();
+    const dataURLObj = {
       "image_data": dataURL
     }
-    console.log(dataURLObj);
+
     this.httpService.sendImagetoServer(dataURLObj).subscribe(
       (response) => console.log(response),
       (error) => console.log(error)
