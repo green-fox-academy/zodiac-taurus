@@ -1,8 +1,8 @@
-<!--<app-header></app-header>-->
-<div class="background">
-    <div class="box">
+<div class="container">
+<app-header></app-header>
+    <div class="main">
         <div class="properties">
-            <div>
+            <div class="upper">
                 <h3>Valaki's room</h3>
                 <p class="draw-that">Draw an <span>ELEPHANT</span></p>
                 <p class="player">playing with<br>John3612</p>
@@ -16,7 +16,8 @@
                     <div class="bold" (click)="canvas.setLineWeight(13)"></div>
                     <div class="bolder" (click)="canvas.setLineWeight(27)"></div>
                 </div>
-                <button>Submit</button><button (click)="canvas.ngAfterViewInit()">Reset</button>
+                <button (click)="canvas.submitEvent()">Submit</button>
+                <button (click)="canvas.ngAfterViewInit()">Reset</button>
             </div>
         </div>
         <div class="canvas">

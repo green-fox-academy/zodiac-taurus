@@ -1,32 +1,23 @@
-.box {
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 100%;
-  min-height: 100%;
-  background: #1E4A5D;
-}
-
-.container {
-  display: flex;
-  justify-content: center;
-  align-content: center;
+  justify-content: space-between;
   background: #4BCABE;
+  height: 100vh;
   width: 100vw;
 }
 
 .main {
-  background: #4BCABE;
   display: flex;
-  justify-content: space-between;
-  align-content: flex-start;
   flex-wrap: wrap;
-  width: 100%;
-  min-height: 76vh;
-  padding-top: 35px;
-  padding-bottom: 25px;
+  justify-content: flex-start;
+  align-content: flex-start;
+  background: #4BCABE;
+  width: 1024px;
+  height: 560px;
+  padding-top: 25px;
 }
-
 
 /*************  USER ***********************/
 
@@ -35,7 +26,7 @@
   justify-content: flex-start;
   align-items: center;
   margin: 20px 25px;
-  width: 350px;
+  width: 291px;
   height: 90px;
   border-radius: 10px;
   cursor: default;
@@ -73,7 +64,7 @@
   content:"JOIN";
   font-size: 34px;
   color: #1E4A5D;
-  padding: 28px 106px 28px 84px;
+  padding: 28px 67px 28px 64px;
   border-radius: 0px 10px 10px 0px;
 }
 
@@ -84,7 +75,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 350px;
+  width: 291px;
   height: 90px;
   border-radius: 10px;
   background-color: #1E4A5D;
@@ -103,7 +94,7 @@
   color: #1E4A5D;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
-  padding: 28px 111px 28px 116px;
+  padding: 28px 84px 28px 84px;
   border-radius: 10px;
 }
 
@@ -122,9 +113,10 @@
 .pagination {
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100%;
   background-color: #4BCABE;
-  height: 50px;
+  min-height: 50px;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
 }

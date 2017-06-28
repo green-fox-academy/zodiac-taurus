@@ -4,6 +4,7 @@ import {
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from '../header/header.component';
 import {Observable} from 'rxjs/Observable';
+import { HttpService } from '../http.service';
 import 'rxjs/add/observable/fromEvent';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
@@ -20,16 +21,17 @@ import 'rxjs/add/operator/pairwise';
 @Directive({ selector: 'myCanvas' })
 
 export class CanvasComponent implements OnInit {
-  @Input() public width = 600;
-  @Input() public height = 450;
+  @Input() public width = 560;
+  @Input() public height = 420;
 
   cx:any;
   lineWeight = 2;
   canvasEl: HTMLCanvasElement;
   color = 'rgb(0,0,0)';
-  constructor(public el: ElementRef) {    
+
+  constructor(public el: ElementRef, private httpService: HttpService) {    
     console.log(el.nativeElement);
-   }
+  }
 
   ngOnInit() {
     console.log(this.el.nativeElement.children[0]);
@@ -97,5 +99,19 @@ export class CanvasComponent implements OnInit {
     this.cx.stroke();
   }
 }
+
+    submitEvent() {
+    this.ngOnInit();
+    let dataURL = this.canvasEl.toDataURL();
+    console.log(dataURL);
+    let dataURLObj = {
+      "image_data": dataURL
+    }
+    console.log(dataURLObj);
+    this.httpService.sendImagetoServer(dataURLObj).subscribe(
+      (response) => console.log(response),
+      (error) => console.log(error)
+    );
+  }
 }
 
