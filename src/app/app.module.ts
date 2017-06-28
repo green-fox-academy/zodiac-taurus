@@ -33,7 +33,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     NgxPaginationModule
   ],
   providers: [HttpService, RoutingService, LoginCheckService ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ DrawComponent, CanvasComponent ]
 })
 
 export class AppModule {}
