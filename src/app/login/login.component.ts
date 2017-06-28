@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpService } from '../http.service';
 import { Observable } from 'rxjs/Observable';
+import { LoginCheckService } from '../login-check.service';
 
 @Component({
   selector: 'app-login',
@@ -14,16 +15,44 @@ import { Observable } from 'rxjs/Observable';
 
 export class LoginComponent implements OnInit {
 
+
+  upAnimationClass;
+  errorStyle: object;
   name: string;
   userFromToken: string;
   passw: string;
   repassw: string;
   error: string;
   registrationForm = false;
+  dismissErr;
 
-  constructor(private httpService: HttpService, private router: Router) {}
+  constructor(private loginCheck: LoginCheckService, private httpService: HttpService, private router: Router) {
+    window.addEventListener("keydown", this.enterEvent.bind(this));
+  }
 
   ngOnInit() {
+  }
+
+  enterEvent(e){
+		if(e.keyCode == 13){
+			if(this.registrationForm){
+        this.registrationEvent(this.name, this.passw, this.repassw);
+      } else {
+         this.loginEvent(this.name, this.passw);
+      }
+		}
+	}
+
+  errorStyling(){
+    if(this.error){
+      this.errorStyle = {'border':'2px solid tomato'};
+    } else {
+      this.errorStyle = {'border':'2px solid transparent'};
+    }
+  }
+
+  errorClear(){
+    this.errorHandling('');
   }
 
   registrationEvent(username, passw, repassw) {
@@ -32,7 +61,6 @@ export class LoginComponent implements OnInit {
       pass: passw,
       repass: repassw
     }
-
     if (this.validation(obj)) {
       this.httpService.registerPostToServer(obj).subscribe(
         (response) => this.saveTokenToLocalstorage(response),
@@ -56,32 +84,49 @@ export class LoginComponent implements OnInit {
   };
 
   validation(obj) {
+    var result;
     if (!obj.user || !obj.pass ) {
-      this.error = 'Missing username or password';
+      this.errorHandling('Missing username or password');
+      result = false;
     } else {
-      if (obj.pass != obj.repass && arguments.length === 3) {
-        this.error = 'Password doesn\'t match';
+      if (obj.pass != obj.repass && Object.keys(obj).length === 3) {
+        this.errorHandling('Passwords don\'t match');
+        result = false;
       } else {
-        return {
-          user: obj.user,
-          pass: obj.pass
-        }
+        result = true;
       }
     }
+    return result;
   }
 
   saveTokenToLocalstorage(data) {
     if (data.json().status === 'error') {
-      this.error = data.json().message
-      delete localStorage.token
+      this.errorHandling(data.json().message);
     } else {
-      this.error = "";
+      this.errorHandling('');
       localStorage.setItem('token', data.json().token);
       this.router.navigate(['']);
     }
   }
 
+  errorHandling(err){
+    if(!err){
+      this.dismissErr = ['dishmiss']
+      setTimeout(function(){ 
+        this.error = err;
+        this.errorStyling()
+       }.bind(this), 550);
+    } else {
+      this.dismissErr = ['']
+      this.error = err;
+      this.errorStyling()
+      delete localStorage.token
+    }
+  }
+
   register() {
     this.registrationForm = !this.registrationForm;
+    this.upAnimationClass = ['upM'];
+    this.errorClear();
   }
 }

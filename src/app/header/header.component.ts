@@ -17,6 +17,7 @@ export class HeaderComponent implements OnInit {
 
     this.name = localStorage.getItem('token');
     this.tokenParse(this.name)
+    
   }
 
   ngOnInit() {

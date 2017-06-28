@@ -1,26 +1,29 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule, FormBuilder } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { Router, RouterModule } from '@angular/router';
-import { LoginComponent } from './login.component';
+import { HttpModule } from '@angular/http';
+import { DrawComponent } from './draw.component';
+import { HeaderComponent } from '../header/header.component';
 import { HttpService } from '../http.service';
-import { LoginCheckService } from '../login-check.service';
+import { LoginCheckService } from '../login-check.service'
+import { CanvasComponent } from '../canvas/canvas.component'
 
-describe('LoginComponent', () => {
-  let component: LoginComponent;
-  let fixture: ComponentFixture<LoginComponent>;
+
+describe('DrawComponent', () => {
+  let component: DrawComponent;
+  let fixture: ComponentFixture<DrawComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ FormsModule, ReactiveFormsModule, HttpModule ],
-      declarations: [ LoginComponent ],
+      declarations: [ DrawComponent, HeaderComponent, CanvasComponent ],
       providers: [HttpService, { provide: Router }, LoginCheckService]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoginComponent);
+    fixture = TestBed.createComponent(DrawComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
