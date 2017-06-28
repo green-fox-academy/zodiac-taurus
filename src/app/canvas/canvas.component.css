@@ -3,7 +3,6 @@ canvas:hover {
 }
 
 canvas {
-    /*border: 3px solid #4BCABE;*/
     width: 560px;
     height: 420px;
     background: white;
