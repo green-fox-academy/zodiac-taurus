@@ -4,6 +4,7 @@ import { HttpModule } from '@angular/http';
 import { Router, RouterModule } from '@angular/router';
 import { LoginComponent } from './login.component';
 import { HttpService } from '../http.service';
+import { LoginCheckService } from '../login-check.service';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -13,7 +14,7 @@ describe('LoginComponent', () => {
     TestBed.configureTestingModule({
       imports: [ FormsModule, ReactiveFormsModule, HttpModule ],
       declarations: [ LoginComponent ],
-      providers: [HttpService, { provide: Router }]
+      providers: [HttpService, { provide: Router }, LoginCheckService]
     })
     .compileComponents();
   }));
