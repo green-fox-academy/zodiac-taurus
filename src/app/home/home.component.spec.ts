@@ -14,6 +14,7 @@ import { HttpService } from '../http.service';
 import { LoginCheckService } from '../login-check.service'
 import { NgxPaginationModule } from 'ngx-pagination';
 
+
 describe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;

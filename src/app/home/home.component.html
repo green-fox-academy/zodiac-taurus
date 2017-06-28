@@ -1,21 +1,17 @@
-  <div class="box">
-  <app-header></app-header>
-    <div class="container">
-      <div class="main">
-      <div routerLink="/draw" *ngFor="let room of rooms | paginate: { itemsPerPage: 11, currentPage: p }" class="user button room_{{room.id}}" >
-        <div class="userImage"></div>
-        <div class="roomName">
-          <p>{{ room.name }}</p>
+<div class="container">
+    <app-header></app-header>
+    <div class="main">
+        <div routerLink="/draw" *ngFor="let room of rooms | paginate: { itemsPerPage: 11, currentPage: p }" class="user button room_{{room.id}}" >
+            <div class="userImage"></div>
+            <div class="roomName">
+                <p>{{ room.name }}</p>
+            </div>
         </div>
-      </div>
-      <div class="userCreate" (click)="createRoomButton()">
-        <p>Don't have a room? Create one!</p>
-      </div>
+        <div class="userCreate" (click)="createRoomButton()">
+            <p>Don't have a room? Create one!</p>
+        </div>
     </div>
+    <div class="pagination">
+        <pagination-controls (pageChange)="p = $event" previousLabel="" nextLabel="" maxSize="5"></pagination-controls>
     </div>
-  <div class="pagination">
-    <pagination-controls (pageChange)="p = $event" previousLabel="" nextLabel="" maxSize="5"></pagination-controls>
-  </div>
-  </div>
-
-
+</div>

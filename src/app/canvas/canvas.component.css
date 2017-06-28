@@ -3,9 +3,8 @@ canvas:hover {
 }
 
 canvas {
-    border: 3px solid #4BCABE;
-    width: 600px;
-    height: 450px;
+    width: 560px;
+    height: 420px;
     background: white;
     box-shadow: 0px 10px 51px -3px rgba(0,0,0,0.65);
 }

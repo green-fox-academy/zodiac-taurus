@@ -1,118 +1,22 @@
-.box {
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 100%;
-  min-height: 100%;
-  background: #1E4A5D;
-}
-
-.container {
-  display: flex;
-  justify-content: center;
-  align-content: center;
+  justify-content: space-between;
   background: #4BCABE;
+  height: 100vh;
   width: 100vw;
 }
 
 .main {
-  background: #4BCABE;
   display: flex;
-  justify-content: space-between;
-  align-content: flex-start;
   flex-wrap: wrap;
-  width: 100%;
-  min-height: 76vh;
-  padding-top: 35px;
-  padding-bottom: 25px;
-}
-
-/*********   HEADER  ******************/
-
-.header {
-  min-width: 100vw;
-  height: 50px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-h3 {
-  padding-left: 150px;
-  background: #1E4A5D;
-  font-size: 32px;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
-  color: #BCF7EE;
-  cursor: default;
-}
-
-.logout {
-  display: flex;
-  justify-content: flex-end;
-  min-width: 200px;
-  height: 40px;
-  margin-right: 160px;
-  cursor: pointer;
-}
-
-.login_picture {
-  width: 40px;
-  height: 40px;
-  margin-right: 5px;
-  background-size: 40px;
-  border: 2px solid lightgrey;
-  border-radius: 3px;
-  background-image: url('../../assets/8biticon_male.jpg');
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-h4 {
-  display: flex;
-  align-items: center;
-  color: #BCF7EE;
-  font-size: 22px;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
-  cursor: default;
-}
-
-/********   DROPDOWN MENU   *************/
-
-h4 div {
-  display: none;
-  position: absolute;
-}
-
-h4:hover > div {
-  display: flex;
-  flex-direction: column;
-  max-width: 150px;
-  background: #1E4A5D;
-  border-top: 14px solid #1E4A5D;
-}
-
-h4 div p {
-  display: flex;
-  padding: 2px;
-  width: 100px;
-  justify-content: flex-end;
-}
-
-h4 div p:hover {
-  background: #83BBBC;
-  color: #1E4A5D;
-}
-
-.profileButton {
-  cursor: not-allowed;
-  font-size: 18px;
-}
-
-.logoutButton {
-  cursor: pointer;
-  font-size: 18px;
+  justify-content: flex-start;
+  align-content: flex-start;
+  background: #4BCABE;
+  width: 1024px;
+  height: 560px;
+  padding-top: 25px;
 }
 
 /*************  USER ***********************/
@@ -122,7 +26,7 @@ h4 div p:hover {
   justify-content: flex-start;
   align-items: center;
   margin: 20px 25px;
-  width: 350px;
+  width: 291px;
   height: 90px;
   border-radius: 10px;
   cursor: default;
@@ -133,7 +37,7 @@ h4 div p:hover {
 .userImage {
   min-width: 70px;
   height: 70px;
-  background-image: url('../../assets/8biticon_male.jpg');
+  background-image: url(../../assets/8biticon_male.jpg);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 70px;
@@ -160,7 +64,7 @@ h4 div p:hover {
   content:"JOIN";
   font-size: 34px;
   color: #1E4A5D;
-  padding: 28px 106px 28px 84px;
+  padding: 28px 67px 28px 64px;
   border-radius: 0px 10px 10px 0px;
 }
 
@@ -171,7 +75,7 @@ h4 div p:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 350px;
+  width: 291px;
   height: 90px;
   border-radius: 10px;
   background-color: #1E4A5D;
@@ -190,7 +94,7 @@ h4 div p:hover {
   color: #1E4A5D;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
-  padding: 28px 111px 28px 116px;
+  padding: 28px 84px 28px 84px;
   border-radius: 10px;
 }
 
@@ -209,9 +113,10 @@ h4 div p:hover {
 .pagination {
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100%;
   background-color: #4BCABE;
-  height: 50px;
+  min-height: 50px;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
 }

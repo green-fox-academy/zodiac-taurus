@@ -7,6 +7,7 @@ import { updateColor, updateLineWeight, reset } from '../draw/draw.component'
 import { HeaderComponent } from '../header/header.component';
 import { MessagingService } from '../messaging.service';
 import {Observable} from 'rxjs/Observable';
+import { HttpService } from '../http.service';
 import 'rxjs/add/observable/fromEvent';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
@@ -23,19 +24,19 @@ import 'rxjs/add/operator/pairwise';
 @Directive({ selector: 'myCanvas' })
 
 export class CanvasComponent implements OnInit {
-  @Input() public width = 600;
-  @Input() public height = 450;
+  @Input() public width = 560;
+  @Input() public height = 420;
 
   cx:any;
   lineWeight = 2;
   canvasEl: HTMLCanvasElement;
   color = 'rgb(0,0,0)';
+
   subscription: Subscription;
-  constructor( public messaging: MessagingService, public el: ElementRef) {
+  constructor( public messaging: MessagingService, public el: ElementRef, private httpService: HttpService) {
     this.colorSubscribe();
     this.weightSubscribe();
     this.resetSubscribe();
-
    }
 
   ngOnInit() {
@@ -123,5 +124,18 @@ export class CanvasComponent implements OnInit {
     this.cx.stroke();
   }
 }
+
+    submitEvent() {
+    this.ngOnInit();
+    const dataURL = this.canvasEl.toDataURL();
+    const dataURLObj = {
+      "image_data": dataURL
+    }
+
+    this.httpService.sendImagetoServer(dataURLObj).subscribe(
+      (response) => console.log(response),
+      (error) => console.log(error)
+    );
+  }
 }
 

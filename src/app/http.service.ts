@@ -26,4 +26,9 @@ export class HttpService {
     const headers = new Headers({auth: localStorage.getItem('token')})
     return this.http.post(this.url + 'room', data, {headers: headers});
   }
+
+  sendImagetoServer(data) {
+    const headers = new Headers({auth: localStorage.getItem('token')})
+    return this.http.post(this.url + 'rooms/:id/image', data, {headers: headers});
+  }
 }
