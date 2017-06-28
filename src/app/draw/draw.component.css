@@ -126,19 +126,19 @@ button {
 .normal {
     background: url('../../assets/norm.png') center no-repeat;
     background-color: #2b5a6a;
-	background-size: 80%;
+	background-size: 40px;
 }
 
 .bold {
     background: url('../../assets/bold.png') center no-repeat;
     background-color: #2b5a6a;
-	background-size: 80%;
+	background-size: 40px;
 }
 
 .bolder {
     background: url('../../assets/bolder.png') center no-repeat;
     background-color: #2b5a6a;
-	background-size: 80%;
+	background-size: 40px;
 }
 
 .active {

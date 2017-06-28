@@ -5,8 +5,13 @@ import { HttpModule } from '@angular/http';
 import { DrawComponent } from './draw.component';
 import { HeaderComponent } from '../header/header.component';
 import { HttpService } from '../http.service';
-import { LoginCheckService } from '../login-check.service'
-import { CanvasComponent } from '../canvas/canvas.component'
+import { LoginCheckService } from '../login-check.service';
+import { CanvasComponent } from '../canvas/canvas.component';
+import { MessagingService } from '../messaging.service';
+
+class message {
+  constructor(public message: MessagingService){}
+}
 
 
 describe('DrawComponent', () => {
@@ -17,7 +22,7 @@ describe('DrawComponent', () => {
     TestBed.configureTestingModule({
       imports: [ FormsModule, ReactiveFormsModule, HttpModule ],
       declarations: [ DrawComponent, HeaderComponent, CanvasComponent ],
-      providers: [HttpService, { provide: Router }, LoginCheckService]
+      providers: [HttpService, { provide: Router }, LoginCheckService, { provide: MessagingService}]
     })
     .compileComponents();
   }));
