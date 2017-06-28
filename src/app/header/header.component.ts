@@ -6,7 +6,7 @@ import { LoginCheckService } from '../login-check.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['../home/home.component.css']
+  styleUrls: ['./header.component.css']
 })
 
 export class HeaderComponent implements OnInit {

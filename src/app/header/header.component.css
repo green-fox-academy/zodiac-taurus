@@ -1,0 +1,87 @@
+/*********   HEADER  ******************/
+
+.header {
+  min-width: 100vw;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h3 {
+  padding-left: 150px;
+  background: #1E4A5D;
+  font-size: 32px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  color: #BCF7EE;
+  cursor: default;
+}
+
+.logout {
+  display: flex;
+  justify-content: flex-end;
+  min-width: 200px;
+  height: 40px;
+  margin-right: 160px;
+  cursor: pointer;
+}
+
+.login_picture {
+  width: 40px;
+  height: 40px;
+  margin-right: 5px;
+  background-size: 40px;
+  border: 2px solid lightgrey;
+  border-radius: 3px;
+  background-image: url('../../assets/8biticon_male.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+h4 {
+  display: flex;
+  align-items: center;
+  color: #BCF7EE;
+  font-size: 22px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  cursor: default;
+}
+
+/********   DROPDOWN MENU   *************/
+
+h4 div {
+  display: none;
+  position: absolute;
+}
+
+h4:hover > div {
+  display: flex;
+  flex-direction: column;
+  max-width: 150px;
+  background: #1E4A5D;
+  border-top: 14px solid #1E4A5D;
+}
+
+h4 div p {
+  display: flex;
+  padding: 2px;
+  width: 100px;
+  justify-content: flex-end;
+}
+
+h4 div p:hover {
+  background: #83BBBC;
+  color: #1E4A5D;
+}
+
+.profileButton {
+  cursor: not-allowed;
+  font-size: 18px;
+}
+
+.logoutButton {
+  cursor: pointer;
+  font-size: 18px;
+}
