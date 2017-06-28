@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
   }
 
   createRoomButton() {
-    let name = localStorage.getItem('user') + " 's room";
+    let name = JSON.parse(atob(localStorage.getItem('token').split('.')[1])).user;
     let obj = {
       name: name
     }

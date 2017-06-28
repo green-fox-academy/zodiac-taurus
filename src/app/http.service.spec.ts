@@ -1,43 +1,72 @@
-import { TestBed, inject } from '@angular/core/testing';
-import { HttpModule, Http, XHRBackend, ResponseOptions, Response } from '@angular/http';
-import { MockBackend, MockConnection } from '@angular/http/testing';
+import { async, TestBed, inject } from '@angular/core/testing';
+import { HttpModule, Http, ResponseOptions, Response, BaseRequestOptions } from '@angular/http';
+import { MockBackend } from '@angular/http/testing';
+
 import { HttpService } from './http.service';
 
 describe('HttpService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ HttpModule ],
-      providers: [ HttpService, { provide: XHRBackend, useClass: MockBackend } ]
+      providers: [ HttpService, MockBackend, BaseRequestOptions,
+      {
+        provide: Http,
+        useFactory: (backend, options) => new Http(backend, options),
+        deps: [MockBackend, BaseRequestOptions]
+      }],
+      imports: [ HttpModule ]
     });
   });
 
   it('should be created', inject([HttpService], (service: HttpService) => {
     expect(service).toBeTruthy();
-  }));  
+  }));
 
-  it('login test', () => {
-    inject([ HttpService, MockBackend ], (service: HttpService, mockBackend) => {
-
-      const mockResponse = {
-          "success": true,
-          "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYWRtaW4iLCJwYXNzd29yZCI6ImFkbWluIiwiaWF0IjoxNDk4MDQ2ODAyfQ.pMkVfGfdMu6kwc1XrqdN_-8mZjE1YYZgYWWbUtx2fjc",
-          "user": "gabor"};
-
-      const fakeUser = {
-        "user": 'gabor',
-        "pass": '123'
-      };
-
-      mockBackend.connections.subscribe((connection) => {
-        connection.mockRespond(new Response(new ResponseOptions({
-          body: JSON.stringify(mockResponse)
-        })));
-      })
-
-      service.loginPostToServer(fakeUser).subscribe((mockResponse) => {
-          expect(mockBackend.mockResponse.success).toEqual(false);
-          expect(mockBackend.mockResponse.user).toEqual("gabor");
-      });
-    })
-  })
+  it('should construct', async(inject(
+    [HttpService, MockBackend], (service, mockBackend) => {
+    expect(service).toBeDefined();
+  })));
 });
+
+
+// describe('loginPostToServer', () => {
+//   beforeEach(() => {
+//   TestBed.configureTestingModule({
+//     providers: [ HttpService, MockBackend, BaseRequestOptions,
+//     {
+//       provide: Http,
+//       useFactory: (backend, options) => new Http(backend, options),
+//       deps: [MockBackend, BaseRequestOptions]
+//     }],
+//       imports: [ HttpModule ]
+//     });
+//   });
+
+
+//   it('should parse response', async(inject(
+//     [HttpService, MockBackend], (service, mockBackend) => {
+//       const mockResponse = {
+//         success: true,
+//         token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiZ2Fib3IiLCJpYXQiOjE0OTg1OTk0MTB9.ZA9GK6IfOlXu6DdaX1tW1RuSSq3v1lJ52HU3Sb-G-9c",
+//         user: "gabor"
+//       };
+
+//       const fakeUser = {
+//         user: "gabor",
+//         pass: "1234"
+//       };
+
+//     mockBackend.connections.subscribe(conn => {
+//       conn.mockRespond(new Response(new ResponseOptions({ body: JSON.stringify(mockResponse) })));
+//     });
+
+//     const result = service.loginPostToServer(fakeUser);
+
+//     result.subscribe(res => {
+//       expect(res).toEqual({
+//         success: true,
+//         token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiZ2Fib3IiLCJpYXQiOjE0OTg1OTk0MTB9.ZA9GK6IfOlXu6DdaX1tW1RuSSq3v1lJ52HU3Sb-G-9c",
+//         user: "gabor"
+//       });
+//     });
+//   })));
+// });

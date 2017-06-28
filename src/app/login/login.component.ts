@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   upAnimationClass;
   errorStyle: object;
   name: string;
+  userFromToken: string;
   passw: string;
   repassw: string;
   error: string;
@@ -104,7 +105,6 @@ export class LoginComponent implements OnInit {
     } else {
       this.errorHandling('');
       localStorage.setItem('token', data.json().token);
-      localStorage.setItem('user', data.json().user);
       this.router.navigate(['']);
     }
   }

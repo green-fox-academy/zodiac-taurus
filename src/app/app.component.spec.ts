@@ -14,6 +14,7 @@ import { HttpService } from './http.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { LoginCheckService } from './login-check.service';
 
+
 describe('AppComponent', () => {
   let locations, routing;
   
