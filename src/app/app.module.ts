@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { DrawComponent } from './draw/draw.component';
 import { CanvasComponent } from './canvas/canvas.component';
+import { MessagingService } from './messaging.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 
@@ -32,9 +33,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     AppRoutingModule,
     NgxPaginationModule
   ],
-  providers: [HttpService, RoutingService, LoginCheckService ],
-  bootstrap: [AppComponent],
-  entryComponents: [ DrawComponent, CanvasComponent ]
+  providers: [HttpService, RoutingService, LoginCheckService, MessagingService ],
+  bootstrap: [AppComponent]
 })
 
 export class AppModule {}

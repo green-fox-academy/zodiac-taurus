@@ -2,7 +2,10 @@ import {
   Directive, Component, Input, ElementRef, AfterViewInit, ViewChild, OnInit
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Subscription } from 'rxjs/Subscription';
+import { updateColor, updateLineWeight, reset } from '../draw/draw.component'
 import { HeaderComponent } from '../header/header.component';
+import { MessagingService } from '../messaging.service';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/fromEvent';
 import 'rxjs/add/operator/map';
@@ -14,7 +17,7 @@ import 'rxjs/add/operator/pairwise';
   selector: 'app-canvas',
   templateUrl: './canvas.component.html',
   styleUrls: ['./canvas.component.css'],
-  providers: [ FormsModule ]
+  providers: [ FormsModule, MessagingService ]
 })
 
 @Directive({ selector: 'myCanvas' })
@@ -27,32 +30,55 @@ export class CanvasComponent implements OnInit {
   lineWeight = 2;
   canvasEl: HTMLCanvasElement;
   color = 'rgb(0,0,0)';
-  constructor(public el: ElementRef) {    
-    console.log(el.nativeElement);
+  subscription: Subscription;
+  constructor( public messaging: MessagingService, public el: ElementRef) {
+    this.colorSubscribe();
+    this.weightSubscribe();
+    this.resetSubscribe();
+
    }
 
   ngOnInit() {
-    console.log(this.el.nativeElement.children[0]);
-    console.log(this.el.nativeElement.querySelector('canvas'));
+    this.getCanvas();
+  }
+
+  getCanvas(){
     this.canvasEl = this.el.nativeElement.querySelector('canvas');
     this.cx = this.canvasEl.getContext('2d');
   }
 
+  colorSubscribe(){
+     this.messaging.of(updateColor).subscribe(message => {
+      this.setLineColor(message.color);
+    })
+  }
+  
+  weightSubscribe(){
+    this.messaging.of(updateLineWeight).subscribe(message => {
+    this.setLineWeight(message.weight);
+    })
+  }
+
+  resetSubscribe(){
+    this.messaging.of(reset).subscribe(message => {
+      this.ngAfterViewInit()
+    })
+  }
+
   setLineWeight(number){ 
-    console.log("canv component", this);
-    this.ngOnInit()
+    this.getCanvas();
     this.cx.lineWidth = number;
     this.lineWeight = number;
   }
 
   setLineColor(color){
-    this.ngOnInit()
+    this.getCanvas();
     this.cx.strokeStyle = color;
     this.color = color;
   }
 
   public ngAfterViewInit() {
-    this.ngOnInit()
+    this.getCanvas();
     this.canvasEl.width = this.width;
     this.canvasEl.height = this.height;
 

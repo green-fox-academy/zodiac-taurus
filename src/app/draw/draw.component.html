@@ -8,15 +8,15 @@
                 <p class="player">playing with<br>John3612</p>
             </div>
             <div class="all-colors">
-                <div *ngFor="let color of colors" [ngClass]=color class="color" (click)="canvas.setLineColor(color)"></div>
+                <div *ngFor="let color of colors" [ngClass]=color class="color" (click)="setColor(color)"></div>
             </div>
             <div>
                 <div class="lines">
-                    <div class="normal" (click)="canvas.setLineWeight(2)"></div>
-                    <div class="bold" (click)="canvas.setLineWeight(13)"></div>
-                    <div class="bolder" (click)="canvas.setLineWeight(27)"></div>
+                    <div class="normal" (click)="setLineWeight(2)"></div>
+                    <div class="bold" (click)="setLineWeight(13)"></div>
+                    <div class="bolder" (click)="setLineWeight(27)"></div>
                 </div>
-                <button>Submit</button><button (click)="canvas.ngAfterViewInit()">Reset</button>
+                <button>Submit</button><button (click)="resetCanvas()">Reset</button>
             </div>
         </div>
         <div class="canvas">
