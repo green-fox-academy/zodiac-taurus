@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { HttpService } from './http.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 
+
 describe('AppComponent', () => {
   let locations, routing;
   
@@ -34,7 +35,7 @@ describe('AppComponent', () => {
       { path: '', component: HomeComponent, canActivate: [RoutingService] }
                 ])
       ],
-      providers: [HttpService, RoutingService]
+      providers: [HttpService, RoutingService ]
     }).compileComponents();
   }));
 
