@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
+import { CanvasComponent } from './canvas/canvas.component';
 import { DrawComponent } from './draw/draw.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';

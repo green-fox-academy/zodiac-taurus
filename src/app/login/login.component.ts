@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpService } from '../http.service';
 import { Observable } from 'rxjs/Observable';
+import { LoginCheckService } from '../login-check.service';
 
 @Component({
   selector: 'app-login',
@@ -24,7 +25,7 @@ export class LoginComponent implements OnInit {
   registrationForm = false;
   dismissErr;
 
-  constructor(private httpService: HttpService, private router: Router) {
+  constructor(private loginCheck: LoginCheckService, private httpService: HttpService, private router: Router) {
     window.addEventListener("keydown", this.enterEvent.bind(this));
   }
 

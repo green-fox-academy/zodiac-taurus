@@ -11,7 +11,8 @@ import { CanvasComponent } from '../canvas/canvas.component';
   selector: 'app-draw',
   templateUrl: './draw.component.html',
   styleUrls: ['./draw.component.css'],
-  providers: [ FormsModule, CanvasComponent ]
+  providers: [ FormsModule, CanvasComponent ],
+  entryComponents: [ CanvasComponent ]
 })
 
 @Directive({ selector: 'myCanvas' })

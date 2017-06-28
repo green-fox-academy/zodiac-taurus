@@ -2,7 +2,7 @@
   <app-header></app-header>
     <div class="container">
       <div class="main">
-      <div *ngFor="let room of rooms | paginate: { itemsPerPage: 11, currentPage: p }" class="user button room_{{room.id}}" >
+      <div routerLink="/draw" *ngFor="let room of rooms | paginate: { itemsPerPage: 11, currentPage: p }" class="user button room_{{room.id}}" >
         <div class="userImage"></div>
         <div class="roomName">
           <p>{{ room.name }}</p>
