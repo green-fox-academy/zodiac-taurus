@@ -17,8 +17,6 @@ export class HomeComponent implements OnInit {
   error: string;
   rooms = [];
   p: number = 1;
-  // roomId;
-
 
   constructor( private dataService: DataService, private httpService: HttpService, private router: Router ) {
 
@@ -55,8 +53,6 @@ export class HomeComponent implements OnInit {
 
   enterToRoom(data) {
     this.dataService.id = data.id
-    console.log('enterRoom: ', this.dataService.id);
-
     this.httpService.enterRoom(this.dataService.id).subscribe(
       (response) => console.log(response),
       (error) => console.log(error)
