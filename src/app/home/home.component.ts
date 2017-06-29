@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { HttpService } from '../http.service';
 import { HeaderComponent } from '../header/header.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { DataService } from '../data.service'; //testData
+
 
 @Component({
   selector: 'app-home',
@@ -15,8 +17,10 @@ export class HomeComponent implements OnInit {
   error: string;
   rooms = [];
   p: number = 1;
+  // roomId;
 
-  constructor(private httpService: HttpService, private router: Router ) {
+
+  constructor( private dataService: DataService, private httpService: HttpService, private router: Router ) {
 
     this.listRooms();
 
@@ -37,6 +41,7 @@ export class HomeComponent implements OnInit {
   }
 
   createRoomButton() {
+    console.log(localStorage);
     let name = JSON.parse(atob(localStorage.getItem('token').split('.')[1])).user;
     let obj = {
       name: name
@@ -46,6 +51,16 @@ export class HomeComponent implements OnInit {
       (error) => console.log(error)
     );
     this.listRooms();
+  }
+
+  enterToRoom(data) {
+    this.dataService.id = data.id
+    console.log('enterRoom: ', this.dataService.id);
+
+    this.httpService.enterRoom(this.dataService.id).subscribe(
+      (response) => console.log(response),
+      (error) => console.log(error)
+    );
   }
 
 }

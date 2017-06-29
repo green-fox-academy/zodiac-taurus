@@ -7,12 +7,14 @@ import { Renderer } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { CanvasComponent } from '../canvas/canvas.component';
 import { MessagingService } from '../messaging.service';
+import { DataService } from '../data.service';
+
 
 @Component({
   selector: 'app-draw',
   templateUrl: './draw.component.html',
   styleUrls: ['./draw.component.css'],
-  providers: [ MessagingService, FormsModule, CanvasComponent]
+  providers: [ FormsModule, CanvasComponent, MessagingService ]
 })
 
 @Directive({ selector: 'myCanvas' })
@@ -21,7 +23,8 @@ export class DrawComponent implements OnInit {
 
   colors = ['yellow', 'orange', 'red', 'black', 'purple', 'blue', 'green', 'white'];
 
-  constructor(public messaging: MessagingService, public el: ElementRef, public canvas: CanvasComponent, private render:Renderer) {
+  constructor( private dataService: DataService, public messaging: MessagingService, public el: ElementRef, public canvas: CanvasComponent, private render:Renderer) {
+    // console.log('ID in draw', this.dataService.id);
   }
 
   ngOnInit() {

@@ -6,8 +6,9 @@ import { Subscription } from 'rxjs/Subscription';
 import { updateColor, updateLineWeight, reset } from '../draw/draw.component'
 import { HeaderComponent } from '../header/header.component';
 import { MessagingService } from '../messaging.service';
-import {Observable} from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 import { HttpService } from '../http.service';
+import { DataService } from '../data.service';
 import 'rxjs/add/observable/fromEvent';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
@@ -33,7 +34,8 @@ export class CanvasComponent implements OnInit {
   color = 'rgb(0,0,0)';
 
   subscription: Subscription;
-  constructor( public messaging: MessagingService, public el: ElementRef, private httpService: HttpService) {
+
+  constructor( private dataService: DataService, public messaging: MessagingService, public el: ElementRef, private httpService: HttpService) {
     this.colorSubscribe();
     this.weightSubscribe();
     this.resetSubscribe();
@@ -116,18 +118,22 @@ export class CanvasComponent implements OnInit {
   prevPos: { x: number, y: number }, 
   currentPos: { x: number, y: number }
 ) {
-  if (!this.cx) { return; }
-  this.cx.beginPath();
-  if (prevPos) {
-    this.cx.moveTo(prevPos.x, prevPos.y);
-    this.cx.lineTo(currentPos.x, currentPos.y);
-    this.cx.stroke();
+    if (!this.cx) { return; }
+    this.cx.beginPath();
+    if (prevPos) {
+      this.cx.moveTo(prevPos.x, prevPos.y);
+      this.cx.lineTo(currentPos.x, currentPos.y);
+      this.cx.stroke();
+    }
   }
-}
 
-    submitEvent() {
+  // submitEvent() {
+  //   console.log('submit on Canvas: ', this.dataService.id);
+  // }
+
+  submitEvent() {
     this.ngOnInit();
-    const dataURL = this.canvasEl.toDataURL();
+    const dataURL = this.canvasEl.toDataURL(); // image data
     const dataURLObj = {
       "image_data": dataURL
     }
@@ -137,5 +143,6 @@ export class CanvasComponent implements OnInit {
       (error) => console.log(error)
     );
   }
+
 }
 
