@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpService } from '../http.service';
 import { LoginCheckService } from '../login-check.service';
+import { CapitalizefirstPipe } from '../capitalizefirst.pipe';
 
 @Component({
   selector: 'app-header',
@@ -25,7 +26,6 @@ export class HeaderComponent implements OnInit {
 
 
   tokenParse(data) {
-    // console.log('data: ', data);
     return JSON.parse(atob(data.split('.')[1])).user;
 
   }

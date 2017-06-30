@@ -131,6 +131,7 @@ export class CanvasComponent implements OnInit {
   submitEvent() {
     this.ngOnInit();
     const dataURL = this.canvasEl.toDataURL(); // image data
+    // const dataURL = this.cx.getImageData(0,0, 560, 420);
     const dataURLObj = {
       "image_data": dataURL
     }

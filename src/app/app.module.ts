@@ -17,6 +17,7 @@ import { MessagingService } from './messaging.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DataService } from './data.service';
 import { CapitalizefirstPipe } from './capitalizefirst.pipe';
+import { GuessingComponent } from './guessing/guessing.component';
 import { ProfileComponent } from './profile/profile.component';
 
 
@@ -30,6 +31,7 @@ import { ProfileComponent } from './profile/profile.component';
     DrawComponent,
     CanvasComponent,
     CapitalizefirstPipe,
+    GuessingComponent,
     ProfileComponent
   ],
   imports: [

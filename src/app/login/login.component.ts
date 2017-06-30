@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private loginCheck: LoginCheckService, private httpService: HttpService, private router: Router) {
     window.addEventListener("keydown", this.enterEvent.bind(this));
+    loginCheck.loggedIn();
   }
 
   ngOnInit() {
