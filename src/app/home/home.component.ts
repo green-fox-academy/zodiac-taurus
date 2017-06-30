@@ -4,6 +4,8 @@ import { HttpService } from '../http.service';
 import { HeaderComponent } from '../header/header.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DataService } from '../data.service'; //testData
+import { CapitalizefirstPipe } from '../capitalizefirst.pipe';
+
 
 
 @Component({

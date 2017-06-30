@@ -13,6 +13,8 @@ import { LoginComponent } from './login/login.component';
 import { HttpService } from './http.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { LoginCheckService } from './login-check.service';
+import { CapitalizefirstPipe } from './capitalizefirst.pipe';
+
 
 
 describe('AppComponent', () => {
@@ -24,7 +26,8 @@ describe('AppComponent', () => {
         AppComponent,
         HomeComponent,
         LoginComponent, 
-        HeaderComponent
+        HeaderComponent,
+        CapitalizefirstPipe
       ],
       imports: [
         FormsModule,
@@ -36,7 +39,7 @@ describe('AppComponent', () => {
       { path: '', component: HomeComponent, canActivate: [RoutingService] }
                 ])
       ],
-      providers: [HttpService, RoutingService, LoginCheckService]
+      providers: [HttpService, RoutingService, LoginCheckService, CapitalizefirstPipe]
     }).compileComponents();
   }));
 
