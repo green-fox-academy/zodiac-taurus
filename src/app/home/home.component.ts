@@ -39,7 +39,6 @@ export class HomeComponent implements OnInit {
   }
 
   createRoomButton() {
-    console.log(localStorage);
     let name = JSON.parse(atob(localStorage.getItem('token').split('.')[1])).user;
     let obj = {
       name: name
@@ -52,7 +51,9 @@ export class HomeComponent implements OnInit {
   }
 
   enterToRoom(data) {
-    this.dataService.id = data.id
+    this.dataService.id = data.id;
+    this.dataService.name = data.name.charAt(0).toUpperCase() + data.name.slice(1);
+
     this.httpService.enterRoom(this.dataService.id).subscribe(
       (response) => console.log(response),
       (error) => console.log(error)

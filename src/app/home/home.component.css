@@ -14,7 +14,7 @@
   justify-content: flex-start;
   align-content: flex-start;
   background: #4BCABE;
-  width: 1024px;
+  max-width: 1024px;
   height: 560px;
   padding-top: 25px;
 }
@@ -143,4 +143,23 @@
 
 .pagination /deep/ .pagination-previous {
   color: #1E4A5D;
+}
+
+@media (max-width: 375px){
+  
+  .container {
+    max-width: 375px;
+  }
+
+  .main {
+   /* max-width: 375px;
+    height: 100%;*/
+    justify-content: center;
+    padding-top: 5px;
+
+  }
+
+  .pagination {
+    display:none;
+  }
 }

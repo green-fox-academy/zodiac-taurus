@@ -16,6 +16,7 @@ import { CanvasComponent } from './canvas/canvas.component';
 import { MessagingService } from './messaging.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DataService } from './data.service';
+import { CapitalizefirstPipe } from './capitalizefirst.pipe';
 
 
 
@@ -26,7 +27,8 @@ import { DataService } from './data.service';
     HomeComponent,
     HeaderComponent,
     DrawComponent,
-    CanvasComponent
+    CanvasComponent,
+    CapitalizefirstPipe
   ],
   imports: [
     BrowserModule,

@@ -15,6 +15,7 @@ import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/takeUntil';
 import 'rxjs/add/operator/pairwise';
 
+
 @Component({
   selector: 'app-canvas',
   templateUrl: './canvas.component.html',
@@ -127,10 +128,6 @@ export class CanvasComponent implements OnInit {
     }
   }
 
-  // submitEvent() {
-  //   console.log('submit on Canvas: ', this.dataService.id);
-  // }
-
   submitEvent() {
     this.ngOnInit();
     const dataURL = this.canvasEl.toDataURL(); // image data
@@ -138,7 +135,9 @@ export class CanvasComponent implements OnInit {
       "image_data": dataURL
     }
 
-    this.httpService.sendImagetoServer(dataURLObj).subscribe(
+    const roomId = this.dataService.id;
+
+    this.httpService.sendImagetoServer(dataURLObj, roomId).subscribe(
       (response) => console.log(response),
       (error) => console.log(error)
     );

@@ -23,6 +23,8 @@ export class DrawComponent implements OnInit {
 
   colors = ['yellow', 'orange', 'red', 'black', 'purple', 'blue', 'green', 'white'];
 
+  userName =  this.dataService.name;
+
   constructor( private dataService: DataService, public messaging: MessagingService, public el: ElementRef, public canvas: CanvasComponent, private render:Renderer) {
     // console.log('ID in draw', this.dataService.id);
   }
@@ -54,5 +56,3 @@ export class updateLineWeight{
 export class reset{
   constructor() { }
 }
-
-
