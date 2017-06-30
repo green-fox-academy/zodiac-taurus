@@ -17,6 +17,7 @@ import { CapitalizefirstPipe } from './capitalizefirst.pipe';
 
 
 
+
 describe('AppComponent', () => {
   let locations, routing;
   

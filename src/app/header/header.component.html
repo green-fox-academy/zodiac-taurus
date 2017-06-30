@@ -2,7 +2,7 @@
   <h3 routerLink="/">Draw and Guess</h3>
   <div class="logout">
     <div class="login_picture"></div>
-    <h4>{{tokenParse(name)}}
+    <h4>{{tokenParse(name) | capitalizefirst}} 
       <div>
         <p class="profileButton">Profile</p>
         <p class="logoutButton" (click)="loginCheckService.logoutEvent()">Logout</p>
