@@ -9,6 +9,7 @@ import { MessagingService } from '../messaging.service';
 import { Observable } from 'rxjs/Observable';
 import { HttpService } from '../http.service';
 import { DataService } from '../data.service';
+import { Router } from '@angular/router';
 import 'rxjs/add/observable/fromEvent';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
@@ -36,7 +37,7 @@ export class CanvasComponent implements OnInit {
 
   subscription: Subscription;
 
-  constructor( private dataService: DataService, public messaging: MessagingService, public el: ElementRef, private httpService: HttpService) {
+  constructor( private dataService: DataService, public messaging: MessagingService, public el: ElementRef, private httpService: HttpService, private router: Router) {
     this.colorSubscribe();
     this.weightSubscribe();
     this.resetSubscribe();
@@ -131,7 +132,6 @@ export class CanvasComponent implements OnInit {
   submitEvent() {
     this.ngOnInit();
     const dataURL = this.canvasEl.toDataURL(); // image data
-    // const dataURL = this.cx.getImageData(0,0, 560, 420);
     const dataURLObj = {
       "image_data": dataURL
     }
@@ -142,6 +142,7 @@ export class CanvasComponent implements OnInit {
       (response) => console.log(response),
       (error) => console.log(error)
     );
+    this.router.navigate(['']);
   }
 
 }

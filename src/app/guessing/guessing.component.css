@@ -28,15 +28,7 @@
     align-items: center;
 }
 
-/*.guessImage {
-  width: 560px;
-  height: 420px;
-  background: white;
-}*/
-
 canvas {
-/*    width: 560px;
-    height: 420px;*/
     background: white;
     box-shadow: 0px 10px 51px -3px rgba(0,0,0,0.65);
 }
