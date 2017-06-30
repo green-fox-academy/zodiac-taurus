@@ -1,0 +1,114 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #4BCABE;
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Roboto', sans-serif;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  background: #1E4A5D;
+  min-width: 1024px;
+  min-height: 520px;
+  box-sizing: border-box;
+}
+
+.login_picture {
+  width: 202px;
+  height: 200px;
+  margin-right: 5px;
+  background-size: 200px;
+  border: 4px solid lightgrey;
+  border-radius: 3px;
+  background-image: url(../../assets/8biticon_male.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.profile {
+    box-sizing: border-box;
+    display: flex;
+    padding: 30px;
+}
+
+p {
+    background-color: #1E4A5D;
+    font-size: 24px;
+    color: #BCF7EE;
+    line-height: 70px;
+}
+
+.name {
+    z-index: 10;
+    position: relative;
+    font-size: 40px;
+}
+
+span {
+    cursor: pointer;
+    font-size: 14px;
+    color: lightgray;
+    vertical-align: super
+}
+
+h3 {
+    font-size: 24px;
+    color: #BCF7EE;
+}
+
+.changeName {
+    position: relative;
+    top: 4px;
+    height: 35px;
+    width: 300px;
+}
+
+@keyframes moveDown {
+    0% { left:0; top:-30px;}
+    100% { left:0; top:0px;}
+}
+
+input {
+    width: 170px;
+    height: 30px;
+    background: #0F2E3F;
+    color: #FFF;
+    border: 0;
+    margin-bottom: 25px;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    text-indent: 20px;
+    position: relative;
+    animation-name: moveDown;
+    animation-duration: 0.9s;
+}
+
+button {
+    cursor: pointer;
+    padding: 10px;
+    margin-right: 5px;
+    color: #c6d0d4;
+    border: 0;
+    background-color: #2b5a6a;
+    position: relative;
+    animation-name: moveDown;
+    animation-duration: 0.9s;
+}
+
+@keyframes moveUp {
+    0% { left:0; top:0px;}
+    100% { left:0; top:-40px;}
+}
+
+.hide {
+    position: relative;
+    animation-name: moveUp;
+    animation-duration: 0.9s;
+}
