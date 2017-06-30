@@ -7,11 +7,13 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { HttpService } from './http.service';
 import { RoutingService } from './routing.service';
+import { GuessingComponent } from './guessing/guessing.component';
 
 const routes: Routes = [
       { path: 'login', component: LoginComponent },
       { path: '', component: HomeComponent, canActivate:[RoutingService] },
       { path: 'draw', component: DrawComponent, canActivate:[RoutingService] },
+      { path: 'guessing', component: GuessingComponent, canActivate:[RoutingService] },
       { path: '**', redirectTo: '' }
       ];
 

@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 @Injectable()
 export class LoginCheckService {
   constructor( private router: Router ) {
-    this.loggedIn();
   }
   
   loggedIn(){
@@ -15,6 +14,6 @@ export class LoginCheckService {
 
   logoutEvent() {
     localStorage.clear();
-    this.router.navigate(['login']);
+    this.router.navigate(['login']); 
   }
 }

@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   error: string;
   rooms = [];
   p: number = 1;
+  route: string;
 
   constructor( private dataService: DataService, private httpService: HttpService, private router: Router ) {
 
@@ -54,12 +55,33 @@ export class HomeComponent implements OnInit {
 
   enterToRoom(data) {
     this.dataService.id = data.id;
+    this.dataService.image_url = data.image_url;
     this.dataService.name = data.name.charAt(0).toUpperCase() + data.name.slice(1);
 
     this.httpService.enterRoom(this.dataService.id).subscribe(
-      (response) => console.log(response),
+      (response) => this.checkRoomRoute(response),
       (error) => console.log(error)
     );
   }
 
+  checkRoomRoute(data) {
+    if ( data.json().image_url === null ) {
+      this.router.navigate(['draw']);
+    } else {
+      this.router.navigate(['guessing']);
+    }
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
