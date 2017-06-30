@@ -7,7 +7,7 @@ export class HttpService {
 
   url:string = 'https://draw-and-guess-game-backend.herokuapp.com/'
 
-  constructor(private http: Http) {}
+  constructor(private http: Http) { }
 
   loginPostToServer(data) {
     return this.http.post(this.url + 'login', data);
@@ -27,8 +27,15 @@ export class HttpService {
     return this.http.post(this.url + 'room', data, {headers: headers});
   }
 
-  sendImagetoServer(data) {
+  enterRoom(data) {
     const headers = new Headers({auth: localStorage.getItem('token')})
-    return this.http.post(this.url + 'rooms/:id/image', data, {headers: headers});
+    return this.http.get(this.url + 'room/' + data, {headers: headers}); //need data?!
   }
+
+  sendImagetoServer(data, roomId) {
+    const headers = new Headers({auth: localStorage.getItem('token')})
+    // const body = JSON.stringify(data);
+    return this.http.post(this.url + 'room/' + roomId + '/image', data, {headers: headers});
+  }
+
 }

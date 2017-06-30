@@ -3,8 +3,8 @@
   flex-direction: column;
   align-items: center;
   background: #4BCABE;
-  height: 100vh;
   width: 100vw;
+  height: 100vh;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -14,8 +14,9 @@
   align-items: center;
   margin-top: 50px;
   background: #1E4A5D;
-  width: 1024px;
-  height: 520px;
+  min-width: 1024px;
+  min-height: 520px;
+  box-sizing: border-box;
 }
 
 .properties {
@@ -147,4 +148,12 @@ button {
 
 button:hover, .color:hover, .normal:hover, .bold:hover, .bolder:hover {
     cursor: pointer;
+}
+
+@media (max-width: 375px){
+
+
+  .main {
+    width: 375px;
+  }
 }

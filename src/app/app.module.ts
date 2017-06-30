@@ -15,6 +15,9 @@ import { DrawComponent } from './draw/draw.component';
 import { CanvasComponent } from './canvas/canvas.component';
 import { MessagingService } from './messaging.service';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { DataService } from './data.service';
+import { CapitalizefirstPipe } from './capitalizefirst.pipe';
+
 
 
 @NgModule({
@@ -24,7 +27,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     HomeComponent,
     HeaderComponent,
     DrawComponent,
-    CanvasComponent
+    CanvasComponent,
+    CapitalizefirstPipe
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     AppRoutingModule,
     NgxPaginationModule
   ],
-  providers: [HttpService, RoutingService, LoginCheckService, MessagingService ],
+  providers: [HttpService, RoutingService, LoginCheckService, MessagingService, DataService ],
   bootstrap: [AppComponent]
 })
 

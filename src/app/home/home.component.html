@@ -1,10 +1,10 @@
 <div class="container">
     <app-header></app-header>
     <div class="main">
-        <div routerLink="/draw" *ngFor="let room of rooms | paginate: { itemsPerPage: 11, currentPage: p }" class="user button room_{{room.id}}" >
+        <div *ngFor="let room of rooms | paginate: { itemsPerPage: 11, currentPage: p }" class="user button room_{{room.id}}" (click)="enterToRoom(room)" routerLink="/draw">
             <div class="userImage"></div>
             <div class="roomName">
-                <p>{{ room.name }}</p>
+                <p>{{ room.name | capitalizefirst}}</p>
             </div>
         </div>
         <div class="userCreate" (click)="createRoomButton()">
