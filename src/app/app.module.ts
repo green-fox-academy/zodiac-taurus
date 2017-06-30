@@ -18,6 +18,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { DataService } from './data.service';
 import { CapitalizefirstPipe } from './capitalizefirst.pipe';
 import { GuessingComponent } from './guessing/guessing.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -30,7 +31,8 @@ import { GuessingComponent } from './guessing/guessing.component';
     DrawComponent,
     CanvasComponent,
     CapitalizefirstPipe,
-    GuessingComponent
+    GuessingComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

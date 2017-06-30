@@ -81,12 +81,7 @@ h4 div p:hover {
   color: #1E4A5D;
 }
 
-.profileButton {
-  cursor: not-allowed;
-  font-size: 18px;
-}
-
-.logoutButton {
+.logoutButton, .profileButton {
   cursor: pointer;
   font-size: 18px;
 }
