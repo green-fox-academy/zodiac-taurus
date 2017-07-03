@@ -4,7 +4,7 @@
     <div class="login_picture"></div>
     <h4>{{tokenParse(name) }} 
       <div>
-        <p class="profileButton">Profile</p>
+        <p routerLink="/profile" class="profileButton">Profile</p>
         <p class="logoutButton" (click)="loginCheckService.logoutEvent()">Logout</p>
       </div>
     </h4>

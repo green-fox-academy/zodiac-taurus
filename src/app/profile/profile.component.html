@@ -1,0 +1,16 @@
+<div class="container">
+<app-header></app-header>
+  <div class="main">
+    <div class="profile">
+      <div class="login_picture"></div>
+      <div>
+        <p class="name">{{name}} <span (click)="editName()">[edit]</span></p>
+        <div class="changeName" ><input [ngClass]="hide" *ngIf="edit" type="text" [(ngModel)]="name"><button [ngClass]="hide" *ngIf="edit">Set</button></div>
+        <p>Score: {{score}}</p>
+      </div>
+    </div>
+    <div>
+      <h3>Wall of Frame</h3>
+    </div>
+  </div>  
+<div>

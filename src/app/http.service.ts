@@ -27,6 +27,11 @@ export class HttpService {
     return this.http.post(this.url + 'room', data, {headers: headers});
   }
 
+  getUser() {
+    const headers = new Headers({auth: localStorage.getItem('token')})
+    return this.http.get(this.url + 'user', {headers: headers});
+  }
+
   enterRoom(data) {
     const headers = new Headers({auth: localStorage.getItem('token')})
     return this.http.get(this.url + 'room/' + data, {headers: headers}); //need data?!
