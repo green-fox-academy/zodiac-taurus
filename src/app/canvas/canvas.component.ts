@@ -32,7 +32,7 @@ export class CanvasComponent implements OnInit {
   cx:any;
   lineWeight = 2;
   canvasEl: HTMLCanvasElement;
-  color = 'rgb(0,0,0)';
+  color = 'black';
 
   subscription: Subscription;
 
