@@ -27,6 +27,8 @@ export class LoginComponent implements OnInit {
   dismissErr;
 
   constructor(private loginCheck: LoginCheckService, private httpService: HttpService, private router: Router) {
+    this.name='';
+    this.passw='';
     window.addEventListener("keydown", this.enterEvent.bind(this));
     loginCheck.loggedIn();
   }
