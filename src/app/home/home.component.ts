@@ -34,6 +34,7 @@ export class HomeComponent implements OnInit {
   }
 
   listRoom(response) {
+    this.rooms = [];
     response.json().forEach(function(elem) {
       if (elem.status !== 2) {
         this.rooms.push(elem);
