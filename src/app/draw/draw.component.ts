@@ -27,6 +27,7 @@ export class DrawComponent implements OnInit {
 
   constructor( private dataService: DataService, public messaging: MessagingService, public el: ElementRef, public canvas: CanvasComponent, private render:Renderer) {
     // console.log('ID in draw', this.dataService.id);
+    console.log(this.dataService.name);
   }
 
   ngOnInit() {
