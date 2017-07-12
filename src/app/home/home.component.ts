@@ -6,8 +6,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { DataService } from '../data.service'; //testData
 import { CapitalizefirstPipe } from '../capitalizefirst.pipe';
 
-
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -37,7 +35,6 @@ export class HomeComponent implements OnInit {
 
   listRoom(response) {
     response.json().forEach(function(elem) {
-      console.log(elem);
       if (elem.status !== 2) {
         this.rooms.push(elem);
       }
@@ -55,8 +52,8 @@ export class HomeComponent implements OnInit {
       name: name
     }
     this.httpService.createRoom(obj).subscribe(
-      (response) => console.log('createrooom: ',response.json()),
-      (error) => console.log(error)
+      (response) => console.info(response.json()),
+      (error) => console.error(error)
     );
     this.listRooms();
   }
@@ -73,22 +70,20 @@ export class HomeComponent implements OnInit {
 
   checkRoomRoute(data) {
     if (this.dataService.user_id === parseInt(data.json().drawer_user_id)) {
-      console.log('enter');
       this.router.navigate(['draw']);
     } else {
-      if ( data.json().status === 0 ) {
+      if (data.json().status === 0) {
         let obj = {
           'status': 1,
           'guesser_user_id': "",
           'guesser_joined_at': ""
         };
-        console.log(obj);
         this.httpService.guesserJoin(obj, this.dataService.id).subscribe(
-          (response) => console.log('status: ', response),
+          (response) => console.log(response), // in progress
           (error) => console.log(error)
         );
         this.router.navigate(['guessing']);
-      } else if ( data.json().status === 1 ){
+      } else if (data.json().status === 1){
         this.router.navigate(['/']);
       }
     }
