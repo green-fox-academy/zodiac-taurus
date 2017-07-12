@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
 
   name: string;
 
-  constructor(public loginCheckService:LoginCheckService, private httpService: HttpService, private router: Router) {
+  constructor(public loginCheckService: LoginCheckService, private httpService: HttpService, private router: Router) {
 
     this.name = localStorage.getItem('token');
     this.tokenParse(this.name)
@@ -27,7 +27,6 @@ export class HeaderComponent implements OnInit {
 
   tokenParse(data) {
     return JSON.parse(atob(data.split('.')[1])).user;
-
   }
 
 }

@@ -6,8 +6,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { DataService } from '../data.service'; //testData
 import { CapitalizefirstPipe } from '../capitalizefirst.pipe';
 
-
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -22,9 +20,8 @@ export class HomeComponent implements OnInit {
   route: string;
 
   constructor( private dataService: DataService, private httpService: HttpService, private router: Router ) {
-
     this.listRooms();
-
+    this.dataService.user_id = JSON.parse(atob(this.tokenSplit())).id;
   }
 
   ngOnInit() { }
@@ -37,18 +34,26 @@ export class HomeComponent implements OnInit {
   }
 
   listRoom(response) {
-    this.rooms = response.json();
+    response.json().forEach(function(elem) {
+      if (elem.status !== 2) {
+        this.rooms.push(elem);
+      }
+    }.bind(this));
     return this.rooms;
   }
 
+  tokenSplit() {
+    return localStorage.getItem('token').split('.')[1];
+  }
+
   createRoomButton() {
-    let name = JSON.parse(atob(localStorage.getItem('token').split('.')[1])).user;
+    let name = JSON.parse(atob(this.tokenSplit())).user;
     let obj = {
       name: name
     }
     this.httpService.createRoom(obj).subscribe(
-      (response) => console.log(response),
-      (error) => console.log(error)
+      (response) => console.info(response.json()),
+      (error) => console.error(error)
     );
     this.listRooms();
   }
@@ -56,8 +61,7 @@ export class HomeComponent implements OnInit {
   enterToRoom(data) {
     this.dataService.id = data.id;
     this.dataService.image_url = data.image_url;
-    this.dataService.name = data.name.charAt(0).toUpperCase() + data.name.slice(1);
-
+    this.dataService.name = data.name;
     this.httpService.enterRoom(this.dataService.id).subscribe(
       (response) => this.checkRoomRoute(response),
       (error) => console.log(error)
@@ -65,23 +69,23 @@ export class HomeComponent implements OnInit {
   }
 
   checkRoomRoute(data) {
-    if ( data.json().image_url === null ) {
+    if (this.dataService.user_id === parseInt(data.json().drawer_user_id)) {
       this.router.navigate(['draw']);
     } else {
-      this.router.navigate(['guessing']);
+      if (data.json().status === 0) {
+        let obj = {
+          'status': 1,
+          'guesser_user_id': "",
+          'guesser_joined_at': ""
+        };
+        this.httpService.guesserJoin(obj, this.dataService.id).subscribe(
+          (response) => console.log(response), // in progress
+          (error) => console.log(error)
+        );
+        this.router.navigate(['guessing']);
+      } else if (data.json().status === 1){
+        this.router.navigate(['/']);
+      }
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
