@@ -116,9 +116,9 @@ export class CanvasComponent implements OnInit {
     });
   }
   private drawOnCanvas(
-  prevPos: { x: number, y: number }, 
-  currentPos: { x: number, y: number }
-) {
+    prevPos: { x: number, y: number }, 
+    currentPos: { x: number, y: number }
+  ) {
     if (!this.cx) { return; }
     this.cx.beginPath();
     if (prevPos) {
@@ -131,18 +131,14 @@ export class CanvasComponent implements OnInit {
   submitEvent() {
     this.ngOnInit();
     const dataURL = this.canvasEl.toDataURL(); // image data
-    // const dataURL = this.cx.getImageData(0,0, 560, 420);
     const dataURLObj = {
       "image_data": dataURL
     }
-
     const roomId = this.dataService.id;
-
     this.httpService.sendImagetoServer(dataURLObj, roomId).subscribe(
       (response) => console.log(response),
       (error) => console.log(error)
     );
   }
-
 }
 

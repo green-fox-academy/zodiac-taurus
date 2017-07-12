@@ -19,7 +19,7 @@ export class GuessingComponent implements OnInit {
   userName = this.dataService.name;
 
   constructor(public el: ElementRef, private httpService: HttpService, private dataService: DataService ) {
-
+ 
   }
 
   ngOnInit() {

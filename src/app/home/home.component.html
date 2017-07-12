@@ -1,10 +1,14 @@
 <div class="container">
     <app-header></app-header>
     <div class="main">
-        <div *ngFor="let room of rooms | paginate: { itemsPerPage: 11, currentPage: p }" class="user button room_{{room.id}}" (click)="enterToRoom(room)">
-            <div class="userImage"></div>
-            <div class="roomName">
-                <p>{{ room.name | capitalizefirst}}</p>
+        <div *ngFor="let room of rooms | paginate: { itemsPerPage: 11, currentPage: p }" >
+            <div class="user button room_{{room.id}}" (click)="enterToRoom(room)" [ngSwitch]="room.status">
+                <div class="freelight" *ngSwitchCase="0"><img src="./assets/greenlight.png" alt=""></div>
+                <div class="freelight" *ngSwitchCase="1"><img src="./assets/redlight.png" alt=""></div>
+                <div class="userImage"></div>
+                <div class="roomName">
+                    <p>{{ room.name | capitalizefirst }}</p>
+                </div>
             </div>
         </div>
         <div class="userCreate" (click)="createRoomButton()">

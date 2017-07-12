@@ -7,6 +7,7 @@ export class DataService {
   public name: string;
   public owner: string;
   public image_url: string;
+  public user_id: number;
 
   public constructor() { }
 }

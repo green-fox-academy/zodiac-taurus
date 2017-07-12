@@ -43,4 +43,9 @@ export class HttpService {
     return this.http.post(this.url + 'room/' + roomId + '/image', data, {headers: headers});
   }
 
+  guesserJoin(data, roomId) {
+  const headers = new Headers({auth: localStorage.getItem('token')})
+  return this.http.put(this.url + 'room/' + roomId, data, {headers: headers});
+  }
+
 }
