@@ -20,9 +20,27 @@ export class GuessingComponent implements OnInit {
   cx: any;
   userName = this.dataService.name;
   roomId = this.dataService.id;
+  id;
 
   constructor(public el: ElementRef, private httpService: HttpService, private dataService: DataService ) {
- 
+    this.id = setInterval(function(){
+      if(window.location.href.slice(-8) !== 'guessing'){
+        clearInterval(this.id);
+      }
+      this.getOneRoom();
+      this.getCanvas();
+    }.bind(this), 1000)
+  }
+
+  getOneRoom(){
+    this.httpService.enterRoom(this.dataService.id).subscribe(
+    (response) => this.saveImageUrl(response),
+    (error) => console.error(error)
+    );
+  }
+
+  saveImageUrl(data){
+    this.dataService.image_url = data.json().image_url;
   }
 
   ngOnInit() {
@@ -39,7 +57,6 @@ export class GuessingComponent implements OnInit {
     }.bind(this);
 
     image.src = this.dataService.image_url;
-
   }
 
   guessPost(guess) {
