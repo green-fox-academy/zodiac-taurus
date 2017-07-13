@@ -32,7 +32,7 @@ export class GuessingComponent implements OnInit {
   getOneRoom(){
     this.httpService.enterRoom(this.dataService.id).subscribe(
     (response) => this.saveImageUrl(response),
-    (error) => console.log(error)
+    (error) => console.error(error)
     );
   }
 
