@@ -1,6 +1,7 @@
 import {
   Directive, Component, Input, ElementRef, AfterViewInit, ViewChild, OnInit
 } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpService } from '../http.service';
 import { HeaderComponent } from '../header/header.component';
@@ -10,13 +11,15 @@ import { DataService } from '../data.service';
 @Component({
   selector: 'app-guessing',
   templateUrl: './guessing.component.html',
-  styleUrls: ['./guessing.component.css']
+  styleUrls: ['./guessing.component.css'],
+  providers: [ FormsModule ]
 })
 export class GuessingComponent implements OnInit {
 
   canvasEl: HTMLCanvasElement;
   cx: any;
   userName = this.dataService.name;
+  roomId = this.dataService.id;
 
   constructor(public el: ElementRef, private httpService: HttpService, private dataService: DataService ) {
  
@@ -39,4 +42,19 @@ export class GuessingComponent implements OnInit {
 
   }
 
+  guessPost(guess) {
+    const obj = {
+      "guess": guess
+    };
+    this.httpService.sendGuessPost(obj, this.roomId).subscribe(
+      (response) => console.log('guesspost', response),
+      (error) => console.log(error)
+    );
+  }
+
 }
+
+
+
+
+

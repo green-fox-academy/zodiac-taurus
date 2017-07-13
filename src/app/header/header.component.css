@@ -19,7 +19,7 @@ h3 {
   cursor: default;
 }
 
-h3:active {
+h3:active, h3:focus {
   outline: transparent;
 }
 

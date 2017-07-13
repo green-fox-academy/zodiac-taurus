@@ -63,6 +63,7 @@ export class HomeComponent implements OnInit {
     this.dataService.id = data.id;
     this.dataService.image_url = data.image_url;
     this.dataService.name = data.name;
+    this.dataService.drawing = data.drawing;
     this.httpService.enterRoom(this.dataService.id).subscribe(
       (response) => this.checkRoomRoute(response),
       (error) => console.log(error)
@@ -70,8 +71,6 @@ export class HomeComponent implements OnInit {
   }
 
   checkRoomRoute(data) {
-    console.log(this.dataService.user_id);
-    console.log(data.json());
     if (this.dataService.user_id === parseInt(data.json().drawer_user_id)) {
       this.router.navigate(['draw']);
     } else {
