@@ -70,10 +70,12 @@ export class HomeComponent implements OnInit {
   }
 
   checkRoomRoute(data) {
+    console.log(this.dataService.user_id);
+    console.log(data.json());
     if (this.dataService.user_id === parseInt(data.json().drawer_user_id)) {
       this.router.navigate(['draw']);
     } else {
-      if (data.json().status === 0) {
+      if (data.json().status === 0 && data.json().guesser_user_id !== this.dataService.user_id) {
         let obj = {
           'status': 1,
           'guesser_user_id': "",
@@ -83,6 +85,8 @@ export class HomeComponent implements OnInit {
           (response) => console.log(response), // in progress
           (error) => console.log(error)
         );
+        this.router.navigate(['guessing']);
+      } else if(data.json().guesser_user_id === this.dataService.user_id) {
         this.router.navigate(['guessing']);
       } else if (data.json().status === 1){
         this.router.navigate(['/']);
