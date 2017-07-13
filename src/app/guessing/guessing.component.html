@@ -3,10 +3,21 @@
     <div class="main">
         <div class="properties">
             <div class="upper">
-                <h3>{{userName}}'s room</h3>
-                <p class="player">playing with<br>John3612</p>
+                <h1>{{userName | capitalizefirst}}'s room</h1>
+                <h3>Guess the drawing</h3>
+                <p class="player">You're playing with:</p>
+                <p class="user">{{userName | capitalizefirst}}</p>
+                <div class="guess">
+                    <input #box placeholder="Guessing" size="25">
+                    <div class="button" (click)="guessPost(box.value)">submit</div>
+                </div>
+            </div>
+            <div class="bottom"> 
+                
             </div>
         </div>   
         <canvas width="560" height="420"></canvas>
     </div>    
 </div>
+
+

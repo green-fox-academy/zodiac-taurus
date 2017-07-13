@@ -48,4 +48,10 @@ export class HttpService {
   return this.http.put(this.url + 'room/' + roomId, data, {headers: headers});
   }
 
+  sendGuessPost(data, roomId) {
+    const headers = new Headers({auth: localStorage.getItem('token')})
+    return this.http.post(this.url + 'room/' + roomId + '/guess', data, {headers: headers});
+  }
+
+
 }

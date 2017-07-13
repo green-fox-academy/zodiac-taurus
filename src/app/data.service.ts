@@ -8,6 +8,7 @@ export class DataService {
   public owner: string;
   public image_url: string;
   public user_id: number;
+  public drawing: string;
 
   public constructor() { }
 }
