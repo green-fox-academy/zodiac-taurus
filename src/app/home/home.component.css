@@ -102,7 +102,7 @@
 
 /*************  USER CREATE ******************/
 
-.userCreate {
+.user-create {
   margin:  20px 25px;
   display: flex;
   justify-content: center;
@@ -115,22 +115,7 @@
   box-shadow: 0px 10px 51px -3px rgba(0,0,0,0.65);
 }
 
-.userCreate:hover p {
-  display: none;
-}
-
-.userCreate:hover:before {
-  background-color: #83BBBC;
-  content: "CREATE";
-  font-size: 34px;
-  color: #1E4A5D;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
-  padding: 28px 84px 28px 84px;
-  border-radius: 10px;
-}
-
-.userCreate p {
+.user-create p {
   font-size: 23px;
   font-weight: 300;
   border-radius: 10px;
@@ -139,6 +124,36 @@
   font-family: 'Roboto', sans-serif;
   cursor: pointer;
 }
+
+.roomnameinput {
+  display:none;
+}
+
+.user-create:hover input {
+  display:block;
+}
+
+/*input:focus {
+    display:block;
+}*/
+
+
+/*.user-create:hover p {
+  display: none;
+}*/
+
+/*.user-create:hover:before {
+  background-color: #83BBBC;
+  content: "CREATE";
+  font-size: 34px;
+  color: #1E4A5D;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  padding: 28px 84px 28px 84px;
+  border-radius: 10px;
+}*/
+
+
 
 /*********   PAGINATION   **************/
 

@@ -8,6 +8,8 @@ import { HeaderComponent } from '../header/header.component';
 import { CanvasComponent } from '../canvas/canvas.component';
 import { MessagingService } from '../messaging.service';
 import { DataService } from '../data.service';
+import { CapitalizefirstPipe } from '../capitalizefirst.pipe';
+
 
 
 @Component({
@@ -23,7 +25,7 @@ export class DrawComponent implements OnInit {
 
   colors = ['yellow', 'orange', 'red', 'black', 'purple', 'blue', 'green', 'white'];
 
-  userName =  this.dataService.name;
+  roomName =  this.dataService.name;
   guessDraw = this.dataService.drawing;
 
   constructor( private dataService: DataService, public messaging: MessagingService, public el: ElementRef, public canvas: CanvasComponent, private render:Renderer) {

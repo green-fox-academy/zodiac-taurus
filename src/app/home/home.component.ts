@@ -47,19 +47,20 @@ export class HomeComponent implements OnInit {
     return localStorage.getItem('token').split('.')[1];
   }
 
-  createRoomButton() {
-    let name = JSON.parse(atob(this.tokenSplit())).user;
+  createRoomButton(newRoomName) {
+    // let name = JSON.parse(atob(this.tokenSplit())).user;
     let obj = {
-      name: name
+      name: newRoomName
     }
     this.httpService.createRoom(obj).subscribe(
-      (response) => console.info(response.json()),
+      (response) => this.enterToRoom(response.json().room),
       (error) => console.error(error)
     );
-    this.listRooms();
+    // this.listRooms();
   }
 
   enterToRoom(data) {
+    console.log(data);
     this.dataService.id = data.id;
     this.dataService.image_url = data.image_url;
     this.dataService.name = data.name;
@@ -77,8 +78,7 @@ export class HomeComponent implements OnInit {
       if (data.json().status === 0 && data.json().guesser_user_id !== this.dataService.user_id) {
         let obj = {
           'status': 1,
-          'guesser_user_id': "",
-          'guesser_joined_at': ""
+          'guesser_user_id': ""
         };
         this.httpService.guesserJoin(obj, this.dataService.id).subscribe(
           (response) => console.log(response), // in progress
