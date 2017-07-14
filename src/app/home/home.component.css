@@ -117,21 +117,39 @@
 
 .user-create p {
   font-size: 23px;
-  font-weight: 300;
+  font-weight: 500;
   border-radius: 10px;
   padding: 5px 20px;
   color: #4BCABE;
   font-family: 'Roboto', sans-serif;
   cursor: pointer;
+  z-index: 0;
 }
 
-.roomnameinput {
+input {
   display:none;
 }
 
-.user-create:hover input {
-  display:block;
+.user-create:hover p{
+  z-index: -1;
 }
+
+input::-webkit-input-placeholder {
+  font-size: 17px;
+}
+
+.user-create:hover input{
+  /*z-index: 1;*/
+  position: absolute;
+  display: block;
+  color: #1E4A5D;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  background: #4BCABE;
+}
+
+
 
 /*input:focus {
     display:block;

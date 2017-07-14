@@ -8,7 +8,7 @@
                 <p class="player">You're playing with:</p>
                 <p class="user">{{userName | capitalizefirst}}</p>
                 <div class="guess">
-                    <input #box placeholder="Guessing" size="25">
+                    <input #box placeholder="Guessing" size="22">
                     <div class="button" (click)="guessPost(box.value)">submit</div>
                 </div>
             </div>
