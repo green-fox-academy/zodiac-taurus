@@ -20,6 +20,7 @@ export class GuessingComponent implements OnInit {
   cx: any;
   userName = this.dataService.name;
   roomId = this.dataService.id;
+  guessed;
   id;
 
   constructor(public el: ElementRef, private httpService: HttpService, private dataService: DataService ) {
@@ -64,12 +65,22 @@ export class GuessingComponent implements OnInit {
       "guess": guess
     };
     this.httpService.sendGuessPost(obj, this.roomId).subscribe(
-      (response) => console.log('guesspost', response),
+      (response) => this.guessedOrNot(response),
       (error) => console.log(error)
     );
   }
 
+  guessedOrNot(data) {
+    if(data.json().guessed) {
+      this.guessed = "Congratulation! Your guess is right."
+    } else {
+      this.guessed = "Your guess is wrong!"
+    }
+  }
+
 }
+
+
 
 
 
