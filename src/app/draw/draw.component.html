@@ -1,27 +1,26 @@
 <div class="container">
-<app-header></app-header>
-    <div class="main">
-        <div class="properties">
-            <div class="upper">
-                <h3>Room name: {{roomName | capitalizefirst }}</h3>
-                <p class="draw-that">Draw an <span>{{guessDraw}}</span></p>
-                <!-- <p class="player">playing with<br>John3612</p> -->
-            </div>
-            <div class="all-colors">
-                <div *ngFor="let color of colors" [ngClass]=color class="color" (click)="setColor(color)"></div>
-            </div>
-            <div>
-                <div class="lines">
-                    <div class="normal" (click)="setLineWeight(2)"></div>
-                    <div class="bold" (click)="setLineWeight(13)"></div>
-                    <div class="bolder" (click)="setLineWeight(27)"></div>
-                </div>
-                <button (click)="canvas.submitEvent()">Submit</button>
-                <button (click)="canvas.ngAfterViewInit()">Reset</button>
-            </div>
+  <app-header></app-header>
+  <div class="main">
+    <div class="properties">
+      <div class="upper">
+        <h3>Room name: {{roomName | capitalizefirst }}</h3>
+        <p class="draw-that">Draw an <span>{{guessDraw}}</span></p>
+      </div>
+      <div class="all-colors">
+        <div *ngFor="let color of colors" [ngClass]=color class="color" (click)="setColor(color)"></div>
+      </div>
+      <div>
+        <div class="lines">
+          <div class="normal" (click)="setLineWeight(2)"></div>
+          <div class="bold" (click)="setLineWeight(13)"></div>
+          <div class="bolder" (click)="setLineWeight(27)"></div>
         </div>
-        <div class="canvas">
-            <app-canvas></app-canvas>
-        </div>    
+        <button (click)="canvas.submitEvent()">Submit</button>
+        <button (click)="canvas.ngAfterViewInit()">Reset</button>
+      </div>
+    </div>
+    <div class="canvas">
+      <app-canvas></app-canvas>
     </div>    
+  </div>    
 </div>
