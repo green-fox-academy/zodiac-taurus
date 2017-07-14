@@ -29,7 +29,6 @@ export class DrawComponent implements OnInit {
   guessDraw = this.dataService.drawing;
 
   constructor( private dataService: DataService, public messaging: MessagingService, public el: ElementRef, public canvas: CanvasComponent, private render:Renderer) {
-    
   }
 
   ngOnInit() {
