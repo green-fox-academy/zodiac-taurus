@@ -53,5 +53,9 @@ export class HttpService {
     return this.http.post(this.url + 'room/' + roomId + '/guess', data, {headers: headers});
   }
 
+  pingTime(roomId) {
+    const headers = new Headers({auth: localStorage.getItem('token')})
+    return this.http.get(this.url + 'room/' + roomId + '/ping', {headers: headers});
+  }
 
 }
