@@ -25,6 +25,7 @@ export class GuessingComponent implements OnInit {
   timeIsUp = false;
   time;
   canGuess = true;
+  rightGuess = false;
 
   constructor(public el: ElementRef, private httpService: HttpService, private dataService: DataService ) {
     this.intervall();
@@ -61,17 +62,19 @@ export class GuessingComponent implements OnInit {
   }
 
   secondSetter(data){
-    if(data.remained ) { 
-      this.time = data.remained;
-    } else if(data.remained === 0){
-      this.time = 0;
-      setTimeout(function(){this.time = "Time is up!!"}, 800);
-      this.timeIsUp = true;
-      this.canGuess = false;
-    } else {
-      this.time = "";
-      this.timeIsUp = true;
-      this.canGuess = false;
+    if(this.rightGuess === false) {
+      if(data.remained ) { 
+        this.time = data.remained;
+      } else if(data.remained === 0){
+        this.time = 0;
+        setTimeout(function(){this.time = "Time is up!!"}, 800);
+        this.timeIsUp = true;
+        this.canGuess = false;
+      } else {
+        this.time = "";
+        this.timeIsUp = true;
+        this.canGuess = false;
+      }
     }
   }
 
@@ -115,6 +118,7 @@ export class GuessingComponent implements OnInit {
 
   guessedOrNot(data) {
     if(data.json().guessed) {
+      this.rightGuess = true;
       this.guessed = "Congratulation! Your guess is right."
       this.timeIsUp = true;
       this.canGuess = false;
