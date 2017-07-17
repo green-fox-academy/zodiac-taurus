@@ -72,36 +72,43 @@ span {
     border-radius: 25px;
 }
 
-.red {
-    background-color: #e84534;
+.color:hover {
+  border: 3px solid black;
+  width: 39px;
+  height: 39px;
 }
 
 .yellow {
-    background-color: #ffef03;
+  background-color: #ffef03;
+}
+
+
+.red {
+  background-color: #e84534;
 }
 
 .orange {
-    background-color: #f98f1f;
+  background-color: #f98f1f;
 }
 
 .black {
-    background-color: black;
+  background-color: black;
 }
 
 .purple {
-    background-color: #a54398;
+  background-color: #a54398;
 }
 
 .blue {
-    background-color: #3c5daa;
+  background-color: #3c5daa;
 }
 
 .green {
-    background-color: #00a458;
+  background-color: #00a458;
 }
 
 .white {
-    background-color: white;
+  background-color: white;
 }
 
 button {
@@ -123,6 +130,13 @@ button {
     border-radius: 25px;
     margin: 22px 5px;
 }
+
+.normal:hover, .bold:hover, .bolder:hover {
+  border: 3px solid black;
+  width: 44px;
+  height: 44px;
+}
+
 
 .normal {
     background: url('../../assets/norm.png') center no-repeat;

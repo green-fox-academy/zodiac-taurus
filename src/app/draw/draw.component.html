@@ -4,8 +4,7 @@
         <div class="properties">
             <div class="upper">
                 <h3>Room name: {{roomName | capitalizefirst }}</h3>
-                <p class="draw-that">Draw an <span>{{guessDraw}}</span></p>
-                <!-- <p class="player">playing with<br>John3612</p> -->
+                <p class="draw-that">Draw a(n) <span>{{guessDraw}}</span></p>
             </div>
             <div class="all-colors">
                 <div *ngFor="let color of colors" [ngClass]=color class="color" (click)="setColor(color)"></div>
@@ -20,9 +19,9 @@
                 <button *ngIf="haveTime" (click)="canvas.submitEvent(); sended()">Submit</button>
                 <button (click)="canvas.ngAfterViewInit()">Reset</button>
             </div>
-        </div>
-        <div class="canvas">
-            <app-canvas></app-canvas>
-        </div>    
+    </div>
+    <div class="canvas">
+      <app-canvas></app-canvas>
     </div>    
+  </div>    
 </div>
