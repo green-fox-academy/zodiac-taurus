@@ -9,9 +9,10 @@
                 <p class="user">{{userName | capitalizefirst}}</p>
                 <div class="guess">
                     <input #box placeholder="Guessing" size="22">
-                    <div class="button" (click)="guessPost(box.value)">submit</div>
+                    <div *ngIf="canGuess" class="button" (click)="guessPost(box.value)">submit</div>
                 </div>
                 <p>{{guessed}}</p>
+                <p>{{time}}</p>
             </div>
             <div class="bottom"> 
                 

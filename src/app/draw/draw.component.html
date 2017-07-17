@@ -10,13 +10,14 @@
             <div class="all-colors">
                 <div *ngFor="let color of colors" [ngClass]=color class="color" (click)="setColor(color)"></div>
             </div>
+            <p>{{remainedSeconds}}</p>
             <div>
                 <div class="lines">
                     <div class="normal" (click)="setLineWeight(2)"></div>
                     <div class="bold" (click)="setLineWeight(13)"></div>
                     <div class="bolder" (click)="setLineWeight(27)"></div>
                 </div>
-                <button (click)="canvas.submitEvent()">Submit</button>
+                <button *ngIf="haveTime" (click)="canvas.submitEvent(); sended()">Submit</button>
                 <button (click)="canvas.ngAfterViewInit()">Reset</button>
             </div>
         </div>

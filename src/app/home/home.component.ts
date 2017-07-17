@@ -65,6 +65,7 @@ export class HomeComponent implements OnInit {
     this.dataService.image_url = data.image_url;
     this.dataService.name = data.name;
     this.dataService.drawing = data.drawing;
+    this.dataService.current_turn = data.current_turn;
     this.httpService.enterRoom(this.dataService.id).subscribe(
       (response) => this.checkRoomRoute(response),
       (error) => console.log(error)
@@ -72,14 +73,24 @@ export class HomeComponent implements OnInit {
   }
 
   checkRoomRoute(data) {
+    let obj;
+    if(data.json().current_turn === "drawer") {
+      obj =  {
+          'status': 1,
+          'guesser_user_id': "",
+        };
+    } else {
+        obj =  {
+          'status': 1,
+          'guesser_user_id': "",
+          "time_start": ""
+        };
+    }
     if (this.dataService.user_id === parseInt(data.json().drawer_user_id)) {
       this.router.navigate(['draw']);
     } else {
       if (data.json().status === 0 && data.json().guesser_user_id !== this.dataService.user_id) {
-        let obj = {
-          'status': 1,
-          'guesser_user_id': ""
-        };
+        //should be renamed
         this.httpService.guesserJoin(obj, this.dataService.id).subscribe(
           (response) => console.log(response), // in progress
           (error) => console.log(error)
