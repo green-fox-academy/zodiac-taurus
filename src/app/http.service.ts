@@ -32,6 +32,7 @@ export class HttpService {
     return this.http.get(this.url + 'user', {headers: headers});
   }
 
+//should be renamed to getOneRoom
   enterRoom(data) {
     const headers = new Headers({auth: localStorage.getItem('token')})
     return this.http.get(this.url + 'room/' + data, {headers: headers}); //need data?!
@@ -43,6 +44,7 @@ export class HttpService {
     return this.http.post(this.url + 'room/' + roomId + '/image', data, {headers: headers});
   }
 
+  //should be renamed to changeDetailsInRoom
   guesserJoin(data, roomId) {
   const headers = new Headers({auth: localStorage.getItem('token')})
   return this.http.put(this.url + 'room/' + roomId, data, {headers: headers});

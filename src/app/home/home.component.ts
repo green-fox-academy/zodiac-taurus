@@ -66,6 +66,7 @@ export class HomeComponent implements OnInit {
     this.dataService.name = data.name;
     this.dataService.drawing = data.drawing;
     this.dataService.current_turn = data.current_turn;
+    this.dataService.guessed = data.guessed;
     this.httpService.enterRoom(this.dataService.id).subscribe(
       (response) => this.checkRoomRoute(response),
       (error) => console.log(error)
