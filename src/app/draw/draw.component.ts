@@ -77,12 +77,10 @@ export class DrawComponent implements OnInit {
   }
 
   pingServer(){
-    if(this.dataService.current_turn === "drawer") {
-      this.httpService.pingTime(this.dataService.id).subscribe(
-        (response) => this.secondSetter(response.json()),
-        (error) => console.log(error)
-      );
-    }
+    this.httpService.pingTime(this.dataService.id).subscribe(
+      (response) => this.secondSetter(response.json()),
+      (error) => console.log(error)
+    );
   }
 
   getCanvas() {
@@ -99,13 +97,15 @@ export class DrawComponent implements OnInit {
 
   secondSetter(data) {
     console.log(data);
-    if(data.remained ) {
-      this.remainedSeconds = data.remained;
-    } else if (data.remained === 0) {
-      this.remainedSeconds = data.remained;
-      this.canvas.submitEvent()
-    } else if (data.status) {
-      this.sended();
+    if(this.dataService.current_turn === "drawer") {
+      if(data.remained ) {
+        this.remainedSeconds = data.remained;
+      } else if (data.remained === 0) {
+        this.remainedSeconds = data.remained;
+        this.canvas.submitEvent()
+      } else if (data.status) {
+        this.sended();
+      }
     }
   }
 
