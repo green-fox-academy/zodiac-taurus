@@ -33,7 +33,6 @@ export class GuessingComponent implements OnInit {
       if(window.location.href.slice(-8) !== 'guessing' || this.timeIsUp){
         clearInterval(this.id);
       }
-      console.log("fut");
       this.getOneRoom();
       this.getCanvas();
       this.intervall();
@@ -41,14 +40,18 @@ export class GuessingComponent implements OnInit {
   }
 
   intervall() {
-    if(this.dataService.current_turn === "guesser") {
+    console.log(this.dataService.guessed);
+    if(this.dataService.current_turn === "guesser" && this.dataService.guessed === false) {
       const id = setInterval(function() {
-        console.log("Fut?")
         if(window.location.href.slice(-4) !== 'guessing' || this.timeIsUp){
           clearInterval(id);
-        }    
-        this.pingServer(); 
+        }
+        this.pingServer();
       }.bind(this), 1000 );
+    } else if( this.dataService.guessed === true ){
+        this.time = "";
+        this.timeIsUp = true;
+        this.canGuess = false;
     }
   }
 
@@ -61,7 +64,18 @@ export class GuessingComponent implements OnInit {
     }
   }
 
+  setRoomToEnded(){
+    const obj = {
+      "status": 2
+    };
+    this.httpService.guesserJoin(obj, this.dataService.id).subscribe(
+      (response) => console.info(response),
+      (error) => console.error(error)
+    );
+  }
+
   secondSetter(data){
+    console.log(data);
     if(this.rightGuess === false) {
       if(data.remained ) { 
         this.time = data.remained;
@@ -70,6 +84,7 @@ export class GuessingComponent implements OnInit {
         setTimeout(function(){this.time = "Time is up!!"}, 800);
         this.timeIsUp = true;
         this.canGuess = false;
+        this.setRoomToEnded()
       } else {
         this.time = "";
         this.timeIsUp = true;
@@ -123,7 +138,7 @@ export class GuessingComponent implements OnInit {
       this.timeIsUp = true;
       this.canGuess = false;
       this.time = "";
-
+      this.setRoomToEnded()
     } else {
       this.guessed = "Your guess is wrong!"
     }

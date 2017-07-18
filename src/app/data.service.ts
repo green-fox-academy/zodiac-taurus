@@ -10,6 +10,7 @@ export class DataService {
   public user_id: number;
   public drawing: string;
   public current_turn: string;
+  public guessed: boolean;
 
   public constructor() { }
 }

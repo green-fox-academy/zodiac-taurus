@@ -30,6 +30,8 @@ export class DrawComponent implements OnInit {
   guessDraw = this.dataService.drawing;
   remainedSeconds;
   haveTime = true;
+  guessedText;
+  guessed;
   canvasEl;
   cx;
 
@@ -57,6 +59,13 @@ export class DrawComponent implements OnInit {
     this.getCanvas();
   }
 
+  saveDatas(data) {
+    this.guessed = data.json().guessed;
+    if(this.guessed) {
+      this.guessedText = "Congratulation, your partner guessed right."
+    }
+  }
+
   sended() {
     this.haveTime = false;
     this.remainedSeconds = "Sended..";
@@ -66,14 +75,19 @@ export class DrawComponent implements OnInit {
       "time_start": ""
     }
     this.httpService.guesserJoin(obj, this.dataService.id).subscribe(
-      (response) => this.setCurrentTurn(), // in progress
-      (error) => console.log(error)
+      (response) => console.info(response), // in progress
+      (error) => console.error(error)
     );
     this.dataService.current_turn = "guesser";
-  }
-
-  setCurrentTurn() {
-    this.dataService.current_turn = "guesser";
+      const id = setInterval(function() {
+        if(window.location.href.slice(-4) !== 'draw' || this.guessed){
+          clearInterval(id);
+        }    
+        this.httpService.enterRoom(this.dataService.id).subscribe(
+        (response) => this.saveDatas(response),
+        (error) => console.error(error)
+        );
+      }.bind(this), 1000 );
   }
 
   pingServer(){
