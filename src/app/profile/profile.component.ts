@@ -16,6 +16,7 @@ export class ProfileComponent implements OnInit {
   score:number;
   edit:boolean = false;
   hide;
+  myRooms;
   constructor(private httpService: HttpService) { 
     this.getUserDetails()
   }
@@ -31,7 +32,9 @@ export class ProfileComponent implements OnInit {
   }
 
   setDetails(data){
+    console.log(data);
     const resData = data.json();
+    this.myRooms = resData.myRooms;
     this.name = resData.name;
     this.score = resData.score;
   }
