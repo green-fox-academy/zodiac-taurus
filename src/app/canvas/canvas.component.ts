@@ -87,6 +87,7 @@ export class CanvasComponent implements OnInit {
     this.getCanvas();
     this.canvasEl.width = this.canvasEl.clientWidth;
     this.canvasEl.height = this.canvasEl.clientHeight;
+    
 
     this.cx.lineWidth = this.lineWeight;
     this.cx.lineCap = 'round';
