@@ -1,5 +1,5 @@
 import {
-  Directive, Component, Input, ElementRef, AfterViewInit, ViewChild, OnInit
+  Directive, Component, Input, ElementRef, Renderer2, AfterViewInit, ViewChild, OnInit
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Subscription } from 'rxjs/Subscription';
@@ -16,6 +16,7 @@ import 'rxjs/add/operator/takeUntil';
 import 'rxjs/add/operator/pairwise';
 
 
+
 @Component({
   selector: 'app-canvas',
   templateUrl: './canvas.component.html',
@@ -26,8 +27,9 @@ import 'rxjs/add/operator/pairwise';
 @Directive({ selector: 'myCanvas' })
 
 export class CanvasComponent implements OnInit {
-  @Input() public width = 560;
-  @Input() public height = 420;
+
+  // @Input() public width = 560;
+  // @Input() public height = 420;
 
   cx:any;
   lineWeight = 2;
@@ -83,8 +85,8 @@ export class CanvasComponent implements OnInit {
 
   public ngAfterViewInit() {
     this.getCanvas();
-    this.canvasEl.width = this.width;
-    this.canvasEl.height = this.height;
+    this.canvasEl.width = this.canvasEl.clientWidth;
+    this.canvasEl.height = this.canvasEl.clientHeight;
 
     this.cx.lineWidth = this.lineWeight;
     this.cx.lineCap = 'round';
@@ -92,6 +94,7 @@ export class CanvasComponent implements OnInit {
 
     this.captureEvents(this.canvasEl);
   }
+  
   private captureEvents(canvasEl: HTMLCanvasElement) {
   Observable
     .fromEvent(canvasEl, 'mousedown')
@@ -115,6 +118,7 @@ export class CanvasComponent implements OnInit {
       this.drawOnCanvas(prevPos, currentPos);
     });
   }
+
   private drawOnCanvas(
     prevPos: { x: number, y: number }, 
     currentPos: { x: number, y: number }

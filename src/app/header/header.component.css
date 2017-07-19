@@ -1,16 +1,17 @@
 /*********   HEADER  ******************/
 
 .header {
-  min-width: 100vw;
+  width: 100vw;
   height: 50px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   background: #1E4A5D;
+  margin-bottom: 10px;
 }
 
 h3 {
-  padding-left: 150px;
+  /*padding-left: 150px;*/
   background: #1E4A5D;
   font-size: 32px;
   font-family: 'Roboto', sans-serif;
@@ -26,9 +27,10 @@ h3:active, h3:focus {
 .logout {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   /*min-width: 200px;*/
   height: 40px;
-  margin-right: 160px;
+  /*margin-right: 160px;*/
   cursor: pointer;
 }
 
@@ -86,19 +88,30 @@ h4 div p:hover {
   font-size: 18px;
 }
 
+/* ----------- iPhone 5, 5S, SE ----------- */
 
-@media (max-width: 375px){
+@media screen and (max-width: 320px)  {
 
   .header {
-    max-width: 375px;
+    /*width: 100vw;*/
+    height: 30px;
+   /* display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #1E4A5D;*/
+    /*margin-bottom: 10px;*/
   }
 
   h3 {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   h4 {
-    font-size: 16px;
+    font-size: 14px;
+  }
+
+  p {
+    font-size: 12px;
   }
 
   .login_picture {
@@ -106,3 +119,55 @@ h4 div p:hover {
     height: 22px;
   }
 }
+
+
+
+
+
+/*
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (orientation: portrait) { 
+
+  h3 {
+    font-size: 22px;
+  }
+
+  h4 {
+    font-size: 22px;
+  }
+
+  .login_picture {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (orientation: portrait) { 
+
+    h3 {
+      font-size: 26px;
+    }
+
+    h4 {
+      font-size: 26px;
+    }
+
+    .login_picture {
+      width: 32px;
+      height: 32px;
+    }
+
+}*/
+
+
+
+
+
+
+

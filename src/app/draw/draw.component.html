@@ -1,25 +1,27 @@
 <div class="container">
-<app-header></app-header>
-    <div class="main">
-        <div class="properties">
-            <div class="upper">
-                <h3>Room name: {{roomName | capitalizefirst }}</h3>
-                <p class="draw-that">Draw a(n) <span>{{guessDraw}}</span></p>
-            </div>
-            <div class="all-colors">
-                <div *ngFor="let color of colors" [ngClass]=color class="color" (click)="setColor(color)"></div>
-            </div>
-            <p>{{remainedSeconds}}</p>
-            <p>{{guessedText}}</p>
-            <div>
-                <div class="lines">
-                    <div class="normal" (click)="setLineWeight(2)"></div>
-                    <div class="bold" (click)="setLineWeight(13)"></div>
-                    <div class="bolder" (click)="setLineWeight(27)"></div>
-                </div>
-                <button *ngIf="haveTime" (click)="canvas.submitEvent(); sended()">Submit</button>
-                <button (click)="canvas.ngAfterViewInit()">Reset</button>
-            </div>
+  <app-header></app-header>
+  <div class="main">
+    <div class="properties">
+      <div class="upper">
+        <h3>Room name: {{roomName | capitalizefirst }}</h3>
+        <p class="draw-that">Draw a(n) <span>{{guessDraw}}</span></p>
+      </div>
+      <div class="bottom">
+        <div class="all-colors">
+          <div *ngFor="let color of colors" [ngClass]=color class="color" (click)="setColor(color)"></div>
+        </div>
+        <p>{{remainedSeconds}}</p>
+        <p>{{guessedText}}</p>
+        <div class="lines">
+          <div class="normal" (click)="setLineWeight(2)"></div>
+          <div class="bold" (click)="setLineWeight(13)"></div>
+          <div class="bolder" (click)="setLineWeight(27)"></div>
+        </div>
+        <div class="buttons">
+          <button *ngIf="haveTime" (click)="canvas.submitEvent(); sended()">Submit</button>
+          <button (click)="canvas.ngAfterViewInit()">Reset</button>
+        </div>
+      </div>
     </div>
     <div class="canvas">
       <app-canvas></app-canvas>
