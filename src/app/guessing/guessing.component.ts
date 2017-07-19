@@ -53,8 +53,8 @@ export class GuessingComponent implements OnInit {
   getCanvas() {
     this.canvasEl = this.el.nativeElement.querySelector('canvas');
     this.cx = this.canvasEl.getContext('2d');
-    this.width = this.canvasEl.clientWidth;
-    this.height = this.canvasEl.clientHeight;
+    this.width = this.canvasEl.width;
+    this.height = this.canvasEl.height;
 
 
     let image = new Image();
