@@ -4,10 +4,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   background: #4BCABE;
   min-height: 100vh;
-  /*width: 100vw;*/
 }
 
 /*app-header {
@@ -18,12 +17,13 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-content: space-around; 
+  align-content: flex-start; 
   flex: 1 0 auto;
   background: #4BCABE;
   max-width: 960px;
+  max-height: 525px;
   /*border: 1px solid black;*/
-  /*height: 560px;*/
+  /*max-height: 100vh;*/
   /*padding-top: 70px;*/
 }
 
@@ -34,7 +34,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  /*margin: 20px 25px;*/
+  margin: 20px auto;
   width: 270px;
   height: 90px;
   border-radius: 10px;
@@ -88,7 +88,7 @@
   content:"JOIN";
   font-size: 34px;
   color: #1E4A5D;
-  padding: 28px 67px 28px 64px;
+  padding: 28px 55px;
   border-radius: 0px 10px 10px 0px;
 }
 
@@ -107,7 +107,7 @@
 /*************  USER CREATE ******************/
 
 .user-create {
-  /*margin:  20px 25px;*/
+  margin-top: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -121,7 +121,7 @@
 
 .user-create p {
   font-size: 23px;
-  font-weight: 500;
+  font-weight: 300;
   border-radius: 10px;
   padding: 5px 20px;
   color: #4BCABE;
@@ -213,22 +213,128 @@ input::-webkit-input-placeholder {
 .pagination /deep/ .pagination-previous {
   color: #1E4A5D;
 }
-/*
-@media (max-width: 375px){
-  
-  .container {
-    max-width: 375px;
+
+
+@media screen and (max-width: 320px)  {
+
+  .user {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 12px auto;
+    width: 140px;
+    height: 50px;
+    border-radius: 10px;
+    cursor: default;
+    background-color: #1E4A5D;
+    box-shadow: 0px 10px 51px -3px rgba(0,0,0,0.65);
+    position: relative;
   }
 
-  .main {
-    max-width: 375px;
-    height: 100%;
+  .userImage {
+    min-width: 30px;
+    height: 30px;
+    background-image: url(../../assets/8biticon_male.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 40px;
+    border: 2px solid lightgrey;
+    border-radius: 3px;
+    margin-left: 10px ;
+  }
+
+  .user p {
+    text-indent: 10px;
+    font-size: 12px;
+    color: #4BCABE;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .button:hover:after  {
+    background-color: #83BBBC;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    content: "JOIN";
+    font-size: 14px;
+    color: #1E4A5D;
+    padding: 18px 33px;
+    border-radius: 0px 10px 10px 0px;
+  }
+
+  .button:active:after {
+    background-color: #83BBBC;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    content: "JOIN";
+    font-size: 14px;
+    color: #1E4A5D;
+    padding: 18px 33px;
+    border-radius: 0px 10px 10px 0px;
+    margin-bottom: 3px;
+  }
+
+  .user-create {
+    margin-top:  12px;
+    display: flex;
     justify-content: center;
-    padding-top: 5px;
-
+    align-items: center;
+    width: 140px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #1E4A5D;
+    cursor: default;
+    box-shadow: 0px 10px 51px -3px rgba(0,0,0,0.65);
   }
 
-  .pagination {
+  .user-create p {
+    font-size: 12px;
+    font-weight: 300;
+    border-radius: 10px;
+    padding: 5px 20px;
+    color: #4BCABE;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    z-index: 0;
+  }
+
+  .freelight {
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+  }
+
+  .freelight img {
+    width: 100%;
+    height: auto;
+  }
+
+  input {
     display:none;
   }
-}*/
+
+  .user-create:hover p{
+    z-index: -1;
+  }
+
+  input::-webkit-input-placeholder {
+    font-size: 10px;
+  }
+
+  .user-create:hover input{
+    position: absolute;
+    display: block;
+    color: #1E4A5D;
+    font-size: 11px;
+    border: none;
+    border-radius: 5px;
+    background: #4BCABE;
+  }
+
+}
+
+
+
+
+

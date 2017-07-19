@@ -22,6 +22,8 @@ export class GuessingComponent implements OnInit {
   roomId = this.dataService.id;
   guessed;
   id;
+  width;
+  height;
 
   constructor(public el: ElementRef, private httpService: HttpService, private dataService: DataService ) {
     this.id = setInterval(function(){
@@ -51,10 +53,13 @@ export class GuessingComponent implements OnInit {
   getCanvas() {
     this.canvasEl = this.el.nativeElement.querySelector('canvas');
     this.cx = this.canvasEl.getContext('2d');
+    this.width = this.canvasEl.clientWidth;
+    this.height = this.canvasEl.clientHeight;
+
 
     let image = new Image();
     image.onload = function() {
-      this.cx.drawImage(image, 0, 0, 560, 420);
+      this.cx.drawImage(image, 0, 0, this.width, this.height);
     }.bind(this);
 
     image.src = this.dataService.image_url;

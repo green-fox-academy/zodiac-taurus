@@ -13,28 +13,10 @@
         </div>
         <div class="user-create" >
             <p>Don't have a room? Create one!</p>
-            <!-- <div class="room-name-input"> Input -->
             <input type="text" #roomnameinput (keyup.enter)="createRoomButton(roomnameinput.value)" maxlength="15" size="21" placeholder="Room name, then hit enter">
-            <!-- </div> -->
         </div>
     </div>
     <div class="pagination">
         <pagination-controls (pageChange)="p = $event" previousLabel="" nextLabel="" maxSize="5"></pagination-controls>
     </div>
 </div>
-
-<!-- 
-<div> Text
-    <input type="text" />
-</div>
-
-div:hover input {
-    display:block;
-}
-input:focus {
-    display:block;
-}
-input {
-    display:none;
-}
- -->
