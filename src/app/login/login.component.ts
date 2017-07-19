@@ -27,24 +27,11 @@ export class LoginComponent implements OnInit {
   dismissErr;
 
   constructor(private loginCheck: LoginCheckService, private httpService: HttpService, private router: Router) {
-    this.name = '';
-    this.passw = '';
-    window.addEventListener("keydown", this.enterEvent.bind(this));
     loginCheck.loggedIn();
   }
 
   ngOnInit() {
   }
-
-  enterEvent(e){
-		if(e.keyCode == 13){
-			if(this.registrationForm){
-        this.registrationEvent(this.name, this.passw, this.repassw);
-      } else {
-         this.loginEvent(this.name, this.passw);
-      }
-		}
-	}
 
   errorStyling(){
     if(this.error){
