@@ -9,6 +9,8 @@ export class DataService {
   public image_url: string;
   public user_id: number;
   public drawing: string;
+  public current_turn: string;
+  public guessed: boolean;
 
   public constructor() { }
 }
