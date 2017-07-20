@@ -125,9 +125,10 @@ button {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    flex: 1 1 20%;
+    /*flex: 1 1 20%;*/
     margin: 30px;
     border: 2px solid white;
+    width: 200px;
     height: 80px;
 }
 
@@ -194,17 +195,6 @@ button {
     font-size: 30px;
   }
 
-
-
-
-
-
-
-
-
-
-
-
   .room-name {
     font-size: 16px;
   }
@@ -224,7 +214,5 @@ button {
     color: #BCF7EE;
     padding-bottom: 10px;
   }
-
-
 
 }
