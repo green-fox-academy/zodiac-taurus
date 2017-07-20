@@ -4,9 +4,9 @@
     <div class="profile">
       <div class="login_picture"></div>
       <div>
-        <p class="datas name">{{name}} <span class="edit" (click)="editName()">[edit]</span></p>
+        <p class="datas name">{{name }} <span class="edit" (click)="editName()">[edit]</span></p>
         <div class="changeName" ><input [ngClass]="hide" *ngIf="edit" type="text" [(ngModel)]="name"><button [ngClass]="hide" *ngIf="edit">Set</button></div>
-        <p class="datas">Score: {{score}}</p>
+        <p class="datas">Score: {{ score }}</p>
       </div>
     </div>
     <div>
