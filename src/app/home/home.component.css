@@ -108,6 +108,7 @@
 /*************  USER CREATE ******************/
 
 .user-create {
+  position: relative;
   margin-top: 20px;
   display: flex;
   justify-content: center;
@@ -131,7 +132,7 @@
   z-index: 0;
 }
 
-input {
+.roominput {
   display:none;
 }
 
@@ -139,11 +140,12 @@ input {
   z-index: -1;
 }
 
-input::-webkit-input-placeholder {
+.roominput::-webkit-input-placeholder {
   font-size: 17px;
 }
 
-.user-create:hover input{
+.user-create:hover .roominput{
+  width: 180px;
   position: absolute;
   display: block;
   color: #1E4A5D;
@@ -275,6 +277,7 @@ input::-webkit-input-placeholder {
   }
 
   .user-create {
+    position: relative;
     margin-top:  12px;
     display: flex;
     justify-content: center;
@@ -298,6 +301,32 @@ input::-webkit-input-placeholder {
     z-index: 0;
   }
 
+
+  .roominput {
+    display:none;
+  }
+
+  .user-create:hover p {
+    z-index: -1;
+  }
+
+  .roominput::-webkit-input-placeholder {
+    font-size: 12px;
+  }
+
+  .user-create:hover .roominput {
+    width: 108px;
+    position: absolute;
+    display: block;
+    top: 14px;
+    left: 17px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    background: #4BCABE;
+  }
+
+
   .freelight {
     width: 14px;
     height: 14px;
@@ -309,28 +338,6 @@ input::-webkit-input-placeholder {
   .freelight img {
     width: 100%;
     height: auto;
-  }
-
-  input {
-    display:none;
-  }
-
-  .user-create:hover p{
-    z-index: -1;
-  }
-
-  input::-webkit-input-placeholder {
-    font-size: 10px;
-  }
-
-  .user-create:hover input{
-    position: absolute;
-    display: block;
-    color: #1E4A5D;
-    font-size: 11px;
-    border: none;
-    border-radius: 5px;
-    background: #4BCABE;
   }
 
 }
