@@ -24,7 +24,8 @@
       </div>
     </div>
     <div class="canvas">
-      <app-canvas></app-canvas>
+      <app-canvas *ngIf="haveTime" ></app-canvas>
+      <canvas *ngIf="!haveTime" width=560 height=420></canvas>
     </div>    
   </div>    
 </div>
