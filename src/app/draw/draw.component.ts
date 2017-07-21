@@ -60,10 +60,12 @@ export class DrawComponent implements OnInit {
   }
 
   saveDatas(data) {
+    this.dataService.image_url = data.json().image_url;
     this.guessed = data.json().guessed;
     if(this.guessed) {
       this.guessedText = "Congratulation, your partner guessed right."
     }
+    this.getCanvas();
   }
 
   sended() {
@@ -100,10 +102,12 @@ export class DrawComponent implements OnInit {
   getCanvas() {
     this.canvasEl = this.el.nativeElement.querySelector('canvas');
     this.cx = this.canvasEl.getContext('2d');
+    const width = this.canvasEl.width;
+    const height = this.canvasEl.height;
 
     let image = new Image();
     image.onload = function() {
-      this.cx.drawImage(image, 0, 0, 560, 420);
+      this.cx.drawImage(image, 0, 0, width, height);
     }.bind(this);
 
     image.src = this.dataService.image_url;

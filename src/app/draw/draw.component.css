@@ -283,6 +283,11 @@ button:hover, .color:hover, .normal:hover, .bold:hover, .bolder:hover {
 
   }
 
+  canvas {
+    width: 270px;
+    height: 260px;
+  }
+
 }
 
 
