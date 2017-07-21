@@ -62,7 +62,7 @@
 .userImage {
   min-width: 70px;
   height: 70px;
-  background-image: url(../../assets/8biticon_male.jpg);
+  background-image: url(../../assets/bit-face.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 70px;
@@ -237,7 +237,6 @@
   .userImage {
     min-width: 30px;
     height: 30px;
-    background-image: url(../../assets/8biticon_male.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 40px;
