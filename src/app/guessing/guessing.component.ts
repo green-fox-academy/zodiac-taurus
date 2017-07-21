@@ -152,8 +152,3 @@ export class GuessingComponent implements OnInit {
 }
 
 
-
-
-
-
-

@@ -10,7 +10,7 @@
         <div class="all-colors">
           <div *ngFor="let color of colors" [ngClass]=color class="color" (click)="setColor(color)"></div>
         </div>
-        <p>{{remainedSeconds}}</p>
+        <p *ngIf="!guessedText">{{remainedSeconds}}</p>
         <p>{{guessedText}}</p>
         <div class="lines">
           <div class="normal" (click)="setLineWeight(2)"></div>
