@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
 
   constructor( private dataService: DataService, private httpService: HttpService, private router: Router ) {
     const id = setInterval(function() {
-        if(window.location.href.slice(-5) !== '4200/'){
+        if(window.location.href.slice(-1) !== '/'){
           clearInterval(id);
         }
         this.listRooms();
