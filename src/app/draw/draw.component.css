@@ -37,7 +37,7 @@
 
 
 h3 {
-    font-size: 40px;
+    font-size: 30px;
     color: white;
     font-weight: bolder;
     padding-bottom: 10px;
@@ -58,6 +58,25 @@ span {
     color: white;
     line-height: 22px;
     padding-bottom: 30px;
+}
+
+.bottom:nth-child(2) {
+  width: 250px;
+  height: 30px;
+  color: white;
+  font-size: 24px;
+  margin: 0px auto;
+  text-align: center;
+
+}
+
+.bottom:nth-child(3) {
+  width: 250px;
+  height: 80px;
+  color: white;
+  font-size: 24px;
+  margin: 0px auto;
+  text-align: center;
 }
 
 .all-colors {
@@ -132,7 +151,7 @@ button {
   width: 50px;
   height: 50px;
   border-radius: 25px;
-  margin: 22px 5px;
+  margin: 12px 5px;
 }
 
 .normal:hover, .bold:hover, .bolder:hover {
@@ -202,16 +221,37 @@ button:hover, .color:hover, .normal:hover, .bold:hover, .bolder:hover {
     padding-bottom: 5px;
   }
 
-  .bottom {
+/*  .bottom {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+  }*/
+
+    .bottom:nth-child(2) {
+    width: 250px;
+    height: 30px;
+    color: white;
+    font-size: 24px;
+    margin: 0px auto;
+    text-align: center;
+    
   }
+
+  .bottom:nth-child(3) {
+    width: 250px;
+    height: 80px;
+    color: white;
+    font-size: 18px;
+    margin: 0px auto;
+    text-align: center;
+  }
+
 
   .all-colors {
     width: 160px;
     height: 80px;
+    margin: 0 auto;
   }
 
 

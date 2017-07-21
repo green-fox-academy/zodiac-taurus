@@ -13,7 +13,7 @@
         </div>
         <div class="user-create" >
             <p>Don't have a room? Create one!</p>
-            <input type="text" #roomnameinput (keyup.enter)="createRoomButton(roomnameinput.value)" maxlength="15" size="21" placeholder="Room name, then hit enter">
+            <input class="roominput" type="text" #roomnameinput (keyup.enter)="createRoomButton(roomnameinput.value)" maxlength="10" size="12" placeholder="Room name, please">
         </div>
     </div>
     <div class="pagination">

@@ -2,22 +2,18 @@
 <app-header></app-header>
     <div class="main">
         <div class="properties">
-            <div class="upper">
                 <h1>{{userName | capitalizefirst}}'s room</h1>
                 <h3>Guess the drawing</h3>
-                <p class="player">You're playing with:</p>
-                <p class="user">{{userName | capitalizefirst}}</p>
+        <!--         <p class="player">You're playing with: </p>
+                <p class="user">{{userName | capitalizefirst}}</p> -->
+                <p class="guessed">{{guessed}}</p>
+                <p *ngIf="time" class="time">Remaining time: {{time}}</p>
                 <div class="guess">
                     <input #box placeholder="Guessing" size="22">
                     <div *ngIf="canGuess" class="button" (click)="guessPost(box.value)">submit</div>
                 </div>
-                <p class="guessed">{{guessed}}</p>
-                <p>{{time}}</p>
-            </div>
         </div>   
-        <!-- <div class="canvas"> -->
             <canvas id="canvas" width="560" height="420"></canvas>
-        <!-- </div>   -->
     </div>    
 </div>
 

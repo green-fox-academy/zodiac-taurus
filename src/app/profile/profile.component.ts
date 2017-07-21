@@ -4,11 +4,11 @@ import { CapitalizefirstPipe } from '../capitalizefirst.pipe';
 import { HeaderComponent } from '../header/header.component';
 import { LoginCheckService } from '../login-check.service';
 
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css'],
-  providers: [ CapitalizefirstPipe ]
+  styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
 
