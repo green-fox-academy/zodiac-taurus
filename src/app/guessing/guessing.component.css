@@ -144,8 +144,16 @@ input::-webkit-input-placeholder {
     height: 260px;
   }
 
+  .guess {
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+    height: 40px;
+    margin-bottom: 5px;
+  }
+
   input {
-    margin-left:13px;
+    margin: 0px auto;
     font-size: 18px;
     background: #2B5A6A;
     border: none;
@@ -160,7 +168,8 @@ input::-webkit-input-placeholder {
   .button {
     height: 100%;
     width: 70px;
-    margin-right: 13px;
+    margin: 0px;
+    margin-left: 5px;
     background: #2B5A6A;
     border: none;
     color: grey;
