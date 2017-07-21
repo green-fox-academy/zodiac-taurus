@@ -20,7 +20,12 @@ export class HomeComponent implements OnInit {
   route: string;
 
   constructor( private dataService: DataService, private httpService: HttpService, private router: Router ) {
-    this.listRooms();
+    const id = setInterval(function() {
+        if(window.location.href.slice(-5) !== '4200/'){
+          clearInterval(id);
+        }
+        this.listRooms();
+    }.bind(this), 700 );
     this.dataService.user_id = JSON.parse(atob(this.tokenSplit())).id;
   }
 
