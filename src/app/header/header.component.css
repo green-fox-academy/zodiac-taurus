@@ -41,7 +41,7 @@ h3:active, h3:focus {
   background-size: 40px;
   border: 2px solid lightgrey;
   border-radius: 3px;
-  background-image: url(../../assets/8biticon_male.jpg);
+  background-image: url(../../assets/bit-face.png);
   background-repeat: no-repeat;
   background-position: center center;
 }

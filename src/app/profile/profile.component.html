@@ -14,9 +14,9 @@
       <div class="rooms">
         <div class="room" *ngFor="let room of myRooms">
           <p class="room-name">{{room.name}}</p>
-          <p class="guessed">Guessed: 
-          <span class="false" *ngIf="!room.guessed" >{{room.guessed}}</span>
-          <span class="true" *ngIf="room.guessed" >{{room.guessed}}</span>
+          <p class="guessed"> 
+          <span class="false" *ngIf="!room.guessed" >Your partner guessed wrong</span>
+          <span class="true" *ngIf="room.guessed" >Guessed! </span>
           </p>
         </div>
       </div>  
